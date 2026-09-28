@@ -2,5 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk-8.0.492.9-hotspot"/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/Hori.maitrehutS/OneDrive - Facylities Multi Services/Documents/COURS/12-DEV-JAVA-003 - Java Avancé/mariadb-java-client-2.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
