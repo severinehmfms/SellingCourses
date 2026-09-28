@@ -1,14 +1,12 @@
 package fr.sellingcourses.dao;
 
 import java.util.List;
+import java.sql.Connection;
 
 import fr.sellingcourses.entities.Training;
 
 public interface TrainingDao {
 
-
-    Training findById(int id);
-    List<Training> findAll();
-	
-	
+    Training findById(Connection connection, int id);
+    List<Training> findAll(Connection connection);	
 }
