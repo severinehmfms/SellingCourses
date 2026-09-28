@@ -1,5 +1,6 @@
 package fr.sellingcourses.dao;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +12,29 @@ import fr.sellingcourses.dao.DatabaseConnection;
 import fr.sellingcourses.entities.Training;
 
 public class TrainingDaoImpl implements TrainingDao{
+	
+	/**
+	 * Fonction qui permet de créer un objet Training à partir d'un ResultSet
+	 * @param resultSet
+	 * @return
+	 * @throws SQLException
+	 */
+	public Training getTrainingFromDb(ResultSet resultSet) throws SQLException {
+		Training training = null;
+		try {
+			int rsId = resultSet.getInt("training_id"); 
+			String rsName = resultSet.getString("training_name"); 
+			String rsDescription = resultSet.getString("training_description");
+			int rsLength = resultSet.getInt("training_length");
+			boolean rsRemoteTraining = resultSet.getBoolean("remote_training");
+			
+			training = new Training(rsId, rsName, rsDescription, rsLength, rsRemoteTraining);
+	   
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return training;
+	}	
 
 	/**
 	 * Fonction qui permet de récupérer en base de données la formation dont l'id est passé en paramètre
@@ -23,13 +47,16 @@ public class TrainingDaoImpl implements TrainingDao{
 
 	        try (ResultSet rs = ps.executeQuery()) {
 	        	if (rs.next()) {
+	        		
+	        		return getTrainingFromDb(rs);
+	        		/*
 	        		return new Training(
 	                        rs.getInt("training_id"),
 	                        rs.getString("training_name"),
 	                        rs.getString("training_description"),
 	                        rs.getInt("training_length"),
 	                        rs.getBoolean("remote_training")
-	                );
+	                );*/
 	             }
 	        }
 	    } catch (SQLException e) {
@@ -51,13 +78,16 @@ public class TrainingDaoImpl implements TrainingDao{
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
+            	Training training = getTrainingFromDb(rs);
+            	lstTrainings.add(training);
+            	/*
             	lstTrainings.add(new Training(
             			rs.getInt("training_id"),
                         rs.getString("training_name"),
                         rs.getString("training_description"),
                         rs.getInt("training_length"),
                         rs.getBoolean("remote_training")
-                ));
+                ));*/
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -65,4 +95,59 @@ public class TrainingDaoImpl implements TrainingDao{
 
         return lstTrainings;
 	}
+
+	/**
+	 * Fonction qui renvoie la liste des formations par critère :
+	 * String wordToSearch : Chaine vide si pas de mot à rechercher, mot clé à rechercher sinon
+	 * int choice_remote : 
+	 * 0 si pas d'informations pour ce critère, 1 si on cherche les formations en présentiel, 2 si on cherche les formations à distance
+	 */
+	@Override
+	public List<Training> findBySearch(Connection connection, String wordToSearch, int choiceRemote) {
+		String sql = "SELECT training_id, training_name, training_description, training_length, remote_training FROM Training ";
+	
+		//Si au moins un critère de recherche est renseigné, on ajoute la clause WHERE
+		if  ( (choiceRemote != 0) || (!wordToSearch.equals("")) ) sql += " WHERE ";
+		
+		//Si on a choisi un critère présentiel/distanciel
+		//On recherche les formations en présentiel
+		if (choiceRemote == 1) {
+			sql += "remote_training = FALSE ";
+		}
+		//On recherche les formations en distanciel
+		if (choiceRemote == 2) {
+			sql += "remote_training = TRUE ";
+		}				 
+		//On recherche un mot clé dans le nom et la description de la formation
+		if (!wordToSearch.equals("")) {
+			if (choiceRemote != 0) sql += "AND ";
+			sql += "(training_name LIKE ? OR training_description LIKE ?) ";
+		}
+		//On trie par le nom de la formation
+		sql += "ORDER BY training_name";
+		
+		System.out.println(sql);
+		
+        List<Training> lstTrainings = new ArrayList<>();
+        
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+        	if (!wordToSearch.equals("")) {
+        		ps.setString(1, "%" + wordToSearch + "%");
+        		ps.setString(2, "%" + wordToSearch + "%");
+        	}
+            
+        	try (ResultSet rs = ps.executeQuery()) {
+	            while (rs.next()) {
+	            	Training training = getTrainingFromDb(rs);
+	            	lstTrainings.add(training);
+	            }
+        	}
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return lstTrainings;
+	}
+	
+	
 }
