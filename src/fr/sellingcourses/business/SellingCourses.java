@@ -5,6 +5,8 @@ import fr.sellingcourses.entities.Training;
 
 public interface SellingCourses {
 	
-	List<Training> listTrainings();
+	List<Training> findAllTraining();
+	
+	Training findTrainingById(int id);
 	
 }
