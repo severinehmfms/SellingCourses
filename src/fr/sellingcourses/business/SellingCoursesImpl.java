@@ -1,5 +1,25 @@
 package fr.sellingcourses.business;
 
-public class SellingCoursesImpl implements SellingCourses {
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
 
+import fr.sellingcourses.entities.Training;
+import fr.sellingcourses.dao.DatabaseConnection;
+import fr.sellingcourses.dao.TrainingDao;
+
+public class SellingCoursesImpl implements SellingCourses {
+	private final TrainingDao trainingDao;
+	private Connection connection = DatabaseConnection.getConnection();
+	
+	public SellingCoursesImpl(TrainingDao trainingDao) throws SQLException {
+        this.trainingDao = trainingDao;
+		this.connection = DatabaseConnection.getConnection();
+    }	
+	
+	@Override
+    public List<Training> listTrainings() {
+        return trainingDao.findAll(connection);
+    }
+	
 }
