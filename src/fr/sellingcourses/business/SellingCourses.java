@@ -7,6 +7,8 @@ public interface SellingCourses {
 	
 	List<Training> findAllTraining();
 	
+	List<Training> findBySearch(String wordToSearch, int choiceRemote);
+	
 	Training findTrainingById(int id);
 	
 }
