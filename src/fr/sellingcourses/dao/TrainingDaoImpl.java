@@ -17,9 +17,26 @@ public class TrainingDaoImpl implements TrainingDao{
 	 */
 	@Override
 	public Training findById(Connection connection, int id) {
-		 
+		String sql = "SELECT training_id, training_name, training_description, training_length, remote_training FROM Training WHERE training_id = ?";
+		try (PreparedStatement ps = connection.prepareStatement(sql)) {
+			ps.setInt(1, id);
 
-	        return null; // Aucune formation trouvé
+	        try (ResultSet rs = ps.executeQuery()) {
+	        	if (rs.next()) {
+	        		return new Training(
+	                        rs.getInt("training_id"),
+	                        rs.getString("training_name"),
+	                        rs.getString("training_description"),
+	                        rs.getInt("training_length"),
+	                        rs.getBoolean("remote_training")
+	                );
+	             }
+	        }
+	    } catch (SQLException e) {
+	    	e.printStackTrace();
+	    }
+
+	    return null; // Aucune formation trouvée
 	}
 
 	/**
