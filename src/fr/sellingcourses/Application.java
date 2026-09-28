@@ -25,7 +25,8 @@ public class Application {
 		SellingCourses service = new SellingCoursesImpl(trainingDao);		
 		
 		String[] menu = {
-				"Affichage des formations",
+				"Affichage de toutes les formations",
+				"Recherche des formations par critères",
 				"Me connecter",
 			    "Créer un compte"
 			};
@@ -36,16 +37,19 @@ public class Application {
 			choice_user = Functions.ask_user_choice(scanner, menu);
 			switch(choice_user) {
 				case 1:				
-					//Affichage des formations
+					//Affichage de toutes les formations
 					showTraining(service);
-					
 					break;
 				case 2:				
+					//Affichage des formations par critère
+					showTrainingByCriterion(service);
+					break;
+				case 3:				
 					//Me connecter
 					System.out.println("Me connecter");
 					System.out.println("Fonctionnalité non implémentée pour l'instant");
 					break;				
-				case 3:				
+				case 4:				
 					//Créer un compte
 					System.out.println("Créer un compte");
 					System.out.println("Fonctionnalité non implémentée pour l'instant");
@@ -61,10 +65,31 @@ public class Application {
 	}
 	
 	
+	/**
+	 * Méthode qui permet d'afficher les formations
+	 * @param service
+	 */
 	public static void showTraining(SellingCourses service) {
 		System.out.println("Affichage de toutes les formations");
 		
 		ArrayList<Training> lstTrainings = (ArrayList) service.findAllTraining();
+		for (Training t : lstTrainings) {
+			System.out.println(t); 
+		}
+	}
+	
+	/**
+	 * Méthode qui permet de rechercher des formations par critère
+	 * @param service
+	 */
+	public static void showTrainingByCriterion(SellingCourses service) {
+		//TODO Saisie du critère mot clé recherché
+		//TODO Demande si présentiel ou non
+		
+		String wordToSearch = "Java";
+		int choiceRemote = 1;
+		
+		ArrayList<Training> lstTrainings = (ArrayList) service.findBySearch(wordToSearch,choiceRemote);
 		for (Training t : lstTrainings) {
 			System.out.println(t); 
 		}
