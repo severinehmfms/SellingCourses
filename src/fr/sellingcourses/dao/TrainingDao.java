@@ -8,5 +8,7 @@ import fr.sellingcourses.entities.Training;
 public interface TrainingDao {
 
     Training findById(Connection connection, int id);
-    List<Training> findAll(Connection connection);	
+    List<Training> findAll(Connection connection);
+    List<Training> findBySearch(Connection connection, String wordToSearch, int choice_remote);
+    
 }
