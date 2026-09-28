@@ -18,8 +18,13 @@ public class SellingCoursesImpl implements SellingCourses {
     }	
 	
 	@Override
-    public List<Training> listTrainings() {
+    public List<Training> findAllTraining() {
         return trainingDao.findAll(connection);
     }
+
+	@Override
+	public Training findTrainingById(int id) {
+		return trainingDao.findById(connection, id);
+	}
 	
 }
