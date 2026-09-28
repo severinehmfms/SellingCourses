@@ -26,5 +26,10 @@ public class SellingCoursesImpl implements SellingCourses {
 	public Training findTrainingById(int id) {
 		return trainingDao.findById(connection, id);
 	}
+
+	@Override
+	public List<Training> findBySearch(String wordToSearch, int choiceRemote) {
+		return trainingDao.findBySearch(connection, wordToSearch, choiceRemote);
+	}
 	
 }
