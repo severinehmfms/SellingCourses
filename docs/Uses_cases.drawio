@@ -1,0 +1,112 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="Hv-2lYiXzWRJ_wwprVq9">
+    <mxGraphModel dx="1261" dy="530" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="h8_iRAXhKWPGfF0SK91Y-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="503" width="620" x="160" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="A9PNPpqeRd7x4QfxkQga-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Afficher les formations" vertex="1">
+          <mxGeometry height="60" width="130" x="230" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="A9PNPpqeRd7x4QfxkQga-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Création d&#39;un compte utilisateur" vertex="1">
+          <mxGeometry height="54" width="130" x="290" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="A9PNPpqeRd7x4QfxkQga-4" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" value="Visiteur" vertex="1">
+          <mxGeometry height="60" width="30" x="25" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="15sSExhVuAtEp7kVr3gR-10" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="A9PNPpqeRd7x4QfxkQga-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="80" y="121" as="sourcePoint" />
+            <mxPoint x="160" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h8_iRAXhKWPGfF0SK91Y-6" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="A9PNPpqeRd7x4QfxkQga-2" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="80" y="120" as="sourcePoint" />
+            <mxPoint x="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h8_iRAXhKWPGfF0SK91Y-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Ajouter une formation&amp;nbsp;&lt;div&gt;au panier&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="140" x="300" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="h8_iRAXhKWPGfF0SK91Y-10" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Authentification" vertex="1">
+          <mxGeometry height="54" width="120" x="640" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="h8_iRAXhKWPGfF0SK91Y-11" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="h8_iRAXhKWPGfF0SK91Y-8" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="80" y="260" as="sourcePoint" />
+            <mxPoint x="170" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h8_iRAXhKWPGfF0SK91Y-16" edge="1" parent="1" source="h8_iRAXhKWPGfF0SK91Y-10" style="endArrow=open;startArrow=none;endFill=0;startFill=0;endSize=8;html=1;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.002;exitY=0.644;exitDx=0;exitDy=0;exitPerimeter=0;" target="h8_iRAXhKWPGfF0SK91Y-8" value="&amp;lt;&amp;lt;includes&amp;gt;&amp;gt;">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="635.1724137930808" y="129.13793103449643" as="sourcePoint" />
+            <mxPoint x="531.7442654329225" y="202.01096005287468" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h8_iRAXhKWPGfF0SK91Y-25" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Application de vente de formations" vertex="1">
+          <mxGeometry height="30" width="130" x="630" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="-FupldPzQx0YVWNJtIvF-4" edge="1" parent="1" source="ag34SpiNigC8INwclgtn-6" style="endArrow=open;startArrow=none;endFill=0;startFill=0;endSize=8;html=1;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="-FupldPzQx0YVWNJtIvF-6" value="&amp;lt;&amp;lt;includes&amp;gt;&amp;gt;">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="640" y="280" as="sourcePoint" />
+            <mxPoint x="510" y="283.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-FupldPzQx0YVWNJtIvF-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Retirer une formation&lt;div&gt;du panier&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="150" x="300" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="-FupldPzQx0YVWNJtIvF-7" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="-FupldPzQx0YVWNJtIvF-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="80" y="260" as="sourcePoint" />
+            <mxPoint x="360" y="295" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ag34SpiNigC8INwclgtn-1" edge="1" parent="1" source="ag34SpiNigC8INwclgtn-2" style="endArrow=open;startArrow=none;endFill=0;startFill=0;endSize=8;html=1;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.038;exitY=0.667;exitDx=0;exitDy=0;exitPerimeter=0;" target="A9PNPpqeRd7x4QfxkQga-2" value="&amp;lt;&amp;lt;extends&amp;gt;&amp;gt;">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="520" y="70" as="sourcePoint" />
+            <mxPoint x="470" y="101.86206896550357" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ag34SpiNigC8INwclgtn-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Afficher les formations par mot clé, distancielles et présentielles" vertex="1">
+          <mxGeometry height="90" width="130" x="480" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ag34SpiNigC8INwclgtn-3" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" value="Utilisateur" vertex="1">
+          <mxGeometry height="60" width="30" x="25" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="ag34SpiNigC8INwclgtn-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Authentification" vertex="1">
+          <mxGeometry height="54" width="120" x="640" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="ag34SpiNigC8INwclgtn-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Passer la commande" vertex="1">
+          <mxGeometry height="70" width="150" x="310" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="ag34SpiNigC8INwclgtn-8" edge="1" parent="1" style="endArrow=open;startArrow=none;endFill=0;startFill=0;endSize=8;html=1;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" value="&amp;lt;&amp;lt;includes&amp;gt;&amp;gt;">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="660" y="372" as="sourcePoint" />
+            <mxPoint x="460" y="378" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ag34SpiNigC8INwclgtn-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Authentification" vertex="1">
+          <mxGeometry height="54" width="120" x="640" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="ag34SpiNigC8INwclgtn-10" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="80" y="260" as="sourcePoint" />
+            <mxPoint x="310" y="375" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ag34SpiNigC8INwclgtn-11" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Choix du client pour cette commande" vertex="1">
+          <mxGeometry height="70" width="150" x="600" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="ag34SpiNigC8INwclgtn-12" edge="1" parent="1" source="ag34SpiNigC8INwclgtn-11" style="endArrow=open;startArrow=none;endFill=0;startFill=0;endSize=8;html=1;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.935;entryY=0.691;entryDx=0;entryDy=0;entryPerimeter=0;" target="ag34SpiNigC8INwclgtn-7" value="&amp;lt;&amp;lt;includes&amp;gt;&amp;gt;">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="720" y="440" as="sourcePoint" />
+            <mxPoint x="520" y="446" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
