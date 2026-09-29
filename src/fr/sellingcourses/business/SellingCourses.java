@@ -2,8 +2,12 @@ package fr.sellingcourses.business;
 import java.sql.Connection;
 import java.util.List;
 
+import fr.sellingcourses.entities.Customer;
+import fr.sellingcourses.entities.LineOrder;
+import fr.sellingcourses.entities.Order;
 import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.entities.User;
+import fr.sellingcourses.entities.Order.StatusValue;
 
 /**
  * Interface pour la partie business de l'application
@@ -11,16 +15,40 @@ import fr.sellingcourses.entities.User;
 
 public interface SellingCourses {
 	
+	//Services concernant la gestion des utilisateurs (Classe User)
 	User authentification(String login, String password);
 	
 	User createAccount(String login, String password);
 	
 	boolean verifExistsLogin(String login);
 	
+	//Services concernant les formations (Classe Training)
 	List<Training> findAllTraining();
 	
-	List<Training> findBySearch(String wordToSearch, int choiceRemote);
+	List<Training> findTrainingBySearch(String wordToSearch, int choiceRemote);
 	
 	Training findTrainingById(int id);
+	
+	//Services concernant les commandes (Classe Order)
+	Order findOrderByUserAndStatus(String login, StatusValue status);
+	
+	Order insertOrder(Order order);
+	
+	//Services concernant les lignes de commandes (Classe LineOrder)
+	List<LineOrder> findAllLineOrderByOrder(Order order);
+	
+	LineOrder createLineOrder(LineOrder lineOrder);
+
+	boolean updateLineOrder(LineOrder lineOrder);
+	
+    boolean deleteLineOrder(LineOrder lineOrder);
+	
+	boolean isLineOrderExists(int orderId, int training_id);
+	
+	//Services concernant les clients (Classe Customer)
+	List<Customer> findAllCustomers();
+	
+	Customer findCustomerById(int id);
+	
 	
 }
