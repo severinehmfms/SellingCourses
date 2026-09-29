@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+import fr.sellingcourses.entities.Customer;
+import fr.sellingcourses.entities.LineOrder;
+import fr.sellingcourses.entities.Order;
+import fr.sellingcourses.entities.Order.StatusValue;
 import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.entities.User;
 import fr.sellingcourses.dao.DatabaseConnection;
@@ -53,7 +57,7 @@ public class SellingCoursesImpl implements SellingCourses {
 	}
 
 	
-	//******************* Services pour les formations
+	//******************* Services concernant les formations (Classe Training)
 	
 	@Override
     public List<Training> findAllTraining() {
@@ -66,8 +70,67 @@ public class SellingCoursesImpl implements SellingCourses {
 	}
 
 	@Override
-	public List<Training> findBySearch(String wordToSearch, int choiceRemote) {
+	public List<Training> findTrainingBySearch(String wordToSearch, int choiceRemote) {
 		return trainingDao.findBySearch(connection, wordToSearch, choiceRemote);
 	}
 
+	//****************** Services concernant les commandes (Classe Order)
+
+	@Override
+	public Order findOrderByUserAndStatus(String login, StatusValue status) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public Order insertOrder(Order order) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	//****************** Services concernant les lignes de commande (Classe LineOrder)
+
+	@Override
+	public List<LineOrder> findAllLineOrderByOrder(Order order) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LineOrder createLineOrder(LineOrder lineOrder) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updateLineOrder(LineOrder lineOrder) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteLineOrder(LineOrder lineOrder) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isLineOrderExists(int orderId, int training_id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	//****************** Services concernant les clients (Classe Customer)
+
+	@Override
+	public List<Customer> findAllCustomers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Customer findCustomerById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}	
 }
