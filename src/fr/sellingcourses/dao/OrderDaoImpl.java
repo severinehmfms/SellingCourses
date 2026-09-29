@@ -9,7 +9,7 @@ import fr.sellingcourses.entities.Order.StatusValue;
 public class OrderDaoImpl implements OrderDao{
 
 	@Override
-	public Order insert(Order order, Connection connection) {
+	public Order insert(Connection connection, Order order) {
 		// TODO Auto-generated method stub
 		return order;
 	}
