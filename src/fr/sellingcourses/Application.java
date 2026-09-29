@@ -86,11 +86,11 @@ public class Application {
 	 * @param service
 	 */
 	public static void showTraining(SellingCourses service) {
-		System.out.println("Affichage de toutes les formations");
+		System.out.println("Affichage de toutes les formations :\n");
 		
 		ArrayList<Training> lstTrainings = (ArrayList) service.findAllTraining();
 		for (Training t : lstTrainings) {
-			System.out.println(t); 
+			System.out.println(t+"\n"); 
 		}
 	}
 	
@@ -99,12 +99,14 @@ public class Application {
 	 * @param service
 	 */
 	public static void showTrainingByCriterion(SellingCourses service) {
+		System.out.println("Affichage des formations par sélection :\n");
+		
 		String wordToSearch = Functions.input_string(scanner, "Entrez le mot clé à rechercher", true);
 		int choiceRemote = Functions.input_int(scanner, "Recherche de tout type de formation, tapez 0, Présentiel tapez 1, Distanciel tapez 2", 0, 2);
 		
 		ArrayList<Training> lstTrainings = (ArrayList) service.findBySearch(wordToSearch,choiceRemote);
 		for (Training t : lstTrainings) {
-			System.out.println(t); 
+			System.out.println(t+"\n"); 
 		}
 	}
 	
