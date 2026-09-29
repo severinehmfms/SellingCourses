@@ -1,7 +1,6 @@
 package fr.sellingcourses.utils;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -46,7 +45,7 @@ public class Functions {
 		//Deuxième argument de FileWriter à true pour indiquer qu'on veut écrire à la fin du fichier
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(file,true))) {
 			//System.out.println(new File(file).getAbsolutePath());
-		    bw.write(sStackTrace);
+		    bw.write(formattedDateTime + "\n" + sStackTrace);
 		    bw.newLine();
 
 		} catch (IOException e) {
