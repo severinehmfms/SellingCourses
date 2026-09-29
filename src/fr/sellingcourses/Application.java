@@ -22,6 +22,10 @@ public class Application {
 	//On initialise le scanner
 	private static Scanner scanner = new Scanner(System.in);
 	
+	//Constantes
+	public static final int LENGTH_MIN_PASSWORD = 5;
+	public static final int LENGTH_MAX_PASSWORD = 8;
+	
 	public static void main(String[] args) throws SQLException, LoginAlreadyUsedException {
 		//Appel de la classe de services (Partie métier de l'application)
 		SellingCourses service = new SellingCoursesImpl();		
@@ -123,10 +127,13 @@ public class Application {
 		return user;		
 	}
 	
-	/** 
-	 * Fonction qui permet de demander une saisie d'un login à l'utilisateur
-	 * prompt = Prompt qui demande à l'utilisateur de saisir 
-	 * @throws LoginAlreadyUsedException 
+	/**
+	 * Fonction qui permet de demander une saisie d'un login à l'utilisateur, et vérifie si ce login n'existe pas déjà en base
+	 * @param scanner
+	 * @param prompt
+	 * @param service
+	 * @return
+	 * @throws LoginAlreadyUsedException
 	 */
 	public static String input_login(Scanner scanner, String prompt, SellingCourses service) throws LoginAlreadyUsedException {
 		boolean is_input_ok = false;
@@ -143,16 +150,14 @@ public class Application {
 				}else if (service.verifExistsLogin(input_user)) {
 					is_input_ok = false;
 					Functions.printLogs(Functions.LOG_FILE, "ERREUR - Ce login existe déjà dans la base de données");
-					throw new LoginAlreadyUsedException("ERREUR - Ce login existe déjà dans la base de données");
+					throw new LoginAlreadyUsedException("ERREUR - Ce login existe déjà dans la base de données\n");
 				}else {		
 					is_input_ok = true;
 				}
 			}catch(LoginAlreadyUsedException e) {
 				e.printStackTrace();
 			}
-				
-		}
-		
+		}		
 		return input_user;
 	}
 	
@@ -165,8 +170,8 @@ public class Application {
 		//Input spécifique ou j'ai rajouté le contrôle de l'existence du login 		
 		String login = input_login(scanner, "Login", service);
 		
-		//TODO Rajouter des contrôles sur le mot de passe pour accepter des caractères spéciaux, des chiffres, longueur minimal du mot de passe etc
-		String password = Functions.input_string(scanner, "Password");
+		//Input spécifique pour le mot de passe, avec nombre de caractère minimal et maximal
+		String password = Functions.input_password(scanner, "Password", LENGTH_MIN_PASSWORD, LENGTH_MAX_PASSWORD);
 				
 		User user = service.createAccount(login, password);
 		if (user == null) {
@@ -174,7 +179,4 @@ public class Application {
 		}
 		return user;		
 	}
-	
-	
-	
 }
