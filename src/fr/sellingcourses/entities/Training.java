@@ -82,9 +82,9 @@ public class Training {
 	 * Méthode toString pour l'affichage
 	 */
 	public String toString() {
-		String str = "Nom de la formation : " + this.name + " - Description : " + this.description + " - Nombre de jours : " + this.length + " jours";
-		if (this.remoteTraining == true) str += " Formation en distanciel ";
-		else str += " Formation en présentiel ";
+		String str = "Formation " + this.name + " \nDescription : " + this.description + " - Durée : " + this.length + " jours";
+		if (this.remoteTraining == true) str += " - Formation en distanciel ";
+		else str += " - Formation en présentiel ";
 		return str;
 	}
 
