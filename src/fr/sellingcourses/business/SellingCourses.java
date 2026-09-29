@@ -12,6 +12,8 @@ public interface SellingCourses {
 	
 	User authentification(String login, String password);
 	
+	User createAccount(String login, String password);
+	
 	List<Training> findAllTraining();
 	
 	List<Training> findBySearch(String wordToSearch, int choiceRemote);
