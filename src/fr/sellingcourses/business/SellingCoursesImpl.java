@@ -8,6 +8,11 @@ import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.dao.DatabaseConnection;
 import fr.sellingcourses.dao.TrainingDao;
 
+
+
+/**
+ * Classe pour la partie business de l'application
+ */
 public class SellingCoursesImpl implements SellingCourses {
 	private final TrainingDao trainingDao;
 	private Connection connection = DatabaseConnection.getConnection();
