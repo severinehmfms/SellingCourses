@@ -30,14 +30,13 @@ public class Application {
 		//Appel de la classe de services (Partie métier de l'application)
 		SellingCourses service = new SellingCoursesImpl();		
 		
-		boolean isConnect = false;
 		User user = null;
 		
 		int choice_user = -1;
 		while (choice_user != 0) {
-			if (user != null) System.out.println("Utilisateur : " + user.getLogin() + "\n");
+			if (user != null) System.out.println("\nUtilisateur : " + user.getLogin() + "\n");
 			
-			String strMenuConnect = isConnect ? "Me déconnecter" : "Me connecter";
+			String strMenuConnect = user != null ? "Me déconnecter" : "Me connecter";
 			String[] menu = {
 					"Affichage de toutes les formations",
 					"Recherche des formations par critères",
@@ -58,22 +57,18 @@ public class Application {
 					break;
 				case 3:				
 					//Me connecter
-					if (isConnect) {
+					if (user != null) {
 						System.out.println("Déconnection");
 						user = null;
-						isConnect = false;
 					//Me déconnecter
 					}else {
-						System.out.println("Authentification");
 						user = authentification(service);
-						if (user != null) isConnect = true;
 					}
 					break;				
 				case 4:				
 					//Créer un compte
 					System.out.println("Créer un compte");
 					user = createAccount(service);
-					if (user != null) isConnect = true;
 					break;
 				case 0:
 					System.out.println("Au-revoir et à bientôt !");
@@ -117,6 +112,8 @@ public class Application {
 	 * Méthode pour demander à l'utilisateur de s'authentifier
 	 */
 	public static User authentification(SellingCourses service) {
+		System.out.println("Authentification");
+		
 		String login = Functions.input_string(scanner, "Login");
 		String password = Functions.input_string(scanner, "Password");
 		
