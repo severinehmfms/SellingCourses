@@ -46,6 +46,13 @@ public class SellingCoursesImpl implements SellingCourses {
 		return user;
 	}
 	
+	@Override
+	public boolean verifExistsLogin(String login) {
+		//On va appeler le dao user pour controler login et mot de passe, renvoie null si login et/ou mdp incorrect.
+		return userDao.verifExistsLogin(connection, login);
+	}
+
+	
 	//******************* Services pour les formations
 	
 	@Override
