@@ -12,4 +12,6 @@ public interface UserDao {
     User authentification(Connection connection, String login, String password);
     
     User createAccount(Connection connection, String login, String password);
+    
+    boolean verifExistsLogin(Connection connection, String login);
 }
