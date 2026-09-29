@@ -10,6 +10,7 @@ import java.util.List;
 
 import fr.sellingcourses.dao.DatabaseConnection;
 import fr.sellingcourses.entities.Training;
+import fr.sellingcourses.utils.Functions;
 
 public class TrainingDaoImpl implements TrainingDao{
 	
@@ -47,7 +48,8 @@ public class TrainingDaoImpl implements TrainingDao{
 
 	        try (ResultSet rs = ps.executeQuery()) {
 	        	if (rs.next()) {
-	        		
+
+	        		Functions.printLogs(Functions.LOG_FILE, "Récupération d'une formation par son id bien effectuée");
 	        		return getTrainingFromDb(rs);
 	        		/*
 	        		return new Training(
@@ -62,7 +64,7 @@ public class TrainingDaoImpl implements TrainingDao{
 	    } catch (SQLException e) {
 	    	e.printStackTrace();
 	    }
-
+		Functions.printLogs(Functions.LOG_FILE, "Aucune formation trouvée avec cet id");
 	    return null; // Aucune formation trouvée
 	}
 
@@ -92,7 +94,7 @@ public class TrainingDaoImpl implements TrainingDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        Functions.printLogs(Functions.LOG_FILE, "Récupération de la liste des formations bien effectuée");
         return lstTrainings;
 	}
 
@@ -126,7 +128,7 @@ public class TrainingDaoImpl implements TrainingDao{
 		//On trie par le nom de la formation
 		sql += "ORDER BY training_name";
 		
-		System.out.println(sql);
+		//System.out.println(sql);
 		
         List<Training> lstTrainings = new ArrayList<>();
         
@@ -145,7 +147,7 @@ public class TrainingDaoImpl implements TrainingDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        Functions.printLogs(Functions.LOG_FILE, "Récupération d'une sélection de formations bien effectuée");
         return lstTrainings;
 	}
 	
