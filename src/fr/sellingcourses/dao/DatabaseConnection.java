@@ -1,12 +1,15 @@
 package fr.sellingcourses.dao;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import fr.sellingcourses.utils.Functions;
+
+
+/**
+ * Classe qui permet le chargement du pilote JDBC puis la connection à la base de données
+ */
 
 public class DatabaseConnection {
 	public static void main(String[] args) throws Exception {
