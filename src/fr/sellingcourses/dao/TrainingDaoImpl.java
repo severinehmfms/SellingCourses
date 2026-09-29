@@ -1,17 +1,18 @@
 package fr.sellingcourses.dao;
 
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import fr.sellingcourses.dao.DatabaseConnection;
 import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.utils.Functions;
 
+
+/**
+ * Méthodes DAO pour la classe Training associée à la table Training de la base de données
+ */
 public class TrainingDaoImpl implements TrainingDao{
 	
 	/**
