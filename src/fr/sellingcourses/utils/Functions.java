@@ -210,6 +210,26 @@ public class Functions {
 		return input_user;
 	}
 
+	/** 
+	 * Fonction qui permet de demander une saisie à l'utilisateur
+	 * prompt = Prompt qui demande à l'utilisateur de saisir 
+	 */
+	public static String input_string(Scanner scanner, String prompt, boolean isEmptyAutorise) {
+		boolean is_input_ok = false;
+		String input_user = "";
+		while (!is_input_ok) {
+			System.out.println(prompt);
+			input_user = scanner.nextLine();
+			
+			if (!isEmptyAutorise && input_user.trim().isEmpty()) {
+				System.out.println("ERREUR - La saisie ne peut pas être à vide");
+				is_input_ok = false;
+			}else {		
+				is_input_ok = true;
+			}
+		}
+		return input_user;
+	}
 	
 	/** 
 	 * Fonction qui permet de demander une saisie à l'utilisateur : Les attendus pour oui ou non sont stockés dans les ensembles yes_answers et no_answers
