@@ -37,6 +37,13 @@ public class SellingCoursesImpl implements SellingCourses {
 		//On va appeler le dao user pour controler login et mot de passe, renvoie null si login et/ou mdp incorrect.
 		User user = userDao.authentification(connection, login, password);
 		return user;
+	}	
+
+	@Override
+	public User createAccount(String login, String password) {
+		//On va appeler le dao user pour controler login et mot de passe, renvoie null si login et/ou mdp incorrect.
+		User user = userDao.createAccount(connection, login, password);
+		return user;
 	}
 	
 	//******************* Services pour les formations
@@ -55,4 +62,5 @@ public class SellingCoursesImpl implements SellingCourses {
 	public List<Training> findBySearch(String wordToSearch, int choiceRemote) {
 		return trainingDao.findBySearch(connection, wordToSearch, choiceRemote);
 	}
+
 }
