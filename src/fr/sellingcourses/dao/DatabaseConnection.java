@@ -19,6 +19,7 @@ public class DatabaseConnection {
     		Functions.printLogs(Functions.LOG_FILE, "Chargement du pilote JDBC bien effectué");
     		
     	}catch(ClassNotFoundException e) {
+    		Functions.printLogs(Functions.LOG_FILE, "ERREUR lors du chargement du pilote JDBC.");
     		//On affiche l'erreur de l'exception
     		e.printStackTrace();
     	}
@@ -32,6 +33,7 @@ public class DatabaseConnection {
         	Functions.printLogs(Functions.LOG_FILE, "Connection à la base de données bien effectuée");
 			return DriverManager.getConnection(url, login, password);
 		} catch (SQLException e) {
+			Functions.printLogs(Functions.LOG_FILE, "ERREUR lors de la Connection à la base de données.");
 			e.printStackTrace();
 			return null;
 		}
