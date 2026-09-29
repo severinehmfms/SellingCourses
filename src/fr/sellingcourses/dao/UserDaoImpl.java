@@ -21,7 +21,7 @@ public class UserDaoImpl implements UserDao{
 	        try (ResultSet rs = ps.executeQuery()) {
 	        	if (rs.next()) {
 
-	        		Functions.printLogs(Functions.LOG_FILE, "Autentification bien effectuée");
+	        		Functions.printLogs(Functions.LOG_FILE, "Authentification bien effectuée");
 	        		
 	        		return new User(
 	                        rs.getString("login_app"),
@@ -37,6 +37,31 @@ public class UserDaoImpl implements UserDao{
 	    return null; // Aucun utilisateur trouvé
 	}
 
+	@Override
+	public User findUserByLogin(Connection connection, String login) {
+		String sql = "SELECT login_app, password_app FROM userapp WHERE login_app = ?";
+		try (PreparedStatement ps = connection.prepareStatement(sql)) {
+			ps.setString(1, login);
+
+	        try (ResultSet rs = ps.executeQuery()) {
+	        	if (rs.next()) {
+
+	        		Functions.printLogs(Functions.LOG_FILE, "Récupération de l'utilisateur bien effectuée");
+	        		
+	        		return new User(
+	                        rs.getString("login_app"),
+	                        rs.getString("password_app")
+	                );
+	             }
+	        }
+	    } catch (SQLException e) {
+	    	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de la récupération de l'utilisateur.");
+	    	e.printStackTrace();
+	    }
+		Functions.printLogs(Functions.LOG_FILE, "Aucun utilisateur trouvé pour ce login");
+	    return null; // Aucun utilisateur trouvé
+	}
+	
 	@Override
 	public User createAccount(Connection connection, String login, String password) {
 		String str = "INSERT INTO userapp (login_app, password_app) VALUES (?,?)";
