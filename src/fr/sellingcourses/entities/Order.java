@@ -1,5 +1,6 @@
 package fr.sellingcourses.entities;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +24,10 @@ public class Order {
 	
 	private List<LineOrder> lstLineOrder;	//Liste des lignes de commandes de ce panier/cette commande
 	
+	/**
+	 * Constructeur de base quand on a pas encore toutes les informations
+	 * @param user
+	 */
 	public Order(User user) {
 		this.user = user;
 		
@@ -36,8 +41,50 @@ public class Order {
 		this.idOrder = 0;
 		//Le client sera renseigné lors de la validation de la commande
 		this.customer = null;
+		//Liste des lignes de commandes pour l'instant vide
+		this.lstLineOrder = new ArrayList();
 	}
 	
+	/**
+	 * Constructeur sans le client
+	 * @param idOrder
+	 * @param status
+	 * @param date
+	 * @param totalAmount
+	 * @param user
+	 * @param customer
+	 * @param lstLineOrder
+	 */
+	public Order(int idOrder, StatusValue status, LocalDateTime date, double totalAmount, User user) {
+		this.idOrder = idOrder;
+		this.status = status;
+		this.date = date;
+		this.totalAmount = totalAmount;
+		this.user = user;
+		this.customer = null;
+		this.lstLineOrder = new ArrayList();
+	}
+	
+	/**
+	 * Constructeur complet
+	 * @param idOrder
+	 * @param status
+	 * @param date
+	 * @param totalAmount
+	 * @param user
+	 * @param customer
+	 * @param lstLineOrder
+	 */
+	public Order(int idOrder, StatusValue status, LocalDateTime date, double totalAmount, User user, Customer customer) {
+		this.idOrder = idOrder;
+		this.status = status;
+		this.date = date;
+		this.totalAmount = totalAmount;
+		this.user = user;
+		this.customer = customer;
+		this.lstLineOrder = new ArrayList();
+	}
+
 	/*
 	 * Getters et Setters
 	 */
