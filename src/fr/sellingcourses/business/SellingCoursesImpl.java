@@ -68,6 +68,12 @@ public class SellingCoursesImpl implements SellingCourses {
 		//On va appeler le dao user pour controler login et mot de passe, renvoie null si login et/ou mdp incorrect.
 		return userDao.verifExistsLogin(connection, login);
 	}
+	
+	@Override
+	public User findUserByLogin(String login) {
+		//On va appeler le dao user pour controler login et mot de passe, renvoie null si login et/ou mdp incorrect.
+		return userDao.findUserByLogin(connection, login);
+	}
 
 	
 	//******************* Services concernant les formations (Classe Training)
@@ -95,8 +101,8 @@ public class SellingCoursesImpl implements SellingCourses {
 	}
 	
 	@Override
-	public Order insertOrder(Order order) {
-		return orderDao.insert(connection, order);
+	public Order createOrder(Order order) {
+		return orderDao.create(connection, order);
 	}
 	
 	//****************** Services concernant les lignes de commande (Classe LineOrder)
