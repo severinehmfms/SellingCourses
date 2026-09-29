@@ -6,6 +6,11 @@ Auteur : Séverine Hori Maitrehut
 Description : 
 Ce programme permet de répondre à l'exercice donné pour l'Evaluation Java.
 La consigne était de concevoir une application de vente de formations. 
+Fonctionnalités : 
+-Affichage pour un visiteur des formations proposées
+-Authentification
+-Création de compte
+
 
 Installation : 
 Pour faire fonctionner cette application, il faut au préalable :
