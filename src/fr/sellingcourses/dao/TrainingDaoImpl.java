@@ -29,8 +29,9 @@ public class TrainingDaoImpl implements TrainingDao{
 			String rsDescription = resultSet.getString("training_description");
 			int rsLength = resultSet.getInt("training_length");
 			boolean rsRemoteTraining = resultSet.getBoolean("remote_training");
+			double rsPrice = resultSet.getDouble("training_price");
 			
-			training = new Training(rsId, rsName, rsDescription, rsLength, rsRemoteTraining);
+			training = new Training(rsId, rsName, rsDescription, rsLength, rsRemoteTraining, rsPrice);
 	   
 		}catch(SQLException e) {
 			Functions.printLogs(Functions.LOG_FILE, "ERREUR lors de la création d'un objet Training via le ResultSet.");
@@ -44,7 +45,7 @@ public class TrainingDaoImpl implements TrainingDao{
 	 */
 	@Override
 	public Training findById(Connection connection, int id) {
-		String sql = "SELECT training_id, training_name, training_description, training_length, remote_training FROM Training WHERE training_id = ?";
+		String sql = "SELECT training_id, training_name, training_description, training_length, remote_training, training_price FROM Training WHERE training_id = ?";
 		try (PreparedStatement ps = connection.prepareStatement(sql)) {
 			ps.setInt(1, id);
 
@@ -76,7 +77,7 @@ public class TrainingDaoImpl implements TrainingDao{
 	 */
 	@Override
 	public List<Training> findAll(Connection connection) {
-		String sql = "SELECT training_id, training_name, training_description, training_length, remote_training FROM Training ORDER BY training_name";
+		String sql = "SELECT training_id, training_name, training_description, training_length, remote_training, training_price FROM Training ORDER BY training_name";
         List<Training> lstTrainings = new ArrayList<>();
 
         try (PreparedStatement ps = connection.prepareStatement(sql);
@@ -110,7 +111,7 @@ public class TrainingDaoImpl implements TrainingDao{
 	 */
 	@Override
 	public List<Training> findBySearch(Connection connection, String wordToSearch, int choiceRemote) {
-		String sql = "SELECT training_id, training_name, training_description, training_length, remote_training FROM Training ";
+		String sql = "SELECT training_id, training_name, training_description, training_length, remote_training, training_price FROM Training ";
 	
 		//Si au moins un critère de recherche est renseigné, on ajoute la clause WHERE
 		if  ( (choiceRemote != 0) || (!wordToSearch.equals("")) ) sql += " WHERE ";
