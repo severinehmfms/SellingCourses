@@ -32,6 +32,7 @@ public class TrainingDaoImpl implements TrainingDao{
 			training = new Training(rsId, rsName, rsDescription, rsLength, rsRemoteTraining);
 	   
 		}catch(SQLException e) {
+			Functions.printLogs(Functions.LOG_FILE, "ERREUR lors de la création d'un objet Training via le ResultSet.");
 			e.printStackTrace();
 		}
 		return training;
@@ -62,6 +63,7 @@ public class TrainingDaoImpl implements TrainingDao{
 	             }
 	        }
 	    } catch (SQLException e) {
+	    	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de la récupération d'une formation par son id.");
 	    	e.printStackTrace();
 	    }
 		Functions.printLogs(Functions.LOG_FILE, "Aucune formation trouvée avec cet id");
@@ -92,6 +94,7 @@ public class TrainingDaoImpl implements TrainingDao{
                 ));*/
             }
         } catch (SQLException e) {
+        	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de la récupération de la liste des formations.");
             e.printStackTrace();
         }
         Functions.printLogs(Functions.LOG_FILE, "Récupération de la liste des formations bien effectuée");
@@ -145,6 +148,7 @@ public class TrainingDaoImpl implements TrainingDao{
 	            }
         	}
         } catch (SQLException e) {
+        	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de la récupération d'une sélection de formations.");
             e.printStackTrace();
         }
         Functions.printLogs(Functions.LOG_FILE, "Récupération d'une sélection de formations bien effectuée");
