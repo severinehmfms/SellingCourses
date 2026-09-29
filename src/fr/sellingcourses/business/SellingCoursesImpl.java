@@ -10,7 +10,13 @@ import fr.sellingcourses.entities.Order;
 import fr.sellingcourses.entities.Order.StatusValue;
 import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.entities.User;
+import fr.sellingcourses.dao.CustomerDao;
+import fr.sellingcourses.dao.CustomerDaoImpl;
 import fr.sellingcourses.dao.DatabaseConnection;
+import fr.sellingcourses.dao.LineOrderDao;
+import fr.sellingcourses.dao.LineOrderDaoImpl;
+import fr.sellingcourses.dao.OrderDao;
+import fr.sellingcourses.dao.OrderDaoImpl;
 import fr.sellingcourses.dao.TrainingDao;
 import fr.sellingcourses.dao.TrainingDaoImpl;
 import fr.sellingcourses.dao.UserDao;
@@ -23,6 +29,10 @@ import fr.sellingcourses.dao.UserDaoImpl;
 public class SellingCoursesImpl implements SellingCourses {
 	private final TrainingDao trainingDao;
 	private final UserDao userDao;
+	private final OrderDao orderDao;
+	private final LineOrderDao lineOrderDao;
+	private final CustomerDao customerDao;
+	
 	private Connection connection = DatabaseConnection.getConnection();
 	
 	public SellingCoursesImpl() throws SQLException {
@@ -32,6 +42,9 @@ public class SellingCoursesImpl implements SellingCourses {
 		//DAO
 		this.trainingDao = new TrainingDaoImpl();
 		this.userDao = new UserDaoImpl();
+		this.orderDao = new OrderDaoImpl();
+		this.lineOrderDao = new LineOrderDaoImpl();
+		this.customerDao = new CustomerDaoImpl();
     }	
 	
 	//***************** Services concernant les utilisateurs
@@ -78,59 +91,50 @@ public class SellingCoursesImpl implements SellingCourses {
 
 	@Override
 	public Order findOrderByUserAndStatus(String login, StatusValue status) {
-		// TODO Auto-generated method stub
-		return null;
+		return orderDao.findOrderByUserAndStatus(connection, login, status);
 	}
 	
 	@Override
 	public Order insertOrder(Order order) {
-		// TODO Auto-generated method stub
-		return null;
+		return orderDao.insert(connection, order);
 	}
 	
 	//****************** Services concernant les lignes de commande (Classe LineOrder)
 
 	@Override
 	public List<LineOrder> findAllLineOrderByOrder(Order order) {
-		// TODO Auto-generated method stub
-		return null;
+		return lineOrderDao.findAllByOrder(connection, order);
 	}
 
 	@Override
 	public LineOrder createLineOrder(LineOrder lineOrder) {
-		// TODO Auto-generated method stub
-		return null;
+		return lineOrderDao.create(connection, lineOrder);
 	}
 
 	@Override
 	public boolean updateLineOrder(LineOrder lineOrder) {
-		// TODO Auto-generated method stub
-		return false;
+		return lineOrderDao.update(connection, lineOrder);
 	}
 
 	@Override
 	public boolean deleteLineOrder(LineOrder lineOrder) {
-		// TODO Auto-generated method stub
-		return false;
+		return lineOrderDao.delete(connection, lineOrder);
 	}
 
 	@Override
 	public boolean isLineOrderExists(int orderId, int training_id) {
-		// TODO Auto-generated method stub
-		return false;
+		return lineOrderDao.isExists(connection, orderId, training_id);
 	}
 
 	//****************** Services concernant les clients (Classe Customer)
 
 	@Override
 	public List<Customer> findAllCustomers() {
-		// TODO Auto-generated method stub
-		return null;
+		return customerDao.findAll(connection);
 	}
 
 	@Override
 	public Customer findCustomerById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return customerDao.findById(connection, id);
 	}	
 }
