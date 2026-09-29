@@ -9,9 +9,9 @@ import fr.sellingcourses.entities.Order;
 public class LineOrderDaoImpl implements LineOrderDao{
 
 	@Override
-	public void create(Connection connection, LineOrder lineOrder) {
+	public LineOrder create(Connection connection, LineOrder lineOrder) {
 		// TODO Auto-generated method stub
-		
+		return lineOrder;		
 	}
 
 	@Override
