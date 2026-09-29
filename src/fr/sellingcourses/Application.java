@@ -7,8 +7,16 @@ import fr.sellingcourses.business.SellingCourses;
 import fr.sellingcourses.business.SellingCoursesImpl;
 import fr.sellingcourses.dao.TrainingDao;
 import fr.sellingcourses.dao.TrainingDaoImpl;
+import fr.sellingcourses.dao.UserDao;
+import fr.sellingcourses.dao.UserDaoImpl;
 import fr.sellingcourses.entities.Training;
+import fr.sellingcourses.entities.User;
 import fr.sellingcourses.utils.Functions;
+
+
+/**
+ * Application Vente de formations - partie IHM
+ */
 
 public class Application {
 	
@@ -21,18 +29,23 @@ public class Application {
 		//Quand l'authentification sera possible, on mettra ce booléen à true quand le visiteur aura été authentifié
 		boolean isConnect = false;
 		
-		TrainingDao trainingDao = new TrainingDaoImpl();
-		SellingCourses service = new SellingCoursesImpl(trainingDao);		
+		//Service (Partie métier de l'application)
+		SellingCourses service = new SellingCoursesImpl();		
 		
-		String[] menu = {
-				"Affichage de toutes les formations",
-				"Recherche des formations par critères",
-				"Me connecter",
-			    "Créer un compte"
-			};
+		User user = null;
 		
 		int choice_user = -1;
 		while (choice_user != 0) {
+			if (user != null) System.out.println("Utilisateur : " + user.getLogin() + "\n");
+			
+			String strMenuConnect = isConnect ? "Me déconnecter" : "Me connecter";
+			String[] menu = {
+					"Affichage de toutes les formations",
+					"Recherche des formations par critères",
+					strMenuConnect,
+				    "Créer un compte"
+				};
+					
 			//On demande à l'utilisateur son choix par rapport au menu proposé
 			choice_user = Functions.ask_user_choice(scanner, menu);
 			switch(choice_user) {
@@ -46,8 +59,16 @@ public class Application {
 					break;
 				case 3:				
 					//Me connecter
-					System.out.println("Me connecter");
-					System.out.println("Fonctionnalité non implémentée pour l'instant");
+					if (isConnect) {
+						System.out.println("Déconnection");
+						user = null;
+						isConnect = false;
+					//Me déconnecter
+					}else {
+						System.out.println("Authentification");
+						user = authentification(service);
+						if (user != null) isConnect = true;
+					}
 					break;				
 				case 4:				
 					//Créer un compte
@@ -92,6 +113,19 @@ public class Application {
 		}
 	}
 	
+	/**
+	 * Méthode pour demander à l'utilisateur de s'authentifier
+	 */
+	public static User authentification(SellingCourses service) {
+		String login = Functions.input_string(scanner, "Login");
+		String password = Functions.input_string(scanner, "Password");
+		
+		User user = service.authentification(login, password);
+		if (user == null) {
+			System.out.println("ERREUR Aucun utilisateur n'existe avec ce login et ce mot de passe");
+		}
+		return user;		
+	}
 	
-
+	
 }
