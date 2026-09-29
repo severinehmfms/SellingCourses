@@ -5,6 +5,11 @@ import java.sql.Connection;
 
 import fr.sellingcourses.entities.Training;
 
+
+/**
+ * Interface des méthodes DAO pour les Formations (Training)
+ */
+
 public interface TrainingDao {
 
     Training findById(Connection connection, int id);
