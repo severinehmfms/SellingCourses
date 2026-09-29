@@ -1,5 +1,11 @@
 package fr.sellingcourses.utils;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -16,7 +22,49 @@ import java.util.Set;
  * Fonctions plus génériques pas spécifiques aux avions
  */
 public class Functions {
+	
+	public static final String LOG_FILE = "log.txt";
 
+	/**
+	 * Fonction qui écrit une ligne de log dans le fichier 
+	 * @param file
+	 * @param e
+	 */
+	public static void printLogs(String file, Exception exceptionRecup){
+		//On récupère l'erreur de l'exception pour ensuite la mettre dans le fichier de log (ce code de conversion exception en chaine trouvé sur google)
+		StringWriter sw = new StringWriter();
+		PrintWriter pw = new PrintWriter(sw);
+		exceptionRecup.printStackTrace(pw);
+		String sStackTrace = sw.toString();
+		
+		//Deuxième argument de FileWriter à true pour indiquer qu'on veut écrire à la fin du fichier
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(file,true))) {
+			//System.out.println(new File(file).getAbsolutePath());
+		    bw.write(sStackTrace);
+		    bw.newLine();
+
+		} catch (IOException e) {
+		    e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Fonction qui écrit une ligne de log dans le fichier 
+	 * @param file
+	 * @param log
+	 */
+	public static void printLogs(String file, String log){
+		//Deuxième argument de FileWriter à true pour indiquer qu'on veut écrire à la fin du fichier
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(file,true))) {
+			//System.out.println(new File(file).getAbsolutePath());
+		    bw.write(log);
+		    bw.newLine();
+
+		} catch (IOException e) {
+		    e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * Fonction qui va afficher le menu proposé à l'utilisateur (en paramètre)
 	 * @param menu (String[])
