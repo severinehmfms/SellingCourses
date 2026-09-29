@@ -73,7 +73,8 @@ public class Application {
 				case 4:				
 					//Créer un compte
 					System.out.println("Créer un compte");
-					System.out.println("Fonctionnalité non implémentée pour l'instant");
+					user = createAccount(service);
+					if (user != null) isConnect = true;
 					break;
 				case 0:
 					System.out.println("Au-revoir et à bientôt !");
@@ -126,6 +127,23 @@ public class Application {
 		}
 		return user;		
 	}
+	
+	/**
+	 * Méthode pour demander à l'utilisateur de créer un compte
+	 */
+	public static User createAccount(SellingCourses service) {
+		String login = Functions.input_string(scanner, "Login");
+		String password = Functions.input_string(scanner, "Password");
+		
+		//TODO Rajouter les contrôles existence du login par exemple, taille du mot de passe...
+		
+		User user = service.createAccount(login, password);
+		if (user == null) {
+			System.out.println("ERREUR lors de la création du compte utilisateur");
+		}
+		return user;		
+	}
+	
 	
 	
 }
