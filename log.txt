@@ -1,0 +1,20 @@
+2026-09-29 09:11:08
+Chargement du pilote JDBC bien effectué
+2026-09-29 09:11:08
+Connection à la base de données bien effectuée
+2026-09-29 09:11:08
+Chargement du pilote JDBC bien effectué
+2026-09-29 09:11:08
+Connection à la base de données bien effectuée
+2026-09-29 09:11:10
+Récupération de la liste des formations bien effectuée
+2026-09-29 09:11:46
+Chargement du pilote JDBC bien effectué
+2026-09-29 09:11:46
+Connection à la base de données bien effectuée
+2026-09-29 09:11:46
+Chargement du pilote JDBC bien effectué
+2026-09-29 09:11:46
+Connection à la base de données bien effectuée
+2026-09-29 09:11:52
+Récupération d'une sélection de formations bien effectuée
