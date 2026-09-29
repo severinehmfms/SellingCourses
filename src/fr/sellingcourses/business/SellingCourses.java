@@ -1,4 +1,5 @@
 package fr.sellingcourses.business;
+import java.sql.Connection;
 import java.util.List;
 
 import fr.sellingcourses.entities.Training;
@@ -13,6 +14,8 @@ public interface SellingCourses {
 	User authentification(String login, String password);
 	
 	User createAccount(String login, String password);
+	
+	boolean verifExistsLogin(String login);
 	
 	List<Training> findAllTraining();
 	
