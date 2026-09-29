@@ -1,5 +1,6 @@
 package fr.sellingcourses;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -128,15 +129,41 @@ public class Application {
 		return user;		
 	}
 	
+	/** 
+	 * Fonction qui permet de demander une saisie d'un login à l'utilisateur
+	 * prompt = Prompt qui demande à l'utilisateur de saisir 
+	 */
+	public static String input_login(Scanner scanner, String prompt, SellingCourses service) {
+		boolean is_input_ok = false;
+		String input_user = "";
+		while (!is_input_ok) {
+			System.out.println(prompt);
+			input_user = scanner.nextLine();
+			
+			if (input_user.trim().isEmpty()) {
+				System.out.println("ERREUR - La saisie ne peut pas être à vide");
+				is_input_ok = false;
+			}else if (service.verifExistsLogin(input_user)) {
+				System.out.println("ERREUR - Ce login existe déjà dans la base de données");
+				is_input_ok = false;
+			}else {		
+				is_input_ok = true;
+			}
+		}
+		return input_user;
+	}
+	
 	/**
 	 * Méthode pour demander à l'utilisateur de créer un compte
 	 */
 	public static User createAccount(SellingCourses service) {
-		String login = Functions.input_string(scanner, "Login");
+		
+		//Input spécifique ou j'ai rajouté le contrôle de l'existence du login 		
+		String login = input_login(scanner, "Login", service);
+		
+		//TODO Rajouter des contrôles sur le mot de passe pour accepter des caractères spéciaux, des chiffres, longueur minimal du mot de passe etc
 		String password = Functions.input_string(scanner, "Password");
-		
-		//TODO Rajouter les contrôles existence du login par exemple, taille du mot de passe...
-		
+				
 		User user = service.createAccount(login, password);
 		if (user == null) {
 			System.out.println("ERREUR lors de la création du compte utilisateur");
