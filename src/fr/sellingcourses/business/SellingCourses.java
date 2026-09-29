@@ -3,6 +3,10 @@ import java.util.List;
 
 import fr.sellingcourses.entities.Training;
 
+/**
+ * Interface pour la partie business de l'application
+ */
+
 public interface SellingCourses {
 	
 	List<Training> findAllTraining();
