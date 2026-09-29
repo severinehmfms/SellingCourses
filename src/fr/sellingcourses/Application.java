@@ -1,17 +1,15 @@
 package fr.sellingcourses;
 
-import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import fr.sellingcourses.business.SellingCourses;
 import fr.sellingcourses.business.SellingCoursesImpl;
-import fr.sellingcourses.dao.TrainingDao;
-import fr.sellingcourses.dao.TrainingDaoImpl;
-import fr.sellingcourses.dao.UserDao;
-import fr.sellingcourses.dao.UserDaoImpl;
 import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.entities.User;
+import fr.sellingcourses.exceptions.LoginAlreadyUsedException;
 import fr.sellingcourses.utils.Functions;
 
 
@@ -24,15 +22,11 @@ public class Application {
 	//On initialise le scanner
 	private static Scanner scanner = new Scanner(System.in);
 	
-	public static void main(String[] args) throws SQLException {
-		
-		//TODO Pour test : pour l'instant l'application ne gère pas l'authentification
-		//Quand l'authentification sera possible, on mettra ce booléen à true quand le visiteur aura été authentifié
-		boolean isConnect = false;
-		
-		//Service (Partie métier de l'application)
+	public static void main(String[] args) throws SQLException, LoginAlreadyUsedException {
+		//Appel de la classe de services (Partie métier de l'application)
 		SellingCourses service = new SellingCoursesImpl();		
 		
+		boolean isConnect = false;
 		User user = null;
 		
 		int choice_user = -1;
@@ -132,31 +126,41 @@ public class Application {
 	/** 
 	 * Fonction qui permet de demander une saisie d'un login à l'utilisateur
 	 * prompt = Prompt qui demande à l'utilisateur de saisir 
+	 * @throws LoginAlreadyUsedException 
 	 */
-	public static String input_login(Scanner scanner, String prompt, SellingCourses service) {
+	public static String input_login(Scanner scanner, String prompt, SellingCourses service) throws LoginAlreadyUsedException {
 		boolean is_input_ok = false;
 		String input_user = "";
+		
 		while (!is_input_ok) {
 			System.out.println(prompt);
 			input_user = scanner.nextLine();
 			
-			if (input_user.trim().isEmpty()) {
-				System.out.println("ERREUR - La saisie ne peut pas être à vide");
-				is_input_ok = false;
-			}else if (service.verifExistsLogin(input_user)) {
-				System.out.println("ERREUR - Ce login existe déjà dans la base de données");
-				is_input_ok = false;
-			}else {		
-				is_input_ok = true;
+			try {
+				if (input_user.trim().isEmpty()) {
+					System.out.println("ERREUR - La saisie ne peut pas être à vide");
+					is_input_ok = false;
+				}else if (service.verifExistsLogin(input_user)) {
+					is_input_ok = false;
+					Functions.printLogs(Functions.LOG_FILE, "ERREUR - Ce login existe déjà dans la base de données");
+					throw new LoginAlreadyUsedException("ERREUR - Ce login existe déjà dans la base de données");
+				}else {		
+					is_input_ok = true;
+				}
+			}catch(LoginAlreadyUsedException e) {
+				e.printStackTrace();
 			}
+				
 		}
+		
 		return input_user;
 	}
 	
 	/**
 	 * Méthode pour demander à l'utilisateur de créer un compte
+	 * @throws LoginAlreadyUsedException 
 	 */
-	public static User createAccount(SellingCourses service) {
+	public static User createAccount(SellingCourses service) throws LoginAlreadyUsedException {
 		
 		//Input spécifique ou j'ai rajouté le contrôle de l'existence du login 		
 		String login = input_login(scanner, "Login", service);
