@@ -83,11 +83,8 @@ public class Application {
 	 * @param service
 	 */
 	public static void showTrainingByCriterion(SellingCourses service) {
-		//TODO Saisie du critère mot clé recherché
-		//TODO Demande si présentiel ou non
-		
-		String wordToSearch = "Java";
-		int choiceRemote = 1;
+		String wordToSearch = Functions.input_string(scanner, "Entrez le mot clé à rechercher", true);
+		int choiceRemote = Functions.input_int(scanner, "Recherche de tout type de formation, tapez 0, Présentiel tapez 1, Distanciel tapez 2", 0, 2);
 		
 		ArrayList<Training> lstTrainings = (ArrayList) service.findBySearch(wordToSearch,choiceRemote);
 		for (Training t : lstTrainings) {
