@@ -16,6 +16,9 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+
+import fr.sellingcourses.business.SellingCourses;
+
 import java.time.LocalDateTime;
 
 /**
@@ -270,7 +273,8 @@ public class Functions {
 		}
 		return input_user;
 	}
-
+	
+	
 	/** 
 	 * Fonction qui permet de demander une saisie à l'utilisateur
 	 * prompt = Prompt qui demande à l'utilisateur de saisir 
