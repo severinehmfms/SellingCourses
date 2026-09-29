@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+import java.time.LocalDateTime;
 
 /**
  * Fonctions plus génériques pas spécifiques aux avions
@@ -26,7 +27,7 @@ public class Functions {
 	public static final String LOG_FILE = "log.txt";
 
 	/**
-	 * Fonction qui écrit une ligne de log dans le fichier 
+	 * Fonction qui écrit une ligne de log dans le fichier à partir d'une exception (pour l'instant pas réussi à passer AVANT l'exception lol)
 	 * @param file
 	 * @param e
 	 */
@@ -36,6 +37,11 @@ public class Functions {
 		PrintWriter pw = new PrintWriter(sw);
 		exceptionRecup.printStackTrace(pw);
 		String sStackTrace = sw.toString();
+		
+		//On récupère la date et heure actuelle
+		LocalDateTime dateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = dateTime.format(formatter);
 		
 		//Deuxième argument de FileWriter à true pour indiquer qu'on veut écrire à la fin du fichier
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(file,true))) {
@@ -57,7 +63,14 @@ public class Functions {
 		//Deuxième argument de FileWriter à true pour indiquer qu'on veut écrire à la fin du fichier
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(file,true))) {
 			//System.out.println(new File(file).getAbsolutePath());
-		    bw.write(log);
+			
+			//On récupère la date et heure actuelle
+			LocalDateTime dateTime = LocalDateTime.now();
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	        String formattedDateTime = dateTime.format(formatter);
+	        
+	        //On écrit la date, l'heure et la ligne de log
+		    bw.write(formattedDateTime + "\n" + log);
 		    bw.newLine();
 
 		} catch (IOException e) {
