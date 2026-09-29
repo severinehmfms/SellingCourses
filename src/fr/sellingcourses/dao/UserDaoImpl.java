@@ -56,4 +56,28 @@ public class UserDaoImpl implements UserDao{
 		return null;
 	}
 
+	@Override
+	public boolean verifExistsLogin(Connection connection, String login) {
+		String sql = "SELECT login_app FROM userapp WHERE login_app = ? ";
+		try (PreparedStatement ps = connection.prepareStatement(sql)) {
+			ps.setString(1, login);
+
+	        try (ResultSet rs = ps.executeQuery()) {
+	        	if (rs.next()) {
+	        		Functions.printLogs(Functions.LOG_FILE, "Ce login existe déjà dans la base.");
+	        		
+	        		return true;
+	             }else {
+	            	Functions.printLogs(Functions.LOG_FILE, "Ce login n'existe pas déjà dans la base.");
+	            	 
+	            	return false;
+	             }
+	        }
+	    } catch (SQLException e) {
+	    	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de l'authentification.");
+	    	e.printStackTrace();
+	    }
+	    return true; // Comme la vérification n'a pas pu se faire on renvoie true pour être sur
+	}
+
 }
