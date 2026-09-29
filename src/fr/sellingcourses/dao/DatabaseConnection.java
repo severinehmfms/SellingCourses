@@ -12,9 +12,6 @@ import fr.sellingcourses.utils.Functions;
  */
 
 public class DatabaseConnection {
-	public static void main(String[] args) throws Exception {
-
-	}
 	
 	public static Connection getConnection() throws SQLException {
     	try {
