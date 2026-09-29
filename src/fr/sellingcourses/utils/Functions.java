@@ -23,8 +23,9 @@ import java.time.LocalDateTime;
  */
 public class Functions {
 	
-	public static final String LOG_FILE = "log.txt";
 
+	public static final String LOG_FILE = "log.txt";
+	
 	/**
 	 * Fonction qui écrit une ligne de log dans le fichier à partir d'une exception (pour l'instant pas réussi à passer AVANT l'exception lol)
 	 * @param file
