@@ -341,4 +341,34 @@ public class Functions {
 		}
 	}
 	
+	/**
+	 * Fonction qui permet de demander une saisie de mot de passe à l'utilisateur
+	 * @param scanner
+	 * @param prompt
+	 * @param lengthMin : longueur minimum attendue pour le mot de passe
+	 * @return
+	 */
+	public static String input_password(Scanner scanner, String prompt, int lengthMin, int lengthMax) {
+		boolean is_input_ok = false;
+		String input_user = "";
+		while (!is_input_ok) {
+			System.out.println(prompt);
+			input_user = scanner.nextLine();
+			
+			if (input_user.trim().isEmpty()) {
+				System.out.println("ERREUR - Le mot de passe ne peut pas être à vide");
+				is_input_ok = false;
+			}else if (input_user.length() < lengthMin) {
+				System.out.println("ERREUR - Le mot de passe doit avoir au moins " + lengthMin + "caractères");
+				is_input_ok = false;
+			}else if (input_user.length() > lengthMax) {
+				System.out.println("ERREUR - Le mot de passe doit avoir au maximum " + lengthMax + "caractères");
+				is_input_ok = false;
+			}else {
+				is_input_ok = true;
+			}
+		}
+		return input_user;
+	}
+	
 }
