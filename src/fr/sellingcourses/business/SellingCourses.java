@@ -22,6 +22,8 @@ public interface SellingCourses {
 	
 	boolean verifExistsLogin(String login);
 	
+	User findUserByLogin(String login);
+	
 	//Services concernant les formations (Classe Training)
 	List<Training> findAllTraining();
 	
@@ -32,7 +34,7 @@ public interface SellingCourses {
 	//Services concernant les commandes (Classe Order)
 	Order findOrderByUserAndStatus(String login, StatusValue status);
 	
-	Order insertOrder(Order order);
+	Order createOrder(Order order);
 	
 	//Services concernant les lignes de commandes (Classe LineOrder)
 	List<LineOrder> findAllLineOrderByOrder(Order order);
