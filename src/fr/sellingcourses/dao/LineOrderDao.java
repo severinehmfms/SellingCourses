@@ -1,6 +1,7 @@
 package fr.sellingcourses.dao;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 import fr.sellingcourses.entities.LineOrder;
@@ -15,6 +16,8 @@ public interface LineOrderDao {
     boolean delete(Connection connection, LineOrder lineOrder);
 	
 	List<LineOrder> findAllByOrder(Connection connection, Order order);
+	
+	LineOrder findLineOrder(Connection connection, int orderId, int training_id) throws SQLException;
 	
 	boolean isExists(Connection connection, int orderId, int training_id);
 
