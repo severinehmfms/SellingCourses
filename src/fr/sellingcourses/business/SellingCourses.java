@@ -1,5 +1,4 @@
 package fr.sellingcourses.business;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -8,7 +7,6 @@ import fr.sellingcourses.entities.LineOrder;
 import fr.sellingcourses.entities.Order;
 import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.entities.User;
-import fr.sellingcourses.entities.Order.StatusValue;
 
 /**
  * Interface pour la partie business de l'application
@@ -54,6 +52,5 @@ public interface SellingCourses {
 	List<Customer> findAllCustomers();
 	
 	Customer findCustomerById(int id);
-	
 	
 }
