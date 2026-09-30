@@ -142,6 +142,8 @@ public class OrderDaoImpl implements OrderDao{
                     
                     order.setIdOrder(id);
                 } else {
+                	Functions.printLogs(Functions.LOG_FILE, "ERREUR Échec de la récupération de l'ID généré lors de la création d'un Order.");
+        	    	
                     throw new SQLException("Échec de la récupération de l'ID généré.");
                 }
             }
