@@ -38,7 +38,7 @@ public interface SellingCourses {
 	//Services concernant les lignes de commandes (Classe LineOrder)
 	List<LineOrder> findAllLineOrderByOrder(Order order);
 	
-	LineOrder findLineOrder(int orderId, int training_id) throws SQLException;
+	LineOrder findLineOrder(int orderId, int training_id);
 	
 	boolean createLineOrder(LineOrder lineOrder);
 
