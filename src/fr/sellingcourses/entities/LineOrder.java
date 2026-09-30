@@ -51,7 +51,10 @@ public class LineOrder {
 
 	@Override
 	public String toString() {
-		return "LineOrder [training=" + training.getName() + ", quantity=" + quantity + ", order_id=" + order_id
-				+ ", amountLineOrder=" + this.getAmountLineOrder() + "]";
+		String strLineOrder = "";
+		strLineOrder += "Formation : " + training.getName() + " - ";
+		strLineOrder += "Quantité : " + quantity + " - ";
+		strLineOrder += "Montant total : " + this.getAmountLineOrder() + "\n";
+		return strLineOrder;
 	}	
 }
