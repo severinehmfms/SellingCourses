@@ -17,7 +17,7 @@ public interface LineOrderDao {
 	
 	List<LineOrder> findAllByOrder(Connection connection, Order order);
 	
-	LineOrder findLineOrder(Connection connection, int orderId, int training_id) throws SQLException;
+	LineOrder findLineOrder(Connection connection, int orderId, int training_id);
 	
 	boolean isExists(Connection connection, int orderId, int training_id);
 }
