@@ -7,6 +7,7 @@ import fr.sellingcourses.entities.LineOrder;
 import fr.sellingcourses.entities.Order;
 import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.entities.User;
+import fr.sellingcourses.entities.Order.StatusValue;
 
 /**
  * Interface pour la partie business de l'application
@@ -36,6 +37,8 @@ public interface SellingCourses {
 	Order createOrder(Order order);
 	
 	boolean updateOrder(Order order);
+	
+	List<Order> findLstOrderByUser(String login, StatusValue statusValue);
 	
 	//Services concernant les lignes de commandes (Classe LineOrder)
 	List<LineOrder> findAllLineOrderByOrder(Order order);
