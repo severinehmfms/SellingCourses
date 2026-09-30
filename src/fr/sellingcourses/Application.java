@@ -34,10 +34,7 @@ public class Application {
 		
 		User user = null;
 		Order order = null;
-		
-		//TODO pour test, enlever
-		//int idtrainingtest = askUserIdTrainingToAdd(service,scanner,"Entrez un numéro valide de formation");
-		
+				
 		int choice_user = -1;
 		while (choice_user != 0) {
 			if (user != null) System.out.println("\nUtilisateur : " + user.getLogin() + "\n");
@@ -101,7 +98,6 @@ public class Application {
 				case 0:
 					System.out.println("Au-revoir et à bientôt !");
 					break;
-				
 			}
 		}
 		
@@ -212,8 +208,6 @@ public class Application {
 	 */
 	public static Order gestionOrder(SellingCourses service, Order order) throws SQLException {
 		System.out.println("Voir mon panier");
-		System.out.println(order);		
-		
 		String[] sousMenu = {
 				"Ajouter une formation à mon panier ou modifier une quantité d'une formation déjà ajoutée",
 				"Retirer une formation de mon panier",
@@ -222,7 +216,10 @@ public class Application {
 		
 		int choice_user = -1;
 		while (choice_user != 0) {
-			//On demande à l'utilisateur son choix par rapport au menu proposé
+			//On affiche le panier 
+			System.out.println(order);
+			
+			//On demande à l'utilisateur son choix par rapport au sous-menu proposé
 			choice_user = Functions.ask_user_choice(scanner, sousMenu);
 			
 			switch(choice_user) {
