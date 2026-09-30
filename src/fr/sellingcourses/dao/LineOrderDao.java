@@ -8,7 +8,7 @@ import fr.sellingcourses.entities.Order;
 
 public interface LineOrderDao {
 	
-	LineOrder create(Connection connection, LineOrder lineOrder);
+	boolean create(Connection connection, LineOrder lineOrder);
 
 	boolean update(Connection connection, LineOrder lineOrder);
 	
