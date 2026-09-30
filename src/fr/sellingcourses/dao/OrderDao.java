@@ -1,7 +1,10 @@
 package fr.sellingcourses.dao;
 
 import java.sql.Connection;
+import java.util.List;
+
 import fr.sellingcourses.entities.Order;
+import fr.sellingcourses.entities.Order.StatusValue;
 
 public interface OrderDao {
 	
@@ -16,4 +19,6 @@ public interface OrderDao {
 	
 	boolean update(Connection connection, Order order);
 	
+	//Renvoie la liste des objets Order correspondant à un login d'user et à une valeur de statut
+	List<Order> findLstOrderByUser(Connection connection, String login, StatusValue statusValue);
 }
