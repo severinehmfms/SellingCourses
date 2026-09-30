@@ -3,6 +3,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.sellingcourses.entities.Order.StatusValue;
+
 /**
  * Classe qui représente le panier, puis quand le statut est validé, la commande
  */
@@ -166,7 +168,30 @@ public class Order {
 			lineOrder.getOrder_id() == lineOrderToDel.getOrder_id() &&
 			lineOrder.getTraining().getIdTraining() == lineOrderToDel.getTraining().getIdTraining());
 	}
-
+	
+	/**
+	 * Fonction qui valide le panier et passe la commande
+	 */
+	public void validate(Customer customerOrder) {
+		date = LocalDateTime.now();
+		status = StatusValue.ORDERED;
+		customer = customerOrder;
+	}
+	
+	/**
+	 * Fonction qui renvoie le code (pour la base de données) correspondant au statut
+	 * @return
+	 */
+	public int getCodeStatusValue() {
+		//On convertit le StatusValue en code
+		int codeStatus = 0;
+		if (getStatus() == StatusValue.ORDERED) codeStatus = 1;
+		return codeStatus;
+	}	
+	
+	/**
+	 * Méthode toString pour afficher l'objet Order
+	 */
 	@Override
 	public String toString() {
 		String strOrder = "********************************************************************************\n";
