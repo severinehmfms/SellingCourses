@@ -7,7 +7,6 @@ import java.util.List;
 import fr.sellingcourses.entities.Customer;
 import fr.sellingcourses.entities.LineOrder;
 import fr.sellingcourses.entities.Order;
-import fr.sellingcourses.entities.Order.StatusValue;
 import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.entities.User;
 import fr.sellingcourses.dao.CustomerDao;
