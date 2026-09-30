@@ -15,6 +15,7 @@ public class LineOrder {
 	 * Constructeur 
 	 * @param training
 	 * @param quantity
+	 * @param order_id
 	 */
 	public LineOrder(Training training, int quantity, int order_id) {
 		this.training = training;
