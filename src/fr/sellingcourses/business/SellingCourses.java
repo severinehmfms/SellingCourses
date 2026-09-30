@@ -1,5 +1,6 @@
 package fr.sellingcourses.business;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 import fr.sellingcourses.entities.Customer;
@@ -38,6 +39,8 @@ public interface SellingCourses {
 	
 	//Services concernant les lignes de commandes (Classe LineOrder)
 	List<LineOrder> findAllLineOrderByOrder(Order order);
+	
+	LineOrder findLineOrder(int orderId, int training_id) throws SQLException;
 	
 	boolean createLineOrder(LineOrder lineOrder);
 
