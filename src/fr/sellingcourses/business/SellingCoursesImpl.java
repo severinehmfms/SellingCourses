@@ -113,6 +113,11 @@ public class SellingCoursesImpl implements SellingCourses {
 	}
 
 	@Override
+	public LineOrder findLineOrder(int orderId, int training_id) throws SQLException {
+		return lineOrderDao.findLineOrder(connection, orderId, training_id);
+	}	
+	
+	@Override
 	public boolean createLineOrder(LineOrder lineOrder) {
 		return lineOrderDao.create(connection, lineOrder);
 	}
@@ -142,5 +147,6 @@ public class SellingCoursesImpl implements SellingCourses {
 	@Override
 	public Customer findCustomerById(int id) {
 		return customerDao.findById(connection, id);
-	}	
+	}
+
 }
