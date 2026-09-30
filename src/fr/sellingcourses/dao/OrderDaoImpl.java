@@ -103,9 +103,9 @@ public class OrderDaoImpl implements OrderDao{
 	 */
 	@Override
 	public Order create(Connection connection, Order order) {	
-		//On convertit le StatusValue en code
-		int codeStatus = 0;
-		if (order.getStatus() == StatusValue.ORDERED) codeStatus = 1;
+		//On récupère le code du statut
+		int codeStatus = order.getCodeStatusValue();
+		
 		
 		String str = "INSERT INTO orderapp (order_status, order_date, total_amount, login_app, customer_id) VALUES (?,?,?,?,?)";
 		try (PreparedStatement ps = connection.prepareStatement(str, Statement.RETURN_GENERATED_KEYS)){
@@ -140,7 +140,7 @@ public class OrderDaoImpl implements OrderDao{
             try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
                     int id = generatedKeys.getInt(1);
-                    System.out.println("Nouvel ID généré : " + id);
+                    //System.out.println("Nouvel ID généré : " + id);
                     
                     order.setIdOrder(id);
                 } else {
@@ -155,5 +155,46 @@ public class OrderDaoImpl implements OrderDao{
 			e.printStackTrace();
 		}	
 		return order;
+	}
+
+	@Override //order_status, order_date, total_amount, login_app, customer_id
+	public boolean update(Connection connection, Order order) {
+		String str = "UPDATE orderapp SET order_status=?, order_date=?, total_amount=?, login_app=?, customer_id=? WHERE order_id=? ";
+		try (PreparedStatement ps = connection.prepareStatement(str)){
+			//On récupère le code qui correspond au statut 
+			ps.setInt(1, order.getCodeStatusValue());
+			
+			//On convertit la LocalDateTime en timestamp (date time sql)
+			Timestamp sqlDateTime = null;
+			if (order.getDate()!=null){
+				sqlDateTime = Timestamp.valueOf(order.getDate());
+			}
+			ps.setTimestamp(2, sqlDateTime);
+			
+			ps.setDouble(3, order.getTotalAmount());
+			
+			ps.setString(4, order.getUser().getLogin());
+			
+			ps.setInt(5, order.getCustomer().getIdCustomer());
+			
+			ps.setInt(6, order.getIdOrder());
+			
+			// On récupère le nombre de lignes affectées par la requête
+			int nbLignes = ps.executeUpdate(); 
+			
+			if (nbLignes == 0) { 
+				Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de la mise à jour d'un objet order en base.");
+				
+				throw new SQLException("Échec de la mise à jour, aucune ligne affectée."); 
+			}
+			
+			return true;
+            
+		}catch (SQLException e) {
+			Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors du PreparedStatement de la mise à jour d'un order en base.");
+			
+			e.printStackTrace();
+		}
+		return false;
 	}
 }
