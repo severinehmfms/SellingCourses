@@ -42,7 +42,7 @@ public class Order {
 		//Le client sera renseigné lors de la validation de la commande
 		this.customer = null;
 		//Liste des lignes de commandes pour l'instant vide
-		this.lstLineOrder = new ArrayList();
+		this.lstLineOrder = new ArrayList<LineOrder>();
 	}
 	
 	/**
@@ -144,11 +144,9 @@ public class Order {
 		}
 		strOrder += "Montant total : " + totalAmount + "\n";
 		for (LineOrder lo : lstLineOrder) {
-			System.out.println(lo+"\n"); 
+			strOrder += lo+"\n";
 		}
 		strOrder += "********************************************************************************\n";
-		// "Order [idOrder=" + idOrder + ", status=" + status + ", date=" + date + ", totalAmount=" + totalAmount
-		//		+ ", user=" + user + ", customer=" + customer + ", lstLineOrder=" + lstLineOrder + "]";
 		return strOrder;
 		
 	}
