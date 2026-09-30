@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import fr.sellingcourses.business.SellingCourses;
 import fr.sellingcourses.business.SellingCoursesImpl;
+import fr.sellingcourses.entities.Customer;
 import fr.sellingcourses.entities.LineOrder;
 import fr.sellingcourses.entities.Order;
 import fr.sellingcourses.entities.Training;
@@ -241,7 +242,15 @@ public class Application {
 				case 3:				
 					//Valider le panier et passer la commande
 					System.out.println("Valider le panier et passer la commande");
-					System.out.println("Méthode non encore implémentée");
+					Customer customer = new Customer(1, "DUPONT", "André", "andre.dupont@mail.com", "56 rue des colibris 50410 Gernau", "0102030405");
+					order.validate(customer) ;
+					//On enregistre la mise à jour de l'order
+					if (service.updateOrder(order) == true) {
+						System.out.println("Commande bien effectuée.");
+						choice_user = 0;
+					}else {
+						System.out.println("ERREUR lors de la validation de la commande.");
+					}
 					break;
 				case 0:
 					System.out.println("Retour au menu précédent.");
