@@ -35,6 +35,8 @@ public interface SellingCourses {
 	
 	Order createOrder(Order order);
 	
+	boolean updateOrder(Order order);
+	
 	//Services concernant les lignes de commandes (Classe LineOrder)
 	List<LineOrder> findAllLineOrderByOrder(Order order);
 	
