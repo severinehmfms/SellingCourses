@@ -46,7 +46,6 @@ public class TrainingDaoImpl implements TrainingDao{
 	@Override
 	public Training findById(Connection connection, int id) {
 		String sql = "SELECT training_id, training_name, training_description, training_length, remote_training, training_price FROM Training WHERE training_id = ?";
-		System.out.println(sql);
 		try (PreparedStatement ps = connection.prepareStatement(sql)) {
 			ps.setInt(1, id);
 
@@ -55,14 +54,6 @@ public class TrainingDaoImpl implements TrainingDao{
 
 	        		Functions.printLogs(Functions.LOG_FILE, "Récupération d'une formation par son id bien effectuée");
 	        		return getTrainingFromDb(rs);
-	        		/*
-	        		return new Training(
-	                        rs.getInt("training_id"),
-	                        rs.getString("training_name"),
-	                        rs.getString("training_description"),
-	                        rs.getInt("training_length"),
-	                        rs.getBoolean("remote_training")
-	                );*/
 	             }
 	        }
 	    } catch (SQLException e) {
@@ -87,14 +78,6 @@ public class TrainingDaoImpl implements TrainingDao{
             while (rs.next()) {
             	Training training = getTrainingFromDb(rs);
             	lstTrainings.add(training);
-            	/*
-            	lstTrainings.add(new Training(
-            			rs.getInt("training_id"),
-                        rs.getString("training_name"),
-                        rs.getString("training_description"),
-                        rs.getInt("training_length"),
-                        rs.getBoolean("remote_training")
-                ));*/
             }
         } catch (SQLException e) {
         	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de la récupération de la liste des formations.");
@@ -134,8 +117,6 @@ public class TrainingDaoImpl implements TrainingDao{
 		//On trie par le nom de la formation
 		sql += "ORDER BY training_name";
 		
-		//System.out.println(sql);
-		
         List<Training> lstTrainings = new ArrayList<>();
         
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -157,6 +138,4 @@ public class TrainingDaoImpl implements TrainingDao{
         Functions.printLogs(Functions.LOG_FILE, "Récupération d'une sélection de formations bien effectuée");
         return lstTrainings;
 	}
-	
-	
 }
