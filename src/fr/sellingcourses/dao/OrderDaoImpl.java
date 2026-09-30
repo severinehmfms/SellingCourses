@@ -98,5 +98,57 @@ public class OrderDaoImpl implements OrderDao{
 	    return null; // Aucun panier trouvé
 	}	
 
-	
+	@Override
+	public Order create(Connection connection, Order order) {	
+		//On convertit le StatusValue en code
+		int codeStatus = 0;
+		if (order.getStatus() == StatusValue.ORDERED) codeStatus = 1;
+		
+		String str = "INSERT INTO orderapp (order_status, order_date, total_amount, login_app, customer_id) VALUES (?,?,?,?,?)";
+		try (PreparedStatement ps = connection.prepareStatement(str, Statement.RETURN_GENERATED_KEYS)){
+			ps.setInt(1, codeStatus);
+			
+			//On convertit la LocalDateTime en timestamp (date time sql)
+			Timestamp sqlDateTime = null;
+			if (order.getDate()!=null){
+				sqlDateTime = Timestamp.valueOf(order.getDate());
+			}
+			ps.setTimestamp(2, sqlDateTime);
+			
+			ps.setDouble(3, order.getTotalAmount());
+			//On récupère le login de l'utilisateur s'il est renseigné
+			String login = "";
+			if(order.getUser()!=null) {
+				login = order.getUser().getLogin();
+			}
+			ps.setString(4, login);
+			//On récupère l'id du client s'il est renseigné
+			if(order.getCustomer()!=null) {
+				ps.setInt(5, order.getCustomer().getIdCustomer());
+			}else {
+				//On met à null la colonne customer_id (sinon plantage sql du aux contraintes de clés étrangères)
+				ps.setNull(5, java.sql.Types.VARCHAR);
+			}			
+			
+			if( ps.executeUpdate() == 0)
+				throw new SQLException("Échec de l'insertion, aucune ligne affectée.");
+			
+            // Récupération de l'ID généré
+            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    int id = generatedKeys.getInt(1);
+                    System.out.println("Nouvel ID généré : " + id);
+                    
+                    order.setIdOrder(id);
+                } else {
+                    throw new SQLException("Échec de la récupération de l'ID généré.");
+                }
+            }
+			return order;
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		return order;
+	}
 }
