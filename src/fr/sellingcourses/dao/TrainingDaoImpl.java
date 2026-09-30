@@ -46,6 +46,7 @@ public class TrainingDaoImpl implements TrainingDao{
 	@Override
 	public Training findById(Connection connection, int id) {
 		String sql = "SELECT training_id, training_name, training_description, training_length, remote_training, training_price FROM Training WHERE training_id = ?";
+		System.out.println(sql);
 		try (PreparedStatement ps = connection.prepareStatement(sql)) {
 			ps.setInt(1, id);
 
@@ -68,7 +69,7 @@ public class TrainingDaoImpl implements TrainingDao{
 	    	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de la récupération d'une formation par son id.");
 	    	e.printStackTrace();
 	    }
-		Functions.printLogs(Functions.LOG_FILE, "Aucune formation trouvée avec cet id");
+		Functions.printLogs(Functions.LOG_FILE, "Aucune formation trouvée avec cet id"+id);
 	    return null; // Aucune formation trouvée
 	}
 
