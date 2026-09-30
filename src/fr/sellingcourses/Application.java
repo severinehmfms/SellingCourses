@@ -285,6 +285,38 @@ public class Application {
 		return input_int_user;
 	}
 	
+	/**
+	 * Méthode qui demande à l'utilisateur de saisir le numéro de formation à supprimer
+	 * @param service
+	 * @param scanner
+	 * @param prompt
+	 * @return
+	 */
+	public static int askUserIdTrainingToDel(SellingCourses service, Scanner scanner, String prompt, Order order) {
+		int input_int_user = 0;
+		boolean is_valid_input = false;
+	    while (!is_valid_input) {
+	    	System.out.println(prompt);
+	    	String input_user = scanner.nextLine();
+	    	
+	    	if (! input_user.matches("\\d+")) {
+	        	System.out.println("ERREUR - Vous devez saisir un entier.");
+	        } else {
+	        	input_int_user = Integer.parseInt(input_user);
+	        	
+	        	//On vérifie que le numéro de formation choisi correspond bien à une formation déjà dans le panier
+	        	LineOrder lineOrder = service.findLineOrder(order.getIdOrder(), input_int_user);
+	        	
+	        	if (lineOrder == null) {
+	        		System.out.println("ERREUR - Cette formation n'existe pas dans le panier");
+	        	}else {
+	        		is_valid_input = true;
+	        	}
+	        }
+	    }
+		return input_int_user;
+	}
+	
 	
 	/**
 	 * Méthode pour ajouter une formation au panier
@@ -294,7 +326,33 @@ public class Application {
 	 */
 	public static void addTrainingOrder(SellingCourses service, Order order) throws SQLException {
 		System.out.println("Méthode non encore implémentée");
+		//On demande à l'utilisateur le numéro de la formation à ajouter
+		int idTraining = askUserIdTrainingToAdd(service, scanner, "Entrez le numéro de la formation que vous souhaitez ajouter");
 		
+		//On regarde si cette formation a déjà été ajoutée au panier
+		boolean isAlreadyExist = false;
+		LineOrder lineOrder = service.findLineOrder(order.getIdOrder(), idTraining);
+		if (lineOrder != null){
+			isAlreadyExist = true;
+		}
+		
+		String promptQty = isAlreadyExist? "Cette formation est déjà dans le panier, entrez la nouvelle quantité :" : "Entrez la quantité souhaitée";
+		int qty = Functions.input_int(scanner, promptQty, 1, 1000);
+		
+		//Si cette ligne de commande existe déjà, on modifie la quantité et on l'update en base
+		if (isAlreadyExist) {
+			lineOrder.setQuantity(qty);
+			if (service.updateLineOrder(lineOrder)) System.out.println("Modification de cette formation du panier correctement effectué");
+			else	System.out.println("ERREUR lors de la modification de cette formation");
+			
+		//Si cette ligne de commande n'existe pas, on la crée et on l'insère en base
+		}else {
+			Training training = service.findTrainingById(idTraining);
+			lineOrder = new LineOrder(training, qty, order.getIdOrder());
+						
+			if (service.createLineOrder(lineOrder)) System.out.println("Ajout de cette formation au panier correctement effectuée");
+			else	System.out.println("ERREUR lors de l'ajout de cette formation");
+		}
 	}
 	
 	/**
@@ -305,16 +363,12 @@ public class Application {
 	public static void delTrainingOrder(SellingCourses service, Order order) {
 		System.out.println("Méthode non encore implémentée");
 		
-		int idTraining = 1;
-		//TODO Effectuer les controles pour vérifier que le numéro choisi correspond bien à une formation déjà dans le panier
-		//int idTraining = input_training(scanner, "Entrez le numéro de la formation que vous souhaitez retirer");
+		//On demande à l'utilisateur quelle formation il souhaite supprimer
+		int idTraining = askUserIdTrainingToDel(service, scanner, "Entrez le numéro de la formation que vous souhaitez retirer", order);
 		
-		//Question à l'utilisateur souhaitez vous supprimer du panier les x quantités ? 
-		//Si oui , on appelle la méthode delete de LineOrder
-		
-		//Si non, on demande la quantité à RETIRER
-		
-		//On appelle la méthode update de LineOrder pour mettre à jour la quantité
+		LineOrder lineOrder = service.findLineOrder(order.getIdOrder(), idTraining);
+		if (service.deleteLineOrder(lineOrder)) System.out.println("Suppression de cette formation du panier correctement effectuée");
+		else	System.out.println("ERREUR lors de la suppression du panier de cette formation");
 		
 	}	
 }
