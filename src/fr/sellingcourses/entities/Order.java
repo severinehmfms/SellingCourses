@@ -1,7 +1,9 @@
 package fr.sellingcourses.entities;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 /**
@@ -193,11 +195,20 @@ public class Order {
 	 */
 	@Override
 	public String toString() {
+		//Formatter pour afficher la date au format français
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy 'à' HH:mm:ss", Locale.FRENCH);
+
+        // Formatage
+        String dateFormatee = "";
+        if (date != null) {
+        	dateFormatee = date.format(formatter);
+        }
+        
 		String strOrder = "********************************************************************************\n";
 		strOrder += this.getStatus() == StatusValue.IN_PROGRESS ? "Panier" : "Commande";
 		strOrder += " Id : " + idOrder + "\n";
 		if (this.getStatus() == StatusValue.ORDERED) {
-			strOrder += "Date de la commande : " + date + "\n";
+			strOrder += "Date de la commande : " + dateFormatee + "\n";
 			//TODO Quand la partie Customer sera gérée, rajouter le nom du client ici s'il est renseigné:
 			if (customer != null)	strOrder += "Client concerné par la commande : ";
 		}
