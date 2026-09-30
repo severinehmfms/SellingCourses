@@ -17,7 +17,6 @@ public class Order {
 	private int idOrder;					//Id (en base)
 	private StatusValue status;				//Statut (EN_COURS = Panier, VALIDEE = Commande)
 	private LocalDateTime date; 			//Date et heure du passage réel de la commande LocalDateTime.now()
-	private double totalAmount; 			//Montant total du panier/de la commande
 	
 	private User user;						//Utilisateur qui a créé le panier
 	private Customer customer;				//Client concerné par la commande
@@ -34,9 +33,7 @@ public class Order {
 		//Quand on initialise un panier, le statut est à En Cours
 		this.status = StatusValue.IN_PROGRESS;
 		//Date de la commande à null (sera renseigné
-		this.date = null;
-		//TODO Montant de la commande ( A calculer si on crée un objet panier avec déjà des lignes de commandes)
-		this.totalAmount = 0;		
+		this.date = null;	
 		//Par défaut id à 0
 		this.idOrder = 0;
 		//Le client sera renseigné lors de la validation de la commande
@@ -55,11 +52,10 @@ public class Order {
 	 * @param customer
 	 * @param lstLineOrder
 	 */
-	public Order(int idOrder, StatusValue status, LocalDateTime date, double totalAmount, User user) {
+	public Order(int idOrder, StatusValue status, LocalDateTime date, User user) {
 		this.idOrder = idOrder;
 		this.status = status;
 		this.date = date;
-		this.totalAmount = totalAmount;
 		this.user = user;
 		this.customer = null;
 		this.lstLineOrder = new ArrayList();
@@ -75,11 +71,10 @@ public class Order {
 	 * @param customer
 	 * @param lstLineOrder
 	 */
-	public Order(int idOrder, StatusValue status, LocalDateTime date, double totalAmount, User user, Customer customer) {
+	public Order(int idOrder, StatusValue status, LocalDateTime date, User user, Customer customer) {
 		this.idOrder = idOrder;
 		this.status = status;
 		this.date = date;
-		this.totalAmount = totalAmount;
 		this.user = user;
 		this.customer = customer;
 		this.lstLineOrder = new ArrayList();
@@ -108,10 +103,13 @@ public class Order {
 		this.date = date;
 	}
 	public double getTotalAmount() {
+		double totalAmount = 0;
+		//On calcule le montant total de la commande
+		for (LineOrder lo : lstLineOrder) {
+			totalAmount = totalAmount + lo.getAmountLineOrder();
+		}
+
 		return totalAmount;
-	}
-	public void setTotalAmount(double totalAmount) {
-		this.totalAmount = totalAmount;
 	}
 	public User getUser() {
 		return user;
@@ -142,7 +140,7 @@ public class Order {
 			//TODO Quand la partie Customer sera gérée, rajouter le nom du client ici s'il est renseigné:
 			if (customer != null)	strOrder += "Client concerné par la commande : ";
 		}
-		strOrder += "Montant total : " + totalAmount + "\n";
+		strOrder += "Montant total : " + getTotalAmount() + "\n";
 		for (LineOrder lo : lstLineOrder) {
 			strOrder += lo+"\n";
 		}
