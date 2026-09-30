@@ -131,5 +131,13 @@ public class Order {
 	public void setLstLineOrder(List<LineOrder> lstLineOrder) {
 		this.lstLineOrder = lstLineOrder;
 	}
+
+	@Override
+	public String toString() {
+		return "Order [idOrder=" + idOrder + ", status=" + status + ", date=" + date + ", totalAmount=" + totalAmount
+				+ ", user=" + user + ", customer=" + customer + ", lstLineOrder=" + lstLineOrder + "]";
+	}
+	
+	
 	
 }
