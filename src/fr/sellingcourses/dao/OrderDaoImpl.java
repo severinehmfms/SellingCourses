@@ -36,7 +36,6 @@ public class OrderDaoImpl implements OrderDao{
 			int rsStatus = resultSet.getInt("order_status"); 
 			
 			//On convertit en LocalDateTime la date récupérée au format sql
-			
 			LocalDateTime rsDate = null;
 			if (resultSet.getTimestamp("order_date") != null) {
 				resultSet.getTimestamp("order_date").toLocalDateTime();
@@ -48,7 +47,6 @@ public class OrderDaoImpl implements OrderDao{
 			int rsIdCustomer = resultSet.getInt("customer_id");
 			
 			//On récupère l'utilisateur associé à ce login
-			//UserDao userDao = new UserDaoImpl();
 			User user = service.findUserByLogin(rsLoginUser);
 						
 			//On récupère le StatusValue associé au code statut en base
@@ -66,10 +64,13 @@ public class OrderDaoImpl implements OrderDao{
 		return order;
 	}
 
+	/**
+	 * Fonction qui renvoie la commande pour un utilisateur donné et un statut donné
+	 */
 	@Override
-	public Order findOrderByUserAndStatus(Connection connection, String login, StatusValue status) {
+	public Order findOrderInProgressByUser(Connection connection, String login) {
+		//On recherche uniquement le statut en cours (pour avoir un seul résultat)
 		int codeStatus = 0;
-		if (status == StatusValue.ORDERED) codeStatus = 1;
 		
 		String sql = "SELECT order_id, order_status, order_date, total_amount, login_app, customer_id  FROM orderapp WHERE login_app = ? AND order_status = ? ";
 		try (PreparedStatement ps = connection.prepareStatement(sql)) {
