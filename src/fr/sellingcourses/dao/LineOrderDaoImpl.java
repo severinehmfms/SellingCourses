@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +12,6 @@ import fr.sellingcourses.business.SellingCoursesImpl;
 import fr.sellingcourses.entities.LineOrder;
 import fr.sellingcourses.entities.Order;
 import fr.sellingcourses.entities.Training;
-import fr.sellingcourses.entities.User;
-import fr.sellingcourses.entities.Order.StatusValue;
 import fr.sellingcourses.utils.Functions;
 
 public class LineOrderDaoImpl implements LineOrderDao{
@@ -29,24 +26,21 @@ public class LineOrderDaoImpl implements LineOrderDao{
 		SellingCourses service = new SellingCoursesImpl();	
 		LineOrder lineOrder = null;
 		
-		try {
-			int rsOrderId = resultSet.getInt("order_id"); 
-			int rsTrainingId = resultSet.getInt("training_id");
-			int rsQuantity = resultSet.getInt("quantity");
-			//On récupère l'objet Training de cette ligne de commande
-			Training training = null;
-			try{
-				training = service.findTrainingById(rsTrainingId);
-			} catch (Exception e) {
-    	    	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de la récupération de la formation associée à l'id.");
-    	    	e.printStackTrace();
-    	    }	
-			
-			lineOrder = new LineOrder(training, rsQuantity, rsOrderId);
-		}catch(SQLException e) {
-			Functions.printLogs(Functions.LOG_FILE, "ERREUR lors de la création d'un objet Training via le ResultSet.");
-			e.printStackTrace();
-		}
+		int rsOrderId = resultSet.getInt("order_id"); 
+		int rsTrainingId = resultSet.getInt("training_id");
+		int rsQuantity = resultSet.getInt("quantity");
+		
+		//On récupère l'objet Training de cette ligne de commande
+		Training training = null;
+		try{
+			training = service.findTrainingById(rsTrainingId);
+		} catch (Exception e) {
+	    	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de la récupération de l'objet lineOrder associée au resultSet.");
+	    	e.printStackTrace();
+	    }	
+		
+		lineOrder = new LineOrder(training, rsQuantity, rsOrderId);
+		
 		return lineOrder;
 	}
 	
@@ -58,12 +52,15 @@ public class LineOrderDaoImpl implements LineOrderDao{
 			ps.setInt(2, lineOrder.getTraining().getIdTraining());
 			ps.setInt(3, lineOrder.getQuantity());
 			
-			if( ps.executeUpdate() == 0)
+			if( ps.executeUpdate() == 0) {
+				Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de l'insertion d'un objet lineorder en base.");
 				throw new SQLException("Échec de l'insertion, aucune ligne affectée.");
-			
+			}
 			return true;
 			
 		}catch (SQLException e) {
+			Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors du PreparedStatement de l'insertion d'un lineorder en base.");
+			
 			e.printStackTrace();
 		}	
 		return false;
@@ -81,12 +78,16 @@ public class LineOrderDaoImpl implements LineOrderDao{
 			int nbLignes = ps.executeUpdate(); 
 			
 			if (nbLignes == 0) { 
+				Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de la mise à jour d'un objet lineorder en base.");
+				
 				throw new SQLException("Échec de la mise à jour, aucune ligne affectée."); 
 			}
 			
 			return true;
             
 		}catch (SQLException e) {
+			Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors du PreparedStatement de la mise à jour d'un lineorder en base.");
+			
 			e.printStackTrace();
 		}
 		return false;
@@ -95,7 +96,7 @@ public class LineOrderDaoImpl implements LineOrderDao{
 	@Override
 	public boolean delete(Connection connection, LineOrder lineOrder) {
 		String strSql = "DELETE FROM lineorder WHERE order_id=? AND training_id=?";
-		//System.out.println(strSql);
+		
     	try(PreparedStatement ps = connection.prepareStatement(strSql)){
     		ps.setInt(1, lineOrder.getOrder_id());
 			ps.setInt(2, lineOrder.getTraining().getIdTraining());
@@ -104,6 +105,8 @@ public class LineOrderDaoImpl implements LineOrderDao{
 	        return ps.executeUpdate() > 0;
 	        	        	
 	    } catch (SQLException e) {
+	    	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors du PreparedStatement de la suppressoin d'un lineorder en base.");
+			
 	        e.printStackTrace();
 	        return false;
 	    }
@@ -138,7 +141,7 @@ public class LineOrderDaoImpl implements LineOrderDao{
 		try (PreparedStatement ps = connection.prepareStatement(strSql)){
 			ps.setInt(1, orderId);
 			ps.setInt(2, training_id);
-			//System.out.println(strSql);
+			
         	try(ResultSet resultSet = ps.executeQuery()){
         		
         		if (resultSet.next()) { // On lit la première (et unique) ligne
@@ -174,8 +177,6 @@ public class LineOrderDaoImpl implements LineOrderDao{
 		Functions.printLogs(Functions.LOG_FILE, "Aucune ligne de commande trouvée pour cette commande et cette formation");
 	    return false; // Aucune ligne de commande trouvée
 		
-	}
-
-	
+	}	
 	
 }
