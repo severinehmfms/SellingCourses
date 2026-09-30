@@ -1,7 +1,6 @@
 package fr.sellingcourses.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,14 +8,11 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 
 import fr.sellingcourses.business.SellingCourses;
 import fr.sellingcourses.business.SellingCoursesImpl;
-import fr.sellingcourses.entities.Customer;
 import fr.sellingcourses.entities.LineOrder;
 import fr.sellingcourses.entities.Order;
-import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.entities.User;
 import fr.sellingcourses.entities.Order.StatusValue;
 import fr.sellingcourses.utils.Functions;
@@ -59,8 +55,7 @@ public class OrderDaoImpl implements OrderDao{
 			
 			
 			order =  new Order(rsId, statusValue, rsDate, rsTotalAmount, user);		
-			System.out.println(order);
-
+			
 			//On récupère la liste des lignes de commandes associées à cette commande
 			ArrayList<LineOrder> lstLineOrder = (ArrayList<LineOrder>) service.findAllLineOrderByOrder(order);
 			order.setLstLineOrder(lstLineOrder);			
@@ -73,7 +68,7 @@ public class OrderDaoImpl implements OrderDao{
 	}
 
 	/**
-	 * Fonction qui renvoie la commande pour un utilisateur donné et un statut donné
+	 * Fonction qui renvoie l'order pour un utilisateur donné et un statut donné
 	 */
 	@Override
 	public Order findOrderInProgressByUser(Connection connection, String login) {
@@ -89,14 +84,8 @@ public class OrderDaoImpl implements OrderDao{
 	        	if (rs.next()) {
 
 	        		Functions.printLogs(Functions.LOG_FILE, "Récupération d'un panier par son id bien effectuée");
+	        		//On récupère l'objet Order à partir du resultSet et on le renvoie
 	        		return getOrderFromDb(rs);
-	        		/*
-	        		return new Order(
-	                        rs.getInt("order_id"),
-	                        rs.getString("order_status"),
-	                        rs.getDate("order_date"),
-	                        rs.getDouble("total_amount")
-	                );*/
 	             }
 	        }
 	    } catch (SQLException e) {
@@ -104,9 +93,12 @@ public class OrderDaoImpl implements OrderDao{
 	    	e.printStackTrace();
 	    }
 		Functions.printLogs(Functions.LOG_FILE, "Aucun panier trouvé pour cet utilisateur et ce statut.");
-	    return null; // Aucun panier trouvé
+	    return null; // Aucun order trouvé
 	}	
 
+	/**
+	 * Création d'une ligne de commande en base de données
+	 */
 	@Override
 	public Order create(Connection connection, Order order) {	
 		//On convertit le StatusValue en code
