@@ -112,7 +112,7 @@ public class SellingCoursesImpl implements SellingCourses {
 	}
 
 	@Override
-	public LineOrder findLineOrder(int orderId, int training_id) throws SQLException {
+	public LineOrder findLineOrder(int orderId, int training_id){
 		return lineOrderDao.findLineOrder(connection, orderId, training_id);
 	}	
 	
