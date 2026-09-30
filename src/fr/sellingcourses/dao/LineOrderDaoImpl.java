@@ -60,13 +60,14 @@ public class LineOrderDaoImpl implements LineOrderDao{
 	@Override
 	public boolean delete(Connection connection, LineOrder lineOrder) {
 		String strSql = "DELETE FROM lineorder WHERE order_id=? AND training_id=?";
+		//System.out.println(strSql);
     	try(PreparedStatement ps = connection.prepareStatement(strSql)){
-    		ps.setInt(1, lineOrder.getQuantity());
-			ps.setInt(2, lineOrder.getOrder_id());
+    		ps.setInt(1, lineOrder.getOrder_id());
+			ps.setInt(2, lineOrder.getTraining().getIdTraining());
 
 	        // ps.executeUpdate() = nombre de lignes affectées par la requête
 	        return ps.executeUpdate() > 0;
-	        	
+	        	        	
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        return false;
