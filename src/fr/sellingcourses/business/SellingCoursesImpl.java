@@ -113,7 +113,7 @@ public class SellingCoursesImpl implements SellingCourses {
 	}
 
 	@Override
-	public LineOrder createLineOrder(LineOrder lineOrder) {
+	public boolean createLineOrder(LineOrder lineOrder) {
 		return lineOrderDao.create(connection, lineOrder);
 	}
 
