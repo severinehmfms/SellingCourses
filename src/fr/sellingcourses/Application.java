@@ -1,12 +1,14 @@
 package fr.sellingcourses;
 
+import java.sql.Connection;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import fr.sellingcourses.business.SellingCourses;
 import fr.sellingcourses.business.SellingCoursesImpl;
+import fr.sellingcourses.entities.LineOrder;
+import fr.sellingcourses.entities.Order;
 import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.entities.User;
 import fr.sellingcourses.exceptions.LoginAlreadyUsedException;
@@ -31,17 +33,23 @@ public class Application {
 		SellingCourses service = new SellingCoursesImpl();		
 		
 		User user = null;
+		Order order = null;
+		
+		//TODO pour test, enlever
+		//int idtrainingtest = askUserIdTrainingToAdd(service,scanner,"Entrez un numéro valide de formation");
 		
 		int choice_user = -1;
 		while (choice_user != 0) {
 			if (user != null) System.out.println("\nUtilisateur : " + user.getLogin() + "\n");
 			
-			String strMenuConnect = user != null ? "Me déconnecter" : "Me connecter";
+			String strMenuConnect = user != null ? "Me déconnecter" : "Me connecter (obligatoire pour acheter des formations) ";
 			String[] menu = {
 					"Affichage de toutes les formations",
 					"Recherche des formations par critères",
 					strMenuConnect,
-				    "Créer un compte"
+				    "Créer un compte si vous n'en avez pas",
+				    "Voir mon panier",
+				    "Voir les commandes déjà passées"
 				};
 					
 			//On demande à l'utilisateur son choix par rapport au menu proposé
@@ -70,9 +78,30 @@ public class Application {
 					System.out.println("Créer un compte");
 					user = createAccount(service);
 					break;
+				case 5:				
+					//Voir/Gérer mon panier
+					if (user == null) System.out.println("ERREUR il faut être connecté pour accéder à cette fonctionnalité. Si vous n'avez pas encore de compter, créez un compte");
+					else{
+						//On récupère le panier associé à cet utilisateur, s'il existe (statut in_progress uniquement)
+						order = service.findOrderInProgressByUser(user.getLogin());
+						//Si pas de panier au statut en cours associé à cet utilisateur, on le crée
+						if (order == null) {
+							order = new Order(user);
+							order = service.createOrder(order);
+						}
+						//On va gérer ce panier et on récupère les modifications
+						order = gestionOrder(service, order);
+					}
+					break;
+				case 6:				
+					//Voir les commandes déjà passées
+					System.out.println("Voir les commandes déjà passées");
+					System.out.println("Fonctionnalité encore non implémentée");
+					break;
 				case 0:
 					System.out.println("Au-revoir et à bientôt !");
 					break;
+				
 			}
 		}
 		
@@ -104,7 +133,7 @@ public class Application {
 		String wordToSearch = Functions.input_string(scanner, "Entrez le mot clé à rechercher", true);
 		int choiceRemote = Functions.input_int(scanner, "Recherche de tout type de formation, tapez 0, Présentiel tapez 1, Distanciel tapez 2", 0, 2);
 		
-		ArrayList<Training> lstTrainings = (ArrayList) service.findBySearch(wordToSearch,choiceRemote);
+		ArrayList<Training> lstTrainings = (ArrayList) service.findTrainingBySearch(wordToSearch,choiceRemote);
 		for (Training t : lstTrainings) {
 			System.out.println(t+"\n"); 
 		}
@@ -145,9 +174,7 @@ public class Application {
 			try {
 				if (input_user.trim().isEmpty()) {
 					System.out.println("ERREUR - La saisie ne peut pas être à vide");
-					is_input_ok = false;
 				}else if (service.verifExistsLogin(input_user)) {
-					is_input_ok = false;
 					Functions.printLogs(Functions.LOG_FILE, "ERREUR - Ce login existe déjà dans la base de données");
 					throw new LoginAlreadyUsedException("ERREUR - Ce login existe déjà dans la base de données\n");
 				}else {		
@@ -165,7 +192,6 @@ public class Application {
 	 * @throws LoginAlreadyUsedException 
 	 */
 	public static User createAccount(SellingCourses service) throws LoginAlreadyUsedException {
-		
 		//Input spécifique ou j'ai rajouté le contrôle de l'existence du login 		
 		String login = input_login(scanner, "Login", service);
 		
@@ -178,4 +204,111 @@ public class Application {
 		}
 		return user;		
 	}
+	
+	/**
+	 * Méthode qui permet à l'utilisateur de gérer son panier/sa commande
+	 * @param service
+	 * @throws SQLException 
+	 */
+	public static Order gestionOrder(SellingCourses service, Order order) throws SQLException {
+		System.out.println("Voir mon panier");
+		System.out.println(order);		
+		
+		String[] sousMenu = {
+				"Ajouter une formation à mon panier ou modifier une quantité d'une formation déjà ajoutée",
+				"Retirer une formation de mon panier"
+		};
+		
+		int choice_user = -1;
+		while (choice_user != 0) {
+			//On demande à l'utilisateur son choix par rapport au menu proposé
+			choice_user = Functions.ask_user_choice(scanner, sousMenu);
+			
+			switch(choice_user) {
+				case 1:				
+					//Ajouter une formation à mon panier
+					System.out.println("Ajouter une formation à mon panier");
+					addTrainingOrder(service, order);
+					break;
+				case 2:	
+					//Si le panier est vide message d'erreur
+					if (order.getLstLineOrder().size() == 0) {
+						System.out.println("Impossible de retirer une formation du panier : il est vide");
+					}else {
+						//Retirer une formation de mon panier
+						System.out.println("Retirer une formation de mon panier");
+						delTrainingOrder(service, order);
+					}
+					break;
+				case 0:
+					System.out.println("Retour au menu précédent.");
+					break;
+			}
+		}
+		return order;
+	}
+	
+	/**
+	 * Méthode qui demande à l'utilisateur de saisir le numéro de formation à ajouter
+	 * @param service
+	 * @param scanner
+	 * @param prompt
+	 * @return
+	 */
+	public static int askUserIdTrainingToAdd(SellingCourses service, Scanner scanner, String prompt) {
+		int input_int_user = 0;
+		boolean is_valid_input = false;
+	    while (!is_valid_input) {
+	    	System.out.println(prompt);
+	    	String input_user = scanner.nextLine();
+	    	
+	    	if (! input_user.matches("\\d+")) {
+	        	System.out.println("ERREUR - Vous devez saisir un entier.");
+	        } else {
+	        	input_int_user = Integer.parseInt(input_user);
+	        	
+	        	Training training = service.findTrainingById(input_int_user);
+	        	
+	        	if (training == null) {
+	        		System.out.println("ERREUR - Cet identifiant ne correspond pas à une id de formation valide.");
+	        	}else {
+	        		is_valid_input = true;
+	        	}
+	        }
+	    }
+		return input_int_user;
+	}
+	
+	
+	/**
+	 * Méthode pour ajouter une formation au panier
+	 * @param service
+	 * @param idTraining
+	 * @throws SQLException 
+	 */
+	public static void addTrainingOrder(SellingCourses service, Order order) throws SQLException {
+		System.out.println("Méthode non encore implémentée");
+		
+	}
+	
+	/**
+	 * Méthode pour supprimer une formation du panier
+	 * @param service
+	 * @param idTraining
+	 */
+	public static void delTrainingOrder(SellingCourses service, Order order) {
+		System.out.println("Méthode non encore implémentée");
+		
+		int idTraining = 1;
+		//TODO Effectuer les controles pour vérifier que le numéro choisi correspond bien à une formation déjà dans le panier
+		//int idTraining = input_training(scanner, "Entrez le numéro de la formation que vous souhaitez retirer");
+		
+		//Question à l'utilisateur souhaitez vous supprimer du panier les x quantités ? 
+		//Si oui , on appelle la méthode delete de LineOrder
+		
+		//Si non, on demande la quantité à RETIRER
+		
+		//On appelle la méthode update de LineOrder pour mettre à jour la quantité
+		
+	}	
 }
