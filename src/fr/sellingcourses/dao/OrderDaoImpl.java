@@ -8,11 +8,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.sellingcourses.business.SellingCourses;
 import fr.sellingcourses.business.SellingCoursesImpl;
 import fr.sellingcourses.entities.Customer;
+import fr.sellingcourses.entities.LineOrder;
 import fr.sellingcourses.entities.Order;
 import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.entities.User;
@@ -54,8 +56,14 @@ public class OrderDaoImpl implements OrderDao{
 			if (rsStatus == 1) statusValue = StatusValue.ORDERED;
 			
 			//TODO On récupère l'objet client associé à customer_id si customer_id différent de 0 (A rajouter quand la partie optionnelle client sera prête)
-						
-			order =  new Order(rsId, statusValue, rsDate, rsTotalAmount, user);
+			
+			
+			order =  new Order(rsId, statusValue, rsDate, rsTotalAmount, user);		
+			System.out.println(order);
+
+			//On récupère la liste des lignes de commandes associées à cette commande
+			ArrayList<LineOrder> lstLineOrder = (ArrayList<LineOrder>) service.findAllLineOrderByOrder(order);
+			order.setLstLineOrder(lstLineOrder);			
 	   
 		}catch(SQLException e) {
 			Functions.printLogs(Functions.LOG_FILE, "ERREUR lors de la création d'un objet Training via le ResultSet.");
