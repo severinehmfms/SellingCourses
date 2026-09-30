@@ -10,39 +10,35 @@ USE SellingCourses;
 -- -----------------------------------------------------------------------------
 
 CREATE TABLE UserApp(
-   login_app VARCHAR(50),
-   password_app VARCHAR(50) NOT NULL,
-   PRIMARY KEY(login_app)
+   login_app VARCHAR(50) PRIMARY KEY,
+   password_app VARCHAR(50) NOT NULL
 ) ENGINE = InnoDB;
 
 CREATE TABLE Customer(
-   customer_id INT,
+   customer_id INT PRIMARY KEY AUTO_INCREMENT,
    customer_name VARCHAR(50),
    customer_first_name VARCHAR(50),
    customer_mail VARCHAR(50),
    customer_adresse VARCHAR(50),
-   customer_phone DECIMAL(15,2),
-   PRIMARY KEY(customer_id)
+   customer_phone DECIMAL(15,2)
 ) ENGINE = InnoDB;
 
 CREATE TABLE Training(
-   training_id INT,
+   training_id INT PRIMARY KEY AUTO_INCREMENT,
    training_name VARCHAR(50),
    training_description TEXT,
    training_length SMALLINT,
    remote_training BOOLEAN,
-   training_price DECIMAL(10,2),
-   PRIMARY KEY(training_id)
+   training_price DECIMAL(10,2)
 ) ENGINE = InnoDB;
 
 CREATE TABLE OrderApp(
-   order_id INT,
+   order_id INT PRIMARY KEY AUTO_INCREMENT,
    order_status SMALLINT NOT NULL,
    order_date DATETIME,
    total_amount DECIMAL(10,2),
    login_app VARCHAR(50) NOT NULL,
-   customer_id INT NOT NULL,
-   PRIMARY KEY(order_id),
+   customer_id INT NULL,
    KEY login_app (login_app),
    KEY customer_id (customer_id)
 ) ENGINE = InnoDB;
