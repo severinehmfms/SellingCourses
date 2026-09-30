@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import fr.sellingcourses.entities.User;
 import fr.sellingcourses.utils.Functions;
@@ -102,7 +101,7 @@ public class UserDaoImpl implements UserDao{
 	    	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de l'authentification.");
 	    	e.printStackTrace();
 	    }
-	    return true; // Comme la vérification n'a pas pu se faire on renvoie true pour être sur
+	    return true; // Comme la vérification n'a pas pu se faire on renvoie true pour plus de sécurité
 	}
 
 }
