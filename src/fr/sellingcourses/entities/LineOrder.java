@@ -10,7 +10,6 @@ public class LineOrder {
 	private int quantity;
 	//On stocke uniquement l'id pour éviter que ça tourne en boucle ;-)
 	private int order_id;
-	private double amountLineOrder;
 	
 	/**
 	 * Constructeur 
@@ -21,8 +20,6 @@ public class LineOrder {
 		this.training = training;
 		this.quantity = quantity;
 		this.order_id = order_id;
-		//Calcul du sous total de cette ligne de commande
-		this.amountLineOrder = training.getPrice() * quantity;
 	}
 	
 	/*
@@ -40,22 +37,21 @@ public class LineOrder {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public double getAmountLineOrder() {
-		return amountLineOrder;
-	}
-	public void setAmountLineOrder(double amountLineOrder) {
-		this.amountLineOrder = amountLineOrder;
-	}
 	public int getOrder_id() {
 		return order_id;
 	}
 	public void setOrder_id(int order_id) {
 		this.order_id = order_id;
 	}
+	
+	//Calcul du sous total de cette ligne de commande
+	public double getAmountLineOrder() {
+		return training.getPrice() * quantity;
+	}
 
 	@Override
 	public String toString() {
 		return "LineOrder [training=" + training.getName() + ", quantity=" + quantity + ", order_id=" + order_id
-				+ ", amountLineOrder=" + amountLineOrder + "]";
+				+ ", amountLineOrder=" + this.getAmountLineOrder() + "]";
 	}	
 }
