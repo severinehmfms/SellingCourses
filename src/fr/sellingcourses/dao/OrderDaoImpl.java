@@ -37,7 +37,7 @@ public class OrderDaoImpl implements OrderDao{
 			//On convertit en LocalDateTime la date récupérée au format sql
 			LocalDateTime rsDate = null;
 			if (resultSet.getTimestamp("order_date") != null) {
-				resultSet.getTimestamp("order_date").toLocalDateTime();
+				rsDate = resultSet.getTimestamp("order_date").toLocalDateTime();
 			}
 			
 			//En fait on en a pas besoin j'ai décidé de le calculer dans getTotalAmount
