@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 import fr.sellingcourses.business.SellingCourses;
 import fr.sellingcourses.business.SellingCoursesImpl;
@@ -102,14 +103,11 @@ public class OrderDaoImpl implements OrderDao{
 	 * Création d'une ligne de commande en base de données
 	 */
 	@Override
-	public Order create(Connection connection, Order order) {	
-		//On récupère le code du statut
-		int codeStatus = order.getCodeStatusValue();
-		
-		
+	public Order create(Connection connection, Order order) {			
 		String str = "INSERT INTO orderapp (order_status, order_date, total_amount, login_app, customer_id) VALUES (?,?,?,?,?)";
 		try (PreparedStatement ps = connection.prepareStatement(str, Statement.RETURN_GENERATED_KEYS)){
-			ps.setInt(1, codeStatus);
+			//On récupère le code du statut
+			ps.setInt(1, order.getCodeStatusValue());
 			
 			//On convertit la LocalDateTime en timestamp (date time sql)
 			Timestamp sqlDateTime = null;
@@ -196,5 +194,32 @@ public class OrderDaoImpl implements OrderDao{
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public List<Order> findLstOrderByUser(Connection connection, String login, StatusValue statusValue) {
+		//On récupère le StatusValue associé au code statut en base
+		int codeStatus = 0;		
+		if (statusValue == StatusValue.ORDERED) codeStatus = 1;
+		
+		String sql = "SELECT order_id, order_status, order_date, total_amount, login_app, customer_id  FROM orderapp WHERE login_app = ? AND order_status = ?";
+        List<Order> lstOrder = new ArrayList<>();
+
+        try (PreparedStatement ps = connection.prepareStatement(sql)){
+    		ps.setString(1, login);  
+    		ps.setInt(2, codeStatus);  
+    		try(ResultSet rs = ps.executeQuery()) {
+            	while (rs.next()) {
+            		//On récupère l'objet correspondant à ce resultSet
+            		Order order = getOrderFromDb(rs);
+            		if (order != null) lstOrder.add(order);
+            	}
+    		}
+        } catch (SQLException e) {
+        	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de la récupération de la liste des commandes pour un login et un statut.");
+            e.printStackTrace();
+        }
+        Functions.printLogs(Functions.LOG_FILE, "Récupération de la liste des commandes pour un login et un statut.");
+        return lstOrder;
 	}
 }
