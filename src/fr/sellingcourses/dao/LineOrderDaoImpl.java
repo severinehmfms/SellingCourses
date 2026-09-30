@@ -2,11 +2,16 @@ package fr.sellingcourses.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import fr.sellingcourses.business.SellingCourses;
+import fr.sellingcourses.business.SellingCoursesImpl;
 import fr.sellingcourses.entities.LineOrder;
 import fr.sellingcourses.entities.Order;
+import fr.sellingcourses.entities.Training;
+import fr.sellingcourses.utils.Functions;
 
 public class LineOrderDaoImpl implements LineOrderDao{
 
@@ -73,11 +78,46 @@ public class LineOrderDaoImpl implements LineOrderDao{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public LineOrder findLineOrder(Connection connection, int orderId, int training_id) throws SQLException {
+		SellingCourses service = new SellingCoursesImpl();	
+		LineOrder lineorder = null;
+		String strSql = "SELECT order_id, training_id, quantity FROM lineorder WHERE order_id=? AND training_id=?";
+		try (PreparedStatement ps = connection.prepareStatement(strSql)){
+			ps.setInt(1, orderId);
+			ps.setInt(2, training_id);
+			//System.out.println(strSql);
+        	try(ResultSet resultSet = ps.executeQuery()){
+        		
+        		if (resultSet.next()) { // On lit la première (et unique) ligne
+        			int rsOrderId = resultSet.getInt("order_id"); 
+        			int rsTrainingId = resultSet.getInt("training_id");
+        			int rsQuantity = resultSet.getInt("quantity");
+        			//On récupère l'objet Training de cette ligne de commande
+        			Training training = null;
+        			try{
+        				training = service.findTrainingById(rsTrainingId);
+        			} catch (Exception e) {
+            	    	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de la récupération de la formation associée à l'id.");
+            	    	e.printStackTrace();
+            	    }	
+        			
+        			lineorder = new LineOrder(training, rsQuantity, rsOrderId);
+                } 
+        	} catch (SQLException e) {
+    	    	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de la récupération de la ligne de commande pour cette commande et cette formation.");
+    	    	e.printStackTrace();
+    	    }	        	
+        }
+		return lineorder;
+	}
 
 	@Override
 	public boolean isExists(Connection connection, int orderId, int training_id) {
 		// TODO Auto-generated method stub
 		return false;
+		
 	}
 
 	
