@@ -102,6 +102,11 @@ public class SellingCoursesImpl implements SellingCourses {
 	@Override
 	public Order createOrder(Order order) {
 		return orderDao.create(connection, order);
+	}	
+
+	@Override
+	public boolean updateOrder(Order order) {
+		return orderDao.update(connection, order);
 	}
 	
 	//****************** Services concernant les lignes de commande (Classe LineOrder)
