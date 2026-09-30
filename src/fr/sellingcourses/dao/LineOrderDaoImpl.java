@@ -31,7 +31,24 @@ public class LineOrderDaoImpl implements LineOrderDao{
 
 	@Override
 	public boolean update(Connection connection, LineOrder lineOrder) {		
-		// TODO Auto-generated method stub
+		String str = "UPDATE lineorder SET quantity=? WHERE order_id=? AND training_id=?";
+		try (PreparedStatement ps = connection.prepareStatement(str)){
+			ps.setInt(1, lineOrder.getQuantity());
+			ps.setInt(2, lineOrder.getOrder_id());
+			ps.setInt(3, lineOrder.getTraining().getIdTraining());
+			
+			// On récupère le nombre de lignes affectées par la requête
+			int nbLignes = ps.executeUpdate(); 
+			
+			if (nbLignes == 0) { 
+				throw new SQLException("Échec de la mise à jour, aucune ligne affectée."); 
+			}
+			
+			return true;
+            
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
