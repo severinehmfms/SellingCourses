@@ -1,12 +1,16 @@
 package fr.sellingcourses;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import fr.sellingcourses.business.SellingCourses;
 import fr.sellingcourses.business.SellingCoursesImpl;
 import fr.sellingcourses.entities.LineOrder;
 import fr.sellingcourses.entities.Order;
 import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.entities.User;
+import fr.sellingcourses.entities.Order.StatusValue;
 
 public class TestApplication {
 	
@@ -49,6 +53,14 @@ public class TestApplication {
 			//On va créer un panier associé à ce user
 			order = new Order(user);
 			service.createOrder(order);
+		}
+		
+		
+		//On récupère la liste des commandes déjà passées pour notre utilisateur 
+		ArrayList<Order> lstOrdersPassees = (ArrayList<Order>) service.findLstOrderByUser(user.getLogin(), StatusValue.ORDERED);
+		System.out.println("Liste des commandes déjà passées pour l'utilisateur " + user.getLogin() + "\n");
+		for (Order or : lstOrdersPassees) {
+			System.out.println(or); 
 		}
 		
 		//Test LineOrder
