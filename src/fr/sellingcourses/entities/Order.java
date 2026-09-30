@@ -143,6 +143,20 @@ public class Order {
 	}
 	
 	/**
+	 * Fonction qui met à jour la quantité de la ligne de commande de la liste
+	 * @param lineOrder
+	 * @param qty
+	 */
+	public void majQuantityLineOrder(LineOrder lineOrder, int qty) {
+		//On calcule le montant total de la commande
+		for (LineOrder lo : lstLineOrder) {
+			if (lo.getOrder_id() == lineOrder.getOrder_id() && lo.getTraining().getIdTraining() == lineOrder.getTraining().getIdTraining()) {
+				lo.setQuantity(qty);
+			}
+		}
+	}
+	
+	/**
 	 * Fonction qui retire une ligne de commande du panier
 	 */
 	public void delLineOrderLst(LineOrder lineOrderToDel) {
@@ -163,10 +177,10 @@ public class Order {
 			//TODO Quand la partie Customer sera gérée, rajouter le nom du client ici s'il est renseigné:
 			if (customer != null)	strOrder += "Client concerné par la commande : ";
 		}
-		strOrder += "Montant total : " + getTotalAmount() + "\n";
 		for (LineOrder lo : lstLineOrder) {
 			strOrder += lo+"\n";
 		}
+		strOrder += "Montant total : " + getTotalAmount() + "\n";
 		strOrder += "********************************************************************************\n";
 		return strOrder;
 	}
