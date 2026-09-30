@@ -132,8 +132,7 @@ public class LineOrderDaoImpl implements LineOrderDao{
 	}
 	
 	@Override
-	public LineOrder findLineOrder(Connection connection, int orderId, int training_id) throws SQLException {
-		SellingCourses service = new SellingCoursesImpl();	
+	public LineOrder findLineOrder(Connection connection, int orderId, int training_id){
 		LineOrder lineOrder = null;
 		String strSql = "SELECT order_id, training_id, quantity FROM lineorder WHERE order_id=? AND training_id=?";
 		try (PreparedStatement ps = connection.prepareStatement(strSql)){
