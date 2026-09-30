@@ -322,7 +322,6 @@ public class Application {
 	 * @throws SQLException 
 	 */
 	public static Order addTrainingOrder(SellingCourses service, Order order) throws SQLException {
-		System.out.println("Méthode non encore implémentée");
 		//On demande à l'utilisateur le numéro de la formation à ajouter
 		int idTraining = askUserIdTrainingToAdd(service, scanner, "Entrez le numéro de la formation que vous souhaitez ajouter");
 		
@@ -344,10 +343,7 @@ public class Application {
 				System.out.println("Modification de cette formation du panier correctement effectué");
 				
 				//Important on met à jour la liste des lignes de commande dans order.
-				//TODO Voir si je trouve quelque chose de plus propre...
-				//On l'efface et on la supprime pour mettre à jour la quantité de cette ligne de commande dans la liste des lignes de commandes
-				order.delLineOrderLst(lineOrder);
-				order.addLineOrderToLst(lineOrder);
+				order.majQuantityLineOrder(lineOrder,qty);
 			}else {
 				System.out.println("ERREUR lors de la modification de cette formation");
 			}
@@ -375,8 +371,6 @@ public class Application {
 	 * @param idTraining
 	 */
 	public static Order delTrainingOrder(SellingCourses service, Order order) {
-		System.out.println("Méthode non encore implémentée");
-		
 		//On demande à l'utilisateur quelle formation il souhaite supprimer
 		int idTraining = askUserIdTrainingToDel(service, scanner, "Entrez le numéro de la formation que vous souhaitez retirer", order);
 		
