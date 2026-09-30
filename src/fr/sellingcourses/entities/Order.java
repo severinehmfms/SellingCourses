@@ -3,7 +3,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.sellingcourses.entities.Order.StatusValue;
 
 /**
  * Classe qui représente le panier, puis quand le statut est validé, la commande
@@ -12,8 +11,8 @@ import fr.sellingcourses.entities.Order.StatusValue;
 public class Order {
 	
 	//Valeurs que peuvent prendre le statut
-	public static enum StatusValue {
-		IN_PROGRESS, ORDERED
+	public static enum StatusValue {		//0 : IN_PROGRESS
+		IN_PROGRESS, ORDERED				//1 : ORDERED
 	}
 	
 	private int idOrder;					//Id (en base)
