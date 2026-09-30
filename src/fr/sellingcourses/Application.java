@@ -1,6 +1,5 @@
 package fr.sellingcourses;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,6 +11,7 @@ import fr.sellingcourses.entities.LineOrder;
 import fr.sellingcourses.entities.Order;
 import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.entities.User;
+import fr.sellingcourses.entities.Order.StatusValue;
 import fr.sellingcourses.exceptions.LoginAlreadyUsedException;
 import fr.sellingcourses.utils.Functions;
 
@@ -47,7 +47,7 @@ public class Application {
 					strMenuConnect,
 				    "Créer un compte si vous n'en avez pas",
 				    "Voir mon panier",
-				    "Voir les commandes déjà passées"
+				    "Afficher les commandes déjà passées"
 				};
 					
 			//On demande à l'utilisateur son choix par rapport au menu proposé
@@ -93,8 +93,16 @@ public class Application {
 					break;
 				case 6:				
 					//Voir les commandes déjà passées
-					System.out.println("Voir les commandes déjà passées");
-					System.out.println("Fonctionnalité encore non implémentée");
+					if (user == null) System.out.println("ERREUR il faut être connecté pour accéder à cette fonctionnalité. Si vous n'avez pas encore de compter, créez un compte");
+					else{
+						System.out.println("Voir les commandes déjà passées");
+						ArrayList<Order> lstOrdersPassees = (ArrayList<Order>) service.findLstOrderByUser(user.getLogin(), StatusValue.ORDERED);
+						
+						System.out.println("Liste des commandes déjà passées :\n");
+						for (Order or : lstOrdersPassees) {
+							System.out.println(or); 
+						}
+					}
 					break;
 				case 0:
 					System.out.println("Au-revoir et à bientôt !");
