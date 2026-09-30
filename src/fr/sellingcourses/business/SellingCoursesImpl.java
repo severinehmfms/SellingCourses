@@ -7,6 +7,7 @@ import java.util.List;
 import fr.sellingcourses.entities.Customer;
 import fr.sellingcourses.entities.LineOrder;
 import fr.sellingcourses.entities.Order;
+import fr.sellingcourses.entities.Order.StatusValue;
 import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.entities.User;
 import fr.sellingcourses.dao.CustomerDao;
@@ -97,6 +98,11 @@ public class SellingCoursesImpl implements SellingCourses {
 	@Override
 	public Order findOrderInProgressByUser(String login) {
 		return orderDao.findOrderInProgressByUser(connection, login);
+	}	
+
+	@Override
+	public List<Order> findLstOrderByUser(String login, StatusValue statusValue) {
+		return orderDao.findLstOrderByUser(connection, login, statusValue);
 	}
 	
 	@Override
@@ -152,5 +158,6 @@ public class SellingCoursesImpl implements SellingCourses {
 	public Customer findCustomerById(int id) {
 		return customerDao.findById(connection, id);
 	}
+
 
 }
