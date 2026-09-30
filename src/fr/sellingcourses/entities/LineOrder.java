@@ -53,9 +53,9 @@ public class LineOrder {
 	@Override
 	public String toString() {
 		String strLineOrder = "";
-		strLineOrder += training.getIdTraining() + " - "+ training.getName() + " - ";
-		strLineOrder += "Quantité : " + quantity + " - ";
-		strLineOrder += "Montant total : " + this.getAmountLineOrder();
+		strLineOrder += training.getIdTraining() + " - "+ training.getName() + "\n";
+		strLineOrder += training.getPrice() + "€ - Quantité : " + quantity;
+		strLineOrder += " - Total : " + this.getAmountLineOrder();
 		return strLineOrder;
 	}	
 }
