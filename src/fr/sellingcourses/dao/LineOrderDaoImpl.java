@@ -115,8 +115,24 @@ public class LineOrderDaoImpl implements LineOrderDao{
 
 	@Override
 	public boolean isExists(Connection connection, int orderId, int training_id) {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "SELECT COUNT(order_id) AS nbresults FROM lineorder WHERE order_id = ? AND training_id = ? ";
+		try (PreparedStatement ps = connection.prepareStatement(sql)) {
+			ps.setInt(1, orderId);
+			ps.setInt(2, training_id);
+
+	        try (ResultSet rs = ps.executeQuery()) {
+	        	if (rs.next()) {
+	        		if (rs.getInt("nbresults") > 0) {
+	        			return true;
+	        		}
+	             }
+	        }
+	    } catch (SQLException e) {
+	    	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de la récupération de la ligne de commande pour cette commande et cette formation.");
+	    	e.printStackTrace();
+	    }
+		Functions.printLogs(Functions.LOG_FILE, "Aucune ligne de commande trouvée pour cette commande et cette formation");
+	    return false; // Aucune ligne de commande trouvée
 		
 	}
 
