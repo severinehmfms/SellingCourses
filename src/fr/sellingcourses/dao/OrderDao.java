@@ -2,7 +2,6 @@ package fr.sellingcourses.dao;
 
 import java.sql.Connection;
 import fr.sellingcourses.entities.Order;
-import fr.sellingcourses.entities.Order.StatusValue;
 
 public interface OrderDao {
 	
