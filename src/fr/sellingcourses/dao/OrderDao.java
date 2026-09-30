@@ -13,4 +13,7 @@ public interface OrderDao {
 	Order findOrderInProgressByUser(Connection connection, String login);
 	
 	Order create(Connection connection, Order order);
+	
+	boolean update(Connection connection, Order order);
+	
 }
