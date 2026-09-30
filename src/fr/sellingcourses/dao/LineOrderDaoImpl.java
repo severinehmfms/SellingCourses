@@ -114,7 +114,7 @@ public class LineOrderDaoImpl implements LineOrderDao{
 
 	@Override
 	public List<LineOrder> findAllByOrder(Connection connection, Order order) {
-		String sql = "SELECT order_id, training_id, quantity FROM lineorder WHERE order_id=?";
+		String sql = "SELECT order_id, training_id, quantity FROM lineorder WHERE order_id=? ORDER BY training_id";
         List<LineOrder> lstLineOrder = new ArrayList<>();
 
         try (PreparedStatement ps = connection.prepareStatement(sql)){
