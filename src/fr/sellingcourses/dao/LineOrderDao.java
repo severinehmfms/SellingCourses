@@ -20,5 +20,4 @@ public interface LineOrderDao {
 	LineOrder findLineOrder(Connection connection, int orderId, int training_id) throws SQLException;
 	
 	boolean isExists(Connection connection, int orderId, int training_id);
-
 }
