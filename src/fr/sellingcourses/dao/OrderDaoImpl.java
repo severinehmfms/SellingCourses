@@ -38,7 +38,9 @@ public class OrderDaoImpl implements OrderDao{
 			if (resultSet.getTimestamp("order_date") != null) {
 				resultSet.getTimestamp("order_date").toLocalDateTime();
 			}
-			int rsTotalAmount = resultSet.getInt("total_amount");
+			
+			//En fait on en a pas besoin j'ai décidé de le calculer dans getTotalAmount
+			//int rsTotalAmount = resultSet.getInt("total_amount");
 			
 			//On va récupérer l'objet utilisateur et l'objet customer correspondant à l'id
 			String rsLoginUser = resultSet.getString("login_app");
@@ -54,7 +56,7 @@ public class OrderDaoImpl implements OrderDao{
 			//TODO On récupère l'objet client associé à customer_id si customer_id différent de 0 (A rajouter quand la partie optionnelle client sera prête)
 			
 			
-			order =  new Order(rsId, statusValue, rsDate, rsTotalAmount, user);		
+			order =  new Order(rsId, statusValue, rsDate, user);		
 			
 			//On récupère la liste des lignes de commandes associées à cette commande
 			ArrayList<LineOrder> lstLineOrder = (ArrayList<LineOrder>) service.findAllLineOrderByOrder(order);
