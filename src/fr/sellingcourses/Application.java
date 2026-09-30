@@ -226,7 +226,7 @@ public class Application {
 				case 1:				
 					//Ajouter une formation à mon panier
 					System.out.println("Ajouter une formation à mon panier");
-					addTrainingOrder(service, order);
+					order = addTrainingOrder(service, order);
 					break;
 				case 2:	
 					//Si le panier est vide message d'erreur
@@ -235,7 +235,7 @@ public class Application {
 					}else {
 						//Retirer une formation de mon panier
 						System.out.println("Retirer une formation de mon panier");
-						delTrainingOrder(service, order);
+						order = delTrainingOrder(service, order);
 					}
 					break;
 				case 3:				
@@ -321,7 +321,7 @@ public class Application {
 	 * @param idTraining
 	 * @throws SQLException 
 	 */
-	public static void addTrainingOrder(SellingCourses service, Order order) throws SQLException {
+	public static Order addTrainingOrder(SellingCourses service, Order order) throws SQLException {
 		System.out.println("Méthode non encore implémentée");
 		//On demande à l'utilisateur le numéro de la formation à ajouter
 		int idTraining = askUserIdTrainingToAdd(service, scanner, "Entrez le numéro de la formation que vous souhaitez ajouter");
@@ -338,18 +338,35 @@ public class Application {
 		
 		//Si cette ligne de commande existe déjà, on modifie la quantité et on l'update en base
 		if (isAlreadyExist) {
+			
 			lineOrder.setQuantity(qty);
-			if (service.updateLineOrder(lineOrder)) System.out.println("Modification de cette formation du panier correctement effectué");
-			else	System.out.println("ERREUR lors de la modification de cette formation");
+			if (service.updateLineOrder(lineOrder)) {
+				System.out.println("Modification de cette formation du panier correctement effectué");
+				
+				//Important on met à jour la liste des lignes de commande dans order.
+				//TODO Voir si je trouve quelque chose de plus propre...
+				//On l'efface et on la supprime pour mettre à jour la quantité de cette ligne de commande dans la liste des lignes de commandes
+				order.delLineOrderLst(lineOrder);
+				order.addLineOrderToLst(lineOrder);
+			}else {
+				System.out.println("ERREUR lors de la modification de cette formation");
+			}
 			
 		//Si cette ligne de commande n'existe pas, on la crée et on l'insère en base
 		}else {
 			Training training = service.findTrainingById(idTraining);
 			lineOrder = new LineOrder(training, qty, order.getIdOrder());
 						
-			if (service.createLineOrder(lineOrder)) System.out.println("Ajout de cette formation au panier correctement effectuée");
-			else	System.out.println("ERREUR lors de l'ajout de cette formation");
+			if (service.createLineOrder(lineOrder)) {
+				System.out.println("Ajout de cette formation au panier correctement effectuée");
+				//Important on met à jour la liste des lignes de commande dans order.
+				order.addLineOrderToLst(lineOrder);
+			}
+			else {
+				System.out.println("ERREUR lors de l'ajout de cette formation");
+			}
 		}
+		return order;
 	}
 	
 	/**
@@ -357,15 +374,21 @@ public class Application {
 	 * @param service
 	 * @param idTraining
 	 */
-	public static void delTrainingOrder(SellingCourses service, Order order) {
+	public static Order delTrainingOrder(SellingCourses service, Order order) {
 		System.out.println("Méthode non encore implémentée");
 		
 		//On demande à l'utilisateur quelle formation il souhaite supprimer
 		int idTraining = askUserIdTrainingToDel(service, scanner, "Entrez le numéro de la formation que vous souhaitez retirer", order);
 		
 		LineOrder lineOrder = service.findLineOrder(order.getIdOrder(), idTraining);
-		if (service.deleteLineOrder(lineOrder)) System.out.println("Suppression de cette formation du panier correctement effectuée");
-		else	System.out.println("ERREUR lors de la suppression du panier de cette formation");
-		
+		if (service.deleteLineOrder(lineOrder)) {
+			System.out.println("Suppression de cette formation du panier correctement effectuée");
+			//Important on met à jour la liste des lignes de commande dans order.
+			order.delLineOrderLst(lineOrder);
+		}else {
+			System.out.println("ERREUR lors de la suppression du panier de cette formation");
+		}
+				
+		return order;
 	}	
 }
