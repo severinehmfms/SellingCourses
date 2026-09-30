@@ -44,8 +44,8 @@ CREATE TABLE OrderApp(
 ) ENGINE = InnoDB;
 
 CREATE TABLE LineOrder(
-   order_id INT,
-   training_id INT,
+   order_id INT NOT NULL,
+   training_id INT NOT NULL,
    quantity SMALLINT,
    PRIMARY KEY(order_id, training_id),   
    KEY order_id (order_id),
