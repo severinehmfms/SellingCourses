@@ -58,7 +58,7 @@ public class Order {
 		this.date = date;
 		this.user = user;
 		this.customer = null;
-		this.lstLineOrder = new ArrayList();
+		this.lstLineOrder = new ArrayList<LineOrder>();
 	}
 	
 	/**
@@ -77,7 +77,7 @@ public class Order {
 		this.date = date;
 		this.user = user;
 		this.customer = customer;
-		this.lstLineOrder = new ArrayList();
+		this.lstLineOrder = new ArrayList<LineOrder>();
 	}
 
 	/*
@@ -102,16 +102,7 @@ public class Order {
 	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
-	public double getTotalAmount() {
-		double totalAmount = 0;
-		//On calcule le montant total de la commande
-		for (LineOrder lo : lstLineOrder) {
-			totalAmount = totalAmount + lo.getAmountLineOrder();
-		}
-
-		return totalAmount;
-	}
-	public User getUser() {
+		public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
@@ -128,6 +119,38 @@ public class Order {
 	}
 	public void setLstLineOrder(List<LineOrder> lstLineOrder) {
 		this.lstLineOrder = lstLineOrder;
+	}
+	
+	/**
+	 * Fonction qui calcule le montant total de la commande
+	 * @return
+	 */
+	public double getTotalAmount() {
+		double totalAmount = 0;
+		//On calcule le montant total de la commande
+		for (LineOrder lo : lstLineOrder) {
+			totalAmount = totalAmount + lo.getAmountLineOrder();
+		}
+
+		return totalAmount;
+	}
+	
+	/**
+	 * Fonction qui ajoute une ligne de commande au panier
+	 */
+	public void addLineOrderToLst(LineOrder lo) {
+		lstLineOrder.add(lo);
+	}
+	
+	/**
+	 * Fonction qui retire une ligne de commande du panier
+	 */
+	public void delLineOrderLst(LineOrder lineOrderToDel) {
+		//Je m'étais notée sur un fichier d'aide java cette méthode moderne removeIf pour effacer d'un tableau sans que ça plante (car sinon NullPointerException quand on supprime en parcourant)
+		//Je l'ai adaptée 
+		lstLineOrder.removeIf(lineOrder -> 
+			lineOrder.getOrder_id() == lineOrderToDel.getOrder_id() &&
+			lineOrder.getTraining().getIdTraining() == lineOrderToDel.getTraining().getIdTraining());
 	}
 
 	@Override
@@ -146,9 +169,6 @@ public class Order {
 		}
 		strOrder += "********************************************************************************\n";
 		return strOrder;
-		
 	}
-	
-	
 	
 }
