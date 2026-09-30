@@ -216,7 +216,8 @@ public class Application {
 		
 		String[] sousMenu = {
 				"Ajouter une formation à mon panier ou modifier une quantité d'une formation déjà ajoutée",
-				"Retirer une formation de mon panier"
+				"Retirer une formation de mon panier",
+				"Valider le panier et passer la commande"
 		};
 		
 		int choice_user = -1;
@@ -239,6 +240,11 @@ public class Application {
 						System.out.println("Retirer une formation de mon panier");
 						delTrainingOrder(service, order);
 					}
+					break;
+				case 3:				
+					//Valider le panier et passer la commande
+					System.out.println("Valider le panier et passer la commande");
+					System.out.println("Méthode non encore implémentée");
 					break;
 				case 0:
 					System.out.println("Retour au menu précédent.");
