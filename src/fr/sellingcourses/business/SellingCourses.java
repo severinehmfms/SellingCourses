@@ -32,7 +32,7 @@ public interface SellingCourses {
 	Training findTrainingById(int id);
 	
 	//Services concernant les commandes (Classe Order)
-	Order findOrderByUserAndStatus(String login, StatusValue status);
+	Order findOrderInProgressByUser(String login);
 	
 	Order createOrder(Order order);
 	
