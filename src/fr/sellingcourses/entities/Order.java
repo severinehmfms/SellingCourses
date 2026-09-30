@@ -134,8 +134,23 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [idOrder=" + idOrder + ", status=" + status + ", date=" + date + ", totalAmount=" + totalAmount
-				+ ", user=" + user + ", customer=" + customer + ", lstLineOrder=" + lstLineOrder + "]";
+		String strOrder = "********************************************************************************\n";
+		strOrder += this.getStatus() == StatusValue.IN_PROGRESS ? "Panier" : "Commande";
+		strOrder += " Id : " + idOrder + "\n";
+		if (this.getStatus() == StatusValue.ORDERED) {
+			strOrder += "Date de la commande : " + date + "\n";
+			//TODO Quand la partie Customer sera gérée, rajouter le nom du client ici s'il est renseigné:
+			if (customer != null)	strOrder += "Client concerné par la commande : ";
+		}
+		strOrder += "Montant total : " + totalAmount + "\n";
+		for (LineOrder lo : lstLineOrder) {
+			System.out.println(lo+"\n"); 
+		}
+		strOrder += "********************************************************************************\n";
+		// "Order [idOrder=" + idOrder + ", status=" + status + ", date=" + date + ", totalAmount=" + totalAmount
+		//		+ ", user=" + user + ", customer=" + customer + ", lstLineOrder=" + lstLineOrder + "]";
+		return strOrder;
+		
 	}
 	
 	
