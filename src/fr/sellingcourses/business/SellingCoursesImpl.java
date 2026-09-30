@@ -96,8 +96,8 @@ public class SellingCoursesImpl implements SellingCourses {
 	//****************** Services concernant les commandes (Classe Order)
 
 	@Override
-	public Order findOrderByUserAndStatus(String login, StatusValue status) {
-		return orderDao.findOrderByUserAndStatus(connection, login, status);
+	public Order findOrderInProgressByUser(String login) {
+		return orderDao.findOrderInProgressByUser(connection, login);
 	}
 	
 	@Override
