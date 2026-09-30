@@ -13,5 +13,5 @@ public interface OrderDao {
 	//Renvoie l'objet Order qui correspond à l'utilisateur dont le login est en paramètre, avec pour statut le statut en paramètre
 	Order findOrderByUserAndStatus(Connection connection, String login, StatusValue status);
 	
-	Order insert(Connection connection, Order order);
+	Order create(Connection connection, Order order);
 }
