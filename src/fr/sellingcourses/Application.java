@@ -95,7 +95,6 @@ public class Application {
 					//Voir les commandes déjà passées
 					if (user == null) System.out.println("ERREUR il faut être connecté pour accéder à cette fonctionnalité. Si vous n'avez pas encore de compter, créez un compte");
 					else{
-						System.out.println("Voir les commandes déjà passées");
 						ArrayList<Order> lstOrdersPassees = (ArrayList<Order>) service.findLstOrderByUser(user.getLogin(), StatusValue.ORDERED);
 						
 						System.out.println("Liste des commandes déjà passées :\n");
@@ -112,6 +111,9 @@ public class Application {
 		
 		//On referme le scanner
 		scanner.close();
+		
+		//On referme la connexion mysql (mais ça me plait pas de le faire ici, finalement j'aurais du mettre dans chaque dao une nouvelle connexion et la fermer)
+		service.closeConnection();
 	}
 	
 	
