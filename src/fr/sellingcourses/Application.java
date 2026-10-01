@@ -311,21 +311,31 @@ public class Application {
 					break;
 				case 3:				
 					//Valider le panier et passer la commande
-					
-					//TODO On va demander à l'utilisateur les informations du client
-					/*System.out.println("********* Informations du client concerné par la commande *********");
+					if (order.getLstLineOrder().size() == 0) {
+						System.out.println("ERREUR Le panier est vide, ce n'est pas possible de passer la commande.");
+						break;
+					}
+					//On va demander à l'utilisateur les informations du client
+					System.out.println("********* Informations du client concerné par la commande *********");
 					String name = Functions.input_string(scanner, "Entrez le nom du client", false);
 					String firstName = Functions.input_string(scanner, "Entrez le prénom du client", false);
 					//Contrôle du format du mail
 					String mail = Functions.input_mail(scanner, "Entrez l'adresse mail du client");
-					//TODO Contrôle adresse
+					//Contrôle adresse
 					String address = Functions.input_string(scanner, "Entrez l'adresse du client", false);
-					//TODO Contrôle format phone
+					//Contrôle format phone
 					String phone = Functions.input_phone(scanner, "Entrez le numéro de téléphone du client");
-						*/				
-					Customer customer = new Customer(1, "DUPONT", "André", "andre.dupont@mail.com", "56 rue des colibris 50410 Gernau", "0102030405");
+										
+					Customer customer = new Customer(name, firstName, mail, address, phone);
+					//On crée un customer
+					customer = service.createCustomer(customer);
+					if (customer != null) {
+						order.validate(customer) ;
+					}else {
+						System.out.println("ERREUR lors de la création du client, la commande n'a pas pu être passée.");
+						break;
+					}
 					
-					order.validate(customer) ;
 					//On enregistre la mise à jour de l'order
 					if (service.updateOrder(order) == true) {
 						System.out.println("Commande bien effectuée.");
