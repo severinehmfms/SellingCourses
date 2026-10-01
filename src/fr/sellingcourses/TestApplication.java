@@ -11,6 +11,7 @@ import fr.sellingcourses.entities.Order;
 import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.entities.User;
 import fr.sellingcourses.entities.Order.StatusValue;
+import fr.sellingcourses.utils.Functions;
 
 public class TestApplication {
 	
@@ -19,10 +20,24 @@ public class TestApplication {
 		SellingCourses service = new SellingCoursesImpl();		
 		
 		//TEST Training
-		//TODO On récupère toutes les formations
+		//On récupère toutes les formations
+		System.out.println("Affichage de toutes les formations :\n");		
+		ArrayList<Training> lstTrainings = (ArrayList) service.findAllTraining();
+		for (Training t : lstTrainings) {
+			System.out.println(t+"\n"); 
+		}
 		
-		//TODO On récupère formation par mot clé
+		//On récupère formation par mot clé
+		System.out.println("Affichage des formations par sélection :\n");
 		
+		String wordToSearch = "JAVA";
+		int choiceRemote = 1;
+		
+		ArrayList<Training> lstTrainings2 = (ArrayList) service.findTrainingBySearch(wordToSearch,choiceRemote);
+		for (Training t : lstTrainings2) {
+			System.out.println(t+"\n"); 
+		}
+				
 		//On récupère une formation par son id
 		Training training = service.findTrainingById(1);
 		System.out.println(training);
@@ -53,8 +68,7 @@ public class TestApplication {
 			//On va créer un panier associé à ce user
 			order = new Order(user);
 			service.createOrder(order);
-		}
-		
+		}		
 		
 		//On récupère la liste des commandes déjà passées pour notre utilisateur 
 		ArrayList<Order> lstOrdersPassees = (ArrayList<Order>) service.findLstOrderByUser(user.getLogin(), StatusValue.ORDERED);
@@ -98,6 +112,8 @@ public class TestApplication {
 				System.out.println("ERREUR lors de la Suppression de la ligne de commande");
 			}
 		}
+		
+		service.closeConnection();
 		
 	}
 }
