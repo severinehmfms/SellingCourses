@@ -17,8 +17,6 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-import fr.sellingcourses.business.SellingCourses;
-
 import java.time.LocalDateTime;
 
 /**
@@ -83,6 +81,7 @@ public class Functions {
 	
 	/**
 	 * Fonction qui va afficher le menu proposé à l'utilisateur (en paramètre)
+	 * @param scanner
 	 * @param menu (String[])
 	 * @return  la saisie de l'utilisateur (int)
 	 */
@@ -102,6 +101,7 @@ public class Functions {
 	
 	/**
 	 * Surcharge de la méthode input_int pour ne pas rentrer de valeur minimum et maximum
+	 * @param scanner
 	 * @param prompt
 	 * @return
 	 */
@@ -110,7 +110,8 @@ public class Functions {
 	}
 
 	/**
-	 *  Surcharge de la méthode pour ne pas rentrer de valeur maximum
+	 * Surcharge de la méthode pour ne pas rentrer de valeur maximum
+	 * @param scanner
 	 * @param prompt
 	 * @param min_val
 	 * @return
@@ -121,6 +122,7 @@ public class Functions {
 	
 	/**
 	 * Fonction générique pour faire saisir à l'utilisateur un int entre min_val et max_val
+	 * @param scanner
 	 * @param prompt
 	 * @param min_val
 	 * @param max_val
@@ -151,6 +153,7 @@ public class Functions {
 	/**
 	 * Surcharge de la méthode input_double pour ne pas rentrer de valeur minimum et maximum
 	 * Double.MIN_VALUE représente la plus petite valeur positive strictement supérieure à zéro qu’un double peut stocker
+	 * @param scanner
 	 * @param prompt
 	 * @return
 	 */
@@ -159,7 +162,8 @@ public class Functions {
 	}
 	
 	/**
-	 * Fonction générique pour faire saisir à l'utilisateur un int entre min_val et max_val
+	 * Fonction générique pour faire saisir à l'utilisateur un double entre min_val et max_val
+	 * @param scanner
 	 * @param prompt
 	 * @param min_val
 	 * @param max_val
@@ -191,6 +195,12 @@ public class Functions {
 		return input_double_user;
 	}
 	
+	/**
+	 * Fonction qui permet de demander à l'utilisateur de saisir une date au format français jj/mm/aaaa
+	 * @param scanner
+	 * @param prompt
+	 * @return
+	 */
 	public static LocalDate input_date_fr(Scanner scanner, String prompt) {
 		LocalDate date = null;
 	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu").withResolverStyle(ResolverStyle.STRICT);
@@ -216,7 +226,13 @@ public class Functions {
         return date;
 	}
 	
-	//Fonction input_date modifiée pour l'exercice 2.2 Java avancée
+	/**
+	 * Fonction input_date modifiée pour l'exercice 2.2 Java avancée
+	 * @param scanner
+	 * @param prompt
+	 * @return
+	 * @throws Exception
+	 */
 	public static Date input_date_fr_exceptions(Scanner scanner, String prompt) throws Exception{
 
 	    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -253,9 +269,11 @@ public class Functions {
 	    return date;
 	}	
 
-	/** 
+	/**
 	 * Fonction qui permet de demander une saisie à l'utilisateur
-	 * prompt = Prompt qui demande à l'utilisateur de saisir 
+	 * @param scanner
+	 * @param prompt
+	 * @return
 	 */
 	public static String input_string(Scanner scanner, String prompt) {
 		boolean is_input_ok = false;
@@ -274,10 +292,12 @@ public class Functions {
 		return input_user;
 	}
 	
-	
-	/** 
+	/**
 	 * Fonction qui permet de demander une saisie à l'utilisateur
-	 * prompt = Prompt qui demande à l'utilisateur de saisir 
+	 * @param scanner
+	 * @param prompt
+	 * @param isEmptyAutorise : true si on accepte une chaine vide
+	 * @return
 	 */
 	public static String input_string(Scanner scanner, String prompt, boolean isEmptyAutorise) {
 		boolean is_input_ok = false;
@@ -296,9 +316,11 @@ public class Functions {
 		return input_user;
 	}
 	
-	/** 
+	/**
 	 * Fonction qui permet de demander une saisie à l'utilisateur : Les attendus pour oui ou non sont stockés dans les ensembles yes_answers et no_answers
-	 * prompt = Prompt qui demande à l'utilisateur de saisir 
+	 * @param scanner
+	 * @param prompt
+	 * @return
 	 */
 	public static boolean input_yes_no(Scanner scanner, String prompt) {
 		boolean is_input_ok = false;
@@ -346,6 +368,7 @@ public class Functions {
 	 * @param scanner
 	 * @param prompt
 	 * @param lengthMin : longueur minimum attendue pour le mot de passe
+	 * @param lengthMax : longueur maximale attendue pour le mot de passe
 	 * @return
 	 */
 	public static String input_password(Scanner scanner, String prompt, int lengthMin, int lengthMax) {
@@ -370,5 +393,60 @@ public class Functions {
 		}
 		return input_user;
 	}
+	
+	/**
+	 * Fonction qui permet de demander une saisie d'un email à l'utilisateur
+	 * @param scanner
+	 * @param prompt
+	 * @return
+	 */
+	public static String input_mail(Scanner scanner, String prompt) {
+		boolean is_input_ok = false;
+		String input_user = "";
+		while (!is_input_ok) {
+			System.out.println(prompt);
+			input_user = scanner.nextLine();
+			String regex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+			
+			if (input_user.trim().isEmpty()) {
+				System.out.println("ERREUR - Le mail ne peut pas être à vide");
+				is_input_ok = false;
+			}else if (!input_user.matches(regex)) {
+				System.out.println("ERREUR - Le mail n'est pas dans un format valide");
+				is_input_ok = false;
+			}else {
+				is_input_ok = true;
+			}
+		}
+		return input_user;
+	}
+	
+	/**
+	 * Fonction qui permet de demander une saisie d'un numéro de téléphone à l'utilisateur
+	 * @param scanner
+	 * @param prompt
+	 * @return
+	 */
+	public static String input_phone(Scanner scanner, String prompt) {
+		boolean is_input_ok = false;
+		String input_user = "";
+		while (!is_input_ok) {
+			System.out.println(prompt);
+			input_user = scanner.nextLine();
+			String regex = "^0[1-9]\\d{8}$";
+			
+			if (input_user.trim().isEmpty()) {
+				System.out.println("ERREUR - Le téléphone ne peut pas être à vide");
+				is_input_ok = false;
+			}else if (!input_user.matches(regex)) {
+				System.out.println("ERREUR - Le téléphone n'est pas dans un format valide");
+				is_input_ok = false;
+			}else {
+				is_input_ok = true;
+			}
+		}
+		return input_user;
+	}
+	
 	
 }

@@ -38,15 +38,24 @@ public class Application {
 				
 		int choice_user = -1;
 		while (choice_user != 0) {
-			if (user != null) System.out.println("\nUtilisateur : " + user.getLogin() + "\n");
+			if (user != null) {
+				System.out.println("\nUtilisateur : " + user.getLogin() + "\n");
+				
+				//On récupère le panier associé à cet utilisateur, s'il existe (statut in_progress uniquement)
+				order = service.findOrderInProgressByUser(user.getLogin());
+				//Si pas de panier au statut en cours associé à cet utilisateur, on le crée
+				if (order == null) {
+					order = new Order(user);
+					order = service.createOrder(order);
+				}
+			}
 			
 			String strMenuConnect = user != null ? "Me déconnecter" : "Me connecter (obligatoire pour acheter des formations) ";
 			String[] menu = {
-					"Affichage de toutes les formations",
-					"Recherche des formations par critères",
+					"Affichage des formations",
 					strMenuConnect,
 				    "Créer un compte si vous n'en avez pas",
-				    "Voir mon panier",
+				    "Voir/Modifier mon panier",
 				    "Afficher les commandes déjà passées"
 				};
 					
@@ -55,49 +64,86 @@ public class Application {
 			switch(choice_user) {
 				case 1:				
 					//Affichage de toutes les formations
-					showTraining(service);
+					//showTraining(service);
+					ArrayList<Training> lstTrainings = showTrainingByCriterion(service);
+					if (lstTrainings.size()!=0) {
+						boolean continueToAdd = true;
+						while (continueToAdd) {
+							//Pour ajouter une formation au panier
+						    int idTrainingToAdd = askUserIdTrainingToAdd(service, scanner, "Tapez le numéro de la formation pour l'ajouter au panier, ou 0 pour retourner au menu", true);
+						    //Si l'utilisateur a demandé de retourner au menu
+						    if (idTrainingToAdd == 0) {
+						    	continueToAdd = false;
+						    	break;
+						    }
+						    if (user == null) {
+						    	boolean hasCpt = Functions.input_yes_no(scanner,"ERREUR il faut être connecté pour pouvoir ajouter des formations au panier. Avez vous un compte ? Sinon tapez non et vous serez redirigé vers la création d'un compte");
+						    	if (hasCpt) {
+						    		user = authentification(service, user);
+						    		if (user == null) {
+						    			//Cas ou l'utilisateur a demandé à revenir au menu
+										break;
+									}
+						    	}else {
+						    		user = createAccount(service);
+						    		//On crée aussi un panier
+						    		order = new Order(user);
+									order = service.createOrder(order);
+						    	}
+						    	//On récupère le panier en cours de l'utilisateur une fois connecté
+					    		order = service.findOrderInProgressByUser(user.getLogin());
+						    }
+						    //On ajoute la formation au panier
+						    order = addTrainingOrder(service, order, idTrainingToAdd);
+						    continueToAdd = Functions.input_yes_no(scanner,"Voulez vous continuer d'ajouter des formations au panier?");
+						    //Si l'utilisateur ne veut plus ajouter de formations on lui propose d'aller à la page du panier
+						    if (!continueToAdd) {
+						    	boolean backToOrder = Functions.input_yes_no(scanner,"Voulez vous afficher/modifier le panier ?");
+						    	if (backToOrder) order = gestionOrder(service, order);
+						    }
+						}
+					}else {
+						System.out.println("Pas de formation correspondant à cette recherche");
+					}
 					break;
 				case 2:				
-					//Affichage des formations par critère
-					showTrainingByCriterion(service);
-					break;
-				case 3:				
-					//Me connecter
-					if (user != null) {
-						System.out.println("Déconnection");
-						user = null;
+					//Connection / Déconnection
+					if (user == null) {
+						user = authentification(service, user);
+						if (user == null) {
+							//Cas ou l'utilisateur a demandé à revenir au menu
+							break;
+						}
+						//On récupère le panier en cours de l'utilisateur une fois connecté
+			    		order = service.findOrderInProgressByUser(user.getLogin());
 					//Me déconnecter
 					}else {
-						user = authentification(service);
+						System.out.println("Déconnection");
+						user = null;
+						order = null;
 					}
 					break;				
-				case 4:				
+				case 3:				
 					//Créer un compte
-					System.out.println("Créer un compte");
 					user = createAccount(service);
+					//On récupère le panier en cours de l'utilisateur une fois connecté
+		    		order = service.findOrderInProgressByUser(user.getLogin());
 					break;
-				case 5:				
-					//Voir/Gérer mon panier
-					if (user == null) System.out.println("ERREUR il faut être connecté pour accéder à cette fonctionnalité. Si vous n'avez pas encore de compter, créez un compte");
+				case 4:				
+					//Voir/Modifier mon panier
+					if (user == null) System.out.println("ERREUR il faut être connecté pour accéder à cette fonctionnalité. Si vous n'avez pas encore de compte, créez un compte");
 					else{
-						//On récupère le panier associé à cet utilisateur, s'il existe (statut in_progress uniquement)
-						order = service.findOrderInProgressByUser(user.getLogin());
-						//Si pas de panier au statut en cours associé à cet utilisateur, on le crée
-						if (order == null) {
-							order = new Order(user);
-							order = service.createOrder(order);
-						}
 						//On va gérer ce panier et on récupère les modifications
 						order = gestionOrder(service, order);
 					}
 					break;
-				case 6:				
+				case 5:				
 					//Voir les commandes déjà passées
 					if (user == null) System.out.println("ERREUR il faut être connecté pour accéder à cette fonctionnalité. Si vous n'avez pas encore de compter, créez un compte");
 					else{
 						ArrayList<Order> lstOrdersPassees = (ArrayList<Order>) service.findLstOrderByUser(user.getLogin(), StatusValue.ORDERED);
 						
-						System.out.println("Liste des commandes déjà passées :\n");
+						System.out.println("Liste des commandes effectuées :\n");
 						for (Order or : lstOrdersPassees) {
 							System.out.println(or); 
 						}
@@ -134,8 +180,8 @@ public class Application {
 	 * Méthode qui permet de rechercher des formations par critère
 	 * @param service
 	 */
-	public static void showTrainingByCriterion(SellingCourses service) {
-		System.out.println("Affichage des formations par sélection :\n");
+	public static ArrayList<Training> showTrainingByCriterion(SellingCourses service) {
+		System.out.println("Affichage des formations :\n");
 		
 		String wordToSearch = Functions.input_string(scanner, "Entrez le mot clé à rechercher", true);
 		int choiceRemote = Functions.input_int(scanner, "Recherche de tout type de formation, tapez 0, Présentiel tapez 1, Distanciel tapez 2", 0, 2);
@@ -144,21 +190,28 @@ public class Application {
 		for (Training t : lstTrainings) {
 			System.out.println(t+"\n"); 
 		}
+		
+		return lstTrainings;
 	}
 	
 	/**
 	 * Méthode pour demander à l'utilisateur de s'authentifier
 	 */
-	public static User authentification(SellingCourses service) {
+	public static User authentification(SellingCourses service, User user) {
 		System.out.println("Authentification");
-		
-		String login = Functions.input_string(scanner, "Login");
-		String password = Functions.input_string(scanner, "Password");
-		
-		User user = service.authentification(login, password);
-		if (user == null) {
-			System.out.println("ERREUR Aucun utilisateur n'existe avec ce login et ce mot de passe");
+		while (user==null) {
+			String login = Functions.input_string(scanner, "Login");
+			String password = Functions.input_string(scanner, "Password");
+			
+			user = service.authentification(login, password);
+			if (user == null) {
+				if (Functions.input_yes_no(scanner, "ERREUR Aucun utilisateur n'existe avec ce login et ce mot de passe - Voulez vous retourner au menu ?")) {
+					return null;
+				}
+			}
 		}
+		
+		//On récupère l'order en cours associé à cet utilisateur
 		return user;		
 	}
 	
@@ -199,16 +252,23 @@ public class Application {
 	 * @throws LoginAlreadyUsedException 
 	 */
 	public static User createAccount(SellingCourses service) throws LoginAlreadyUsedException {
-		//Input spécifique ou j'ai rajouté le contrôle de l'existence du login 		
-		String login = input_login(scanner, "Login", service);
-		
-		//Input spécifique pour le mot de passe, avec nombre de caractère minimal et maximal
-		String password = Functions.input_password(scanner, "Password", LENGTH_MIN_PASSWORD, LENGTH_MAX_PASSWORD);
-				
-		User user = service.createAccount(login, password);
-		if (user == null) {
-			System.out.println("ERREUR lors de la création du compte utilisateur");
+		System.out.println("Créer un compte");
+		User user = null;		
+		while (user==null) {
+			//Input spécifique ou j'ai rajouté le contrôle de l'existence du login 		
+			String login = input_login(scanner, "Login", service);
+			
+			//Input spécifique pour le mot de passe, avec nombre de caractère minimal et maximal
+			String password = Functions.input_password(scanner, "Password", LENGTH_MIN_PASSWORD, LENGTH_MAX_PASSWORD);
+					
+			user = service.createAccount(login, password);
+			
+			if (user == null) {
+				System.out.println("ERREUR lors de la création du compte utilisateur");
+				break;
+			}
 		}
+		
 		return user;		
 	}
 	
@@ -237,7 +297,7 @@ public class Application {
 				case 1:				
 					//Ajouter une formation à mon panier
 					System.out.println("Ajouter une formation à mon panier");
-					order = addTrainingOrder(service, order);
+					order = addTrainingOrder(service, order, 0);
 					break;
 				case 2:	
 					//Si le panier est vide message d'erreur
@@ -251,8 +311,20 @@ public class Application {
 					break;
 				case 3:				
 					//Valider le panier et passer la commande
-					System.out.println("Valider le panier et passer la commande");
+					
+					//TODO On va demander à l'utilisateur les informations du client
+					/*System.out.println("********* Informations du client concerné par la commande *********");
+					String name = Functions.input_string(scanner, "Entrez le nom du client", false);
+					String firstName = Functions.input_string(scanner, "Entrez le prénom du client", false);
+					//Contrôle du format du mail
+					String mail = Functions.input_mail(scanner, "Entrez l'adresse mail du client");
+					//TODO Contrôle adresse
+					String address = Functions.input_string(scanner, "Entrez l'adresse du client", false);
+					//TODO Contrôle format phone
+					String phone = Functions.input_phone(scanner, "Entrez le numéro de téléphone du client");
+						*/				
 					Customer customer = new Customer(1, "DUPONT", "André", "andre.dupont@mail.com", "56 rue des colibris 50410 Gernau", "0102030405");
+					
 					order.validate(customer) ;
 					//On enregistre la mise à jour de l'order
 					if (service.updateOrder(order) == true) {
@@ -275,19 +347,24 @@ public class Application {
 	 * @param service
 	 * @param scanner
 	 * @param prompt
+	 * @boolean acceptZero : à true si on accepte la valeur 0 pour quitter
 	 * @return
 	 */
-	public static int askUserIdTrainingToAdd(SellingCourses service, Scanner scanner, String prompt) {
+	public static int askUserIdTrainingToAdd(SellingCourses service, Scanner scanner, String prompt, boolean acceptZero) {
 		int input_int_user = 0;
 		boolean is_valid_input = false;
 	    while (!is_valid_input) {
 	    	System.out.println(prompt);
 	    	String input_user = scanner.nextLine();
 	    	
+	    		
+	    	
 	    	if (! input_user.matches("\\d+")) {
 	        	System.out.println("ERREUR - Vous devez saisir un entier.");
 	        } else {
 	        	input_int_user = Integer.parseInt(input_user);
+	        	
+	        	if (input_int_user == 0 && acceptZero) return 0;
 	        	
 	        	Training training = service.findTrainingById(input_int_user);
 	        	
@@ -306,6 +383,7 @@ public class Application {
 	 * @param service
 	 * @param scanner
 	 * @param prompt
+	 * @param order
 	 * @return
 	 */
 	public static int askUserIdTrainingToDel(SellingCourses service, Scanner scanner, String prompt, Order order) {
@@ -337,15 +415,18 @@ public class Application {
 	/**
 	 * Méthode pour ajouter une formation au panier
 	 * @param service
-	 * @param idTraining
+	 * @param order
+	 * @param idTraining : Numéro de la formation (=0 si l'utilisateur doit le saisir)
 	 * @throws SQLException 
 	 */
-	public static Order addTrainingOrder(SellingCourses service, Order order) throws SQLException {
+	public static Order addTrainingOrder(SellingCourses service, Order order, int idTraining) throws SQLException {
 		//On demande à l'utilisateur le numéro de la formation à ajouter
-		int idTraining = askUserIdTrainingToAdd(service, scanner, "Entrez le numéro de la formation que vous souhaitez ajouter");
+		if (idTraining == 0)
+			idTraining = askUserIdTrainingToAdd(service, scanner, "Entrez le numéro de la formation que vous souhaitez ajouter",false);
 		
 		//On regarde si cette formation a déjà été ajoutée au panier
 		boolean isAlreadyExist = false;
+		if (order == null) System.out.println("ERREUR Il faut avoir un panier");
 		LineOrder lineOrder = service.findLineOrder(order.getIdOrder(), idTraining);
 		if (lineOrder != null){
 			isAlreadyExist = true;
