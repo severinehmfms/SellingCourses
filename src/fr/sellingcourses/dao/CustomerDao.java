@@ -8,6 +8,6 @@ import fr.sellingcourses.entities.Customer;
 public interface CustomerDao {
 	
 	Customer findById(Connection connection, int id);
-    List<Customer> findAll(Connection connection);
+    Customer create(Connection connection, Customer customer);
 
 }
