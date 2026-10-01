@@ -56,16 +56,22 @@ public class TestApplication {
 				
 		//TEST Customer
 		System.out.println("TEST Client \n");
-		Customer customer = new Customer(1, "DUPONT", "André", "andre.dupont@mail.com", "56 rue des colibris 50410 Gernau", "0102030405");
-		System.out.println(customer + "\n");
-		//TODO On crée un customer
-		/*
-		customer = service.createCustomer(customer);
-		if (customer != null)
-			System.out.println("Customer créé avec l'id : " + customer.getIdCustomer());*/
-		//TODO On récupère un customer par son id
-		customer = service.findCustomerById(6);
-		System.out.println(customer + "\n");
+		Customer customer; 
+		
+		//On récupère un customer par son id
+		int idTest = 6;
+		customer = service.findCustomerById(idTest);
+		//S'il n'existe pas on le crée
+		if (customer == null) {
+			System.out.println("Client recherché " + idTest + "inexistant, on va en créer un :\n");
+			customer = new Customer("DUPONT", "André", "andre.dupont@mail.com", "56 rue des colibris 50410 Gernau", "0102030405");
+			//On crée un customer
+			customer = service.createCustomer(customer);
+			if (customer != null)
+				System.out.println("Customer créé avec l'id : " + customer.getIdCustomer());
+		}else {
+			System.out.println("Client trouvé :\n" + customer + "\n");
+		}		
 		
 		//TEST Order
 		//On récupère le panier en cours si il existe pour notre utilisateur

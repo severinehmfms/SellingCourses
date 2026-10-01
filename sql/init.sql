@@ -20,7 +20,7 @@ CREATE TABLE Customer(
    customer_first_name VARCHAR(50),
    customer_mail VARCHAR(50),
    customer_adresse VARCHAR(50),
-   customer_phone DECIMAL(15,2)
+   customer_phone INT
 ) ENGINE = InnoDB;
 
 CREATE TABLE Training(
