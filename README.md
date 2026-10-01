@@ -16,6 +16,6 @@ Installation :
 Pour faire fonctionner cette application, il faut au préalable :
 - Créer une base de données mariaDB ou mySql.
 - Importer le fichier sql/init.sql pour avoir les données de base
-- Les paramètres de cette base de données sont à spécifier dans le fichier 
+- Les paramètres de cette base de données sont à spécifier dans le fichier fr.sellingcourses.dao.DatabaseConnection.java
 
 
