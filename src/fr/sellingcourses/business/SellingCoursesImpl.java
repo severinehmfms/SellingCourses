@@ -150,8 +150,8 @@ public class SellingCoursesImpl implements SellingCourses {
 	//****************** Services concernant les clients (Classe Customer)
 
 	@Override
-	public List<Customer> findAllCustomers() {
-		return customerDao.findAll(connection);
+	public Customer createCustomer(Customer customer) {
+		return customerDao.create(connection, customer);
 	}
 
 	@Override
