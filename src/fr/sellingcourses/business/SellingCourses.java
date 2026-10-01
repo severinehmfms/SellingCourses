@@ -58,4 +58,7 @@ public interface SellingCourses {
 	
 	Customer findCustomerById(int id);
 	
+	//Service pour la base de données
+	void closeConnection();
+	
 }
