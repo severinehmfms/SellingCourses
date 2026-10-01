@@ -12,6 +12,7 @@ import java.util.List;
 
 import fr.sellingcourses.business.SellingCourses;
 import fr.sellingcourses.business.SellingCoursesImpl;
+import fr.sellingcourses.entities.Customer;
 import fr.sellingcourses.entities.LineOrder;
 import fr.sellingcourses.entities.Order;
 import fr.sellingcourses.entities.User;
@@ -35,6 +36,7 @@ public class OrderDaoImpl implements OrderDao{
 		//Appels des DAO nécessaires
 		UserDao userDao = new UserDaoImpl();
 		LineOrderDao lineOrderDao = new LineOrderDaoImpl();
+		CustomerDao customerDao = new CustomerDaoImpl();
 		
 		try {
 			int rsId = resultSet.getInt("order_id"); 
@@ -60,10 +62,10 @@ public class OrderDaoImpl implements OrderDao{
 			StatusValue statusValue = StatusValue.IN_PROGRESS;
 			if (rsStatus == 1) statusValue = StatusValue.ORDERED;
 			
-			//TODO On récupère l'objet client associé à customer_id si customer_id différent de 0 (A rajouter quand la partie optionnelle client sera prête)
+			//On récupère l'objet client associé à customer_id si customer_id différent de 0
+			Customer customer = customerDao.findById(connection, rsIdCustomer);
 			
-			
-			order =  new Order(rsId, statusValue, rsDate, user);		
+			order =  new Order(rsId, statusValue, rsDate, user, customer);
 			
 			//On récupère la liste des lignes de commandes associées à cette commande
 			ArrayList<LineOrder> lstLineOrder = (ArrayList<LineOrder>) lineOrderDao.findAllByOrder(connection, order);
