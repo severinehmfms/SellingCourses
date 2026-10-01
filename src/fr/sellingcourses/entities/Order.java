@@ -50,10 +50,7 @@ public class Order {
 	 * @param idOrder
 	 * @param status
 	 * @param date
-	 * @param totalAmount
 	 * @param user
-	 * @param customer
-	 * @param lstLineOrder
 	 */
 	public Order(int idOrder, StatusValue status, LocalDateTime date, User user) {
 		this.idOrder = idOrder;
@@ -65,14 +62,12 @@ public class Order {
 	}
 	
 	/**
-	 * Constructeur complet
+	 * Constructeur avec le client
 	 * @param idOrder
 	 * @param status
 	 * @param date
-	 * @param totalAmount
 	 * @param user
 	 * @param customer
-	 * @param lstLineOrder
 	 */
 	public Order(int idOrder, StatusValue status, LocalDateTime date, User user, Customer customer) {
 		this.idOrder = idOrder;
@@ -209,9 +204,9 @@ public class Order {
 		strOrder += " Id : " + idOrder + "\n";
 		if (this.getStatus() == StatusValue.ORDERED) {
 			strOrder += "Date de la commande : " + dateFormatee + "\n";
-			//TODO Quand la partie Customer sera gérée, rajouter le nom du client ici s'il est renseigné:
-			if (customer != null)	strOrder += "Client concerné par la commande : ";
+			if (customer != null)	strOrder += "Client concerné par la commande :\n" + customer;
 		}
+		strOrder += "*******Formations commandées :\n";
 		for (LineOrder lo : lstLineOrder) {
 			strOrder += lo+"\n";
 		}
