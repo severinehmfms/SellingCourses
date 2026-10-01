@@ -87,7 +87,7 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		String str = idCustomer != 0 ? "Id : " + idCustomer + " " : "";
+		String str = idCustomer != 0 ? idCustomer + " - " : "";
 		str += name + " " + firstName + " - Email " + mail + " - Tél " + phone + "\nAdresse " + adresse + "\n";
 		return str; 
 	}
