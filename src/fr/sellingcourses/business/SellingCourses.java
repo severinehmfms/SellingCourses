@@ -54,9 +54,9 @@ public interface SellingCourses {
 	boolean isLineOrderExists(int orderId, int training_id);
 	
 	//Services concernant les clients (Classe Customer)
-	List<Customer> findAllCustomers();
-	
 	Customer findCustomerById(int id);
+	
+	Customer createCustomer(Customer customer);
 	
 	//Service pour la base de données
 	void closeConnection();
