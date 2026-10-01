@@ -6,6 +6,7 @@ import java.util.List;
 
 import fr.sellingcourses.business.SellingCourses;
 import fr.sellingcourses.business.SellingCoursesImpl;
+import fr.sellingcourses.entities.Customer;
 import fr.sellingcourses.entities.LineOrder;
 import fr.sellingcourses.entities.Order;
 import fr.sellingcourses.entities.Training;
@@ -39,6 +40,7 @@ public class TestApplication {
 		}
 				
 		//On récupère une formation par son id
+		System.out.println("Affichage formation par son id :\n");		
 		Training training = service.findTrainingById(1);
 		System.out.println(training);
 		
@@ -53,10 +55,17 @@ public class TestApplication {
 		}
 				
 		//TEST Customer
-		//TODO On récupère la liste des customers
-		
+		System.out.println("TEST Client \n");
+		Customer customer = new Customer(1, "DUPONT", "André", "andre.dupont@mail.com", "56 rue des colibris 50410 Gernau", "0102030405");
+		System.out.println(customer + "\n");
+		//TODO On crée un customer
+		/*
+		customer = service.createCustomer(customer);
+		if (customer != null)
+			System.out.println("Customer créé avec l'id : " + customer.getIdCustomer());*/
 		//TODO On récupère un customer par son id
-		
+		customer = service.findCustomerById(6);
+		System.out.println(customer + "\n");
 		
 		//TEST Order
 		//On récupère le panier en cours si il existe pour notre utilisateur

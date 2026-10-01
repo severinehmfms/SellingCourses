@@ -4564,3 +4564,2003 @@ Aucun utilisateur trouvé avec ce login et ce mot de passe
 Ce login existe déjà dans la base.
 2026-10-01 09:42:43
 ERREUR - Ce login existe déjà dans la base de données
+2026-10-01 10:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 10:58:21
+Connection à la base de données bien effectuée
+2026-10-01 10:58:23
+Récupération de la liste des formations bien effectuée
+2026-10-01 10:58:40
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 10:58:52
+Authentification bien effectuée
+2026-10-01 10:58:54
+Récupération d'un panier par son id bien effectuée
+2026-10-01 10:58:54
+Chargement du pilote JDBC bien effectué
+2026-10-01 10:58:54
+Connection à la base de données bien effectuée
+2026-10-01 10:58:54
+Récupération de l'utilisateur bien effectuée
+2026-10-01 10:58:54
+Chargement du pilote JDBC bien effectué
+2026-10-01 10:58:54
+Connection à la base de données bien effectuée
+2026-10-01 10:58:54
+Récupération d'une formation par son id bien effectuée
+2026-10-01 10:58:54
+Chargement du pilote JDBC bien effectué
+2026-10-01 10:58:54
+Connection à la base de données bien effectuée
+2026-10-01 10:58:54
+Récupération d'une formation par son id bien effectuée
+2026-10-01 10:58:54
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 11:00:32
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:00:32
+Connection à la base de données bien effectuée
+2026-10-01 11:07:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:07:21
+Connection à la base de données bien effectuée
+2026-10-01 11:08:39
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:08:39
+Connection à la base de données bien effectuée
+2026-10-01 11:08:44
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 11:35:08
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:35:08
+Connection à la base de données bien effectuée
+2026-10-01 11:35:13
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 11:35:17
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:37:57
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:37:57
+Connection à la base de données bien effectuée
+2026-10-01 11:38:06
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 11:38:09
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:38:19
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:38:19
+Connection à la base de données bien effectuée
+2026-10-01 11:38:25
+Authentification bien effectuée
+2026-10-01 11:38:29
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 11:38:34
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:39:34
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:39:34
+Connection à la base de données bien effectuée
+2026-10-01 11:39:42
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 11:39:44
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:39:50
+Authentification bien effectuée
+2026-10-01 11:39:54
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 11:39:56
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:42:23
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:42:23
+Connection à la base de données bien effectuée
+2026-10-01 11:42:27
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 11:42:29
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:42:50
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 11:43:03
+Authentification bien effectuée
+2026-10-01 11:43:03
+Récupération d'un panier par son id bien effectuée
+2026-10-01 11:43:03
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:43:03
+Connection à la base de données bien effectuée
+2026-10-01 11:43:03
+Récupération de l'utilisateur bien effectuée
+2026-10-01 11:43:03
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:43:03
+Connection à la base de données bien effectuée
+2026-10-01 11:43:03
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:43:03
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:43:03
+Connection à la base de données bien effectuée
+2026-10-01 11:43:03
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:43:03
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 11:43:08
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 11:43:13
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:43:15
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:43:15
+Récupération d'un panier par son id bien effectuée
+2026-10-01 11:43:15
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:43:15
+Connection à la base de données bien effectuée
+2026-10-01 11:43:15
+Récupération de l'utilisateur bien effectuée
+2026-10-01 11:43:15
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:43:15
+Connection à la base de données bien effectuée
+2026-10-01 11:43:15
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:43:15
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:43:15
+Connection à la base de données bien effectuée
+2026-10-01 11:43:15
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:43:15
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:43:15
+Connection à la base de données bien effectuée
+2026-10-01 11:43:15
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:43:15
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 11:44:04
+Récupération d'un panier par son id bien effectuée
+2026-10-01 11:44:04
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:44:04
+Connection à la base de données bien effectuée
+2026-10-01 11:44:04
+Récupération de l'utilisateur bien effectuée
+2026-10-01 11:44:04
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:44:04
+Connection à la base de données bien effectuée
+2026-10-01 11:44:04
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:44:04
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:44:04
+Connection à la base de données bien effectuée
+2026-10-01 11:44:04
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:44:04
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:44:04
+Connection à la base de données bien effectuée
+2026-10-01 11:44:04
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:44:04
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 11:44:12
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 11:44:15
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:44:15
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:44:15
+Connection à la base de données bien effectuée
+2026-10-01 11:44:15
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:44:18
+Récupération d'un panier par son id bien effectuée
+2026-10-01 11:44:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:44:18
+Connection à la base de données bien effectuée
+2026-10-01 11:44:18
+Récupération de l'utilisateur bien effectuée
+2026-10-01 11:44:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:44:18
+Connection à la base de données bien effectuée
+2026-10-01 11:44:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:44:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:44:18
+Connection à la base de données bien effectuée
+2026-10-01 11:44:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:44:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:44:18
+Connection à la base de données bien effectuée
+2026-10-01 11:44:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:44:18
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 11:45:45
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:45:45
+Connection à la base de données bien effectuée
+2026-10-01 11:45:48
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 11:45:50
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:45:54
+Authentification bien effectuée
+2026-10-01 11:45:54
+Récupération d'un panier par son id bien effectuée
+2026-10-01 11:45:54
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:45:54
+Connection à la base de données bien effectuée
+2026-10-01 11:45:54
+Récupération de l'utilisateur bien effectuée
+2026-10-01 11:45:54
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:45:54
+Connection à la base de données bien effectuée
+2026-10-01 11:45:54
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:45:54
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:45:54
+Connection à la base de données bien effectuée
+2026-10-01 11:45:54
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:45:54
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:45:54
+Connection à la base de données bien effectuée
+2026-10-01 11:45:54
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:45:54
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 11:46:03
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 11:46:05
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:46:07
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:52:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:52:56
+Connection à la base de données bien effectuée
+2026-10-01 11:53:00
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 11:53:02
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:55:14
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:55:14
+Connection à la base de données bien effectuée
+2026-10-01 11:55:17
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 11:55:19
+Récupération d'une formation par son id bien effectuée
+2026-10-01 11:55:53
+Chargement du pilote JDBC bien effectué
+2026-10-01 11:55:53
+Connection à la base de données bien effectuée
+2026-10-01 11:55:57
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 11:55:59
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:11:17
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:11:17
+Connection à la base de données bien effectuée
+2026-10-01 13:11:25
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:14:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:14:56
+Connection à la base de données bien effectuée
+2026-10-01 13:15:07
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:15:15
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:15:54
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:15:54
+Connection à la base de données bien effectuée
+2026-10-01 13:15:58
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:16:07
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:16:09
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:16:28
+Ce login existe déjà dans la base.
+2026-10-01 13:16:28
+ERREUR - Ce login existe déjà dans la base de données
+2026-10-01 13:16:32
+Ce login n'existe pas déjà dans la base.
+2026-10-01 13:16:34
+Création du compte bien effectuée
+2026-10-01 13:16:34
+Aucun panier trouvé pour cet utilisateur et ce statut.
+2026-10-01 13:16:38
+Récupération d'un panier par son id bien effectuée
+2026-10-01 13:16:38
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:16:38
+Connection à la base de données bien effectuée
+2026-10-01 13:16:38
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:16:38
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:25:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:25:58
+Connection à la base de données bien effectuée
+2026-10-01 13:26:08
+Ce login existe déjà dans la base.
+2026-10-01 13:26:08
+ERREUR - Ce login existe déjà dans la base de données
+2026-10-01 13:26:18
+Ce login n'existe pas déjà dans la base.
+2026-10-01 13:26:19
+Création du compte bien effectuée
+2026-10-01 13:26:19
+Aucun panier trouvé pour cet utilisateur et ce statut.
+2026-10-01 13:26:27
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:26:29
+Récupération d'un panier par son id bien effectuée
+2026-10-01 13:26:29
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:26:29
+Connection à la base de données bien effectuée
+2026-10-01 13:26:29
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:26:29
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:26:36
+Récupération d'un panier par son id bien effectuée
+2026-10-01 13:26:36
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:26:36
+Connection à la base de données bien effectuée
+2026-10-01 13:26:36
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:26:36
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:28:17
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:28:17
+Connection à la base de données bien effectuée
+2026-10-01 13:28:21
+Authentification bien effectuée
+2026-10-01 13:28:21
+Récupération d'un panier par son id bien effectuée
+2026-10-01 13:28:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:28:21
+Connection à la base de données bien effectuée
+2026-10-01 13:28:21
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:28:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:28:21
+Connection à la base de données bien effectuée
+2026-10-01 13:28:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:28:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:28:21
+Connection à la base de données bien effectuée
+2026-10-01 13:28:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:28:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:28:21
+Connection à la base de données bien effectuée
+2026-10-01 13:28:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:28:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:28:21
+Connection à la base de données bien effectuée
+2026-10-01 13:28:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:28:21
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:28:30
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:28:32
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:28:41
+Aucun utilisateur trouvé avec ce login et ce mot de passe
+2026-10-01 13:28:57
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:28:59
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:29:04
+Authentification bien effectuée
+2026-10-01 13:29:04
+Récupération d'un panier par son id bien effectuée
+2026-10-01 13:29:04
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:29:04
+Connection à la base de données bien effectuée
+2026-10-01 13:29:04
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:29:04
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:29:04
+Connection à la base de données bien effectuée
+2026-10-01 13:29:04
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:29:04
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:29:04
+Connection à la base de données bien effectuée
+2026-10-01 13:29:04
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:29:04
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:29:04
+Connection à la base de données bien effectuée
+2026-10-01 13:29:04
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:29:04
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:29:04
+Connection à la base de données bien effectuée
+2026-10-01 13:29:04
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:29:04
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:29:13
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:29:15
+Récupération d'un panier par son id bien effectuée
+2026-10-01 13:29:15
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:29:15
+Connection à la base de données bien effectuée
+2026-10-01 13:29:15
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:29:15
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:29:15
+Connection à la base de données bien effectuée
+2026-10-01 13:29:15
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:29:15
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:29:15
+Connection à la base de données bien effectuée
+2026-10-01 13:29:15
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:29:15
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:29:15
+Connection à la base de données bien effectuée
+2026-10-01 13:29:15
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:29:15
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:29:15
+Connection à la base de données bien effectuée
+2026-10-01 13:29:15
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:29:15
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:33:07
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:33:07
+Connection à la base de données bien effectuée
+2026-10-01 13:33:11
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:33:13
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:34:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:34:21
+Connection à la base de données bien effectuée
+2026-10-01 13:34:25
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:34:26
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:34:50
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:34:50
+Connection à la base de données bien effectuée
+2026-10-01 13:34:55
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:34:56
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:35:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:35:42
+Connection à la base de données bien effectuée
+2026-10-01 13:35:47
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:35:49
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:36:00
+Aucun utilisateur trouvé avec ce login et ce mot de passe
+2026-10-01 13:36:09
+Authentification bien effectuée
+2026-10-01 13:36:09
+Récupération d'un panier par son id bien effectuée
+2026-10-01 13:36:09
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:36:09
+Connection à la base de données bien effectuée
+2026-10-01 13:36:09
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:36:09
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:36:09
+Connection à la base de données bien effectuée
+2026-10-01 13:36:09
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:36:09
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:36:09
+Connection à la base de données bien effectuée
+2026-10-01 13:36:09
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:36:09
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:36:09
+Connection à la base de données bien effectuée
+2026-10-01 13:36:09
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:36:09
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:36:09
+Connection à la base de données bien effectuée
+2026-10-01 13:36:09
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:36:09
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:37:01
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:37:01
+Connection à la base de données bien effectuée
+2026-10-01 13:37:05
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:37:06
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:37:12
+Aucun utilisateur trouvé avec ce login et ce mot de passe
+2026-10-01 13:37:21
+Authentification bien effectuée
+2026-10-01 13:49:54
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:49:54
+Connection à la base de données bien effectuée
+2026-10-01 13:50:07
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:50:09
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:50:42
+Ce login n'existe pas déjà dans la base.
+2026-10-01 13:50:46
+Création du compte bien effectuée
+2026-10-01 13:50:46
+Aucun panier trouvé pour cet utilisateur et ce statut.
+2026-10-01 13:52:33
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:52:33
+Connection à la base de données bien effectuée
+2026-10-01 13:52:39
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:52:41
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:52:47
+Ce login existe déjà dans la base.
+2026-10-01 13:52:47
+ERREUR - Ce login existe déjà dans la base de données
+2026-10-01 13:52:54
+Ce login n'existe pas déjà dans la base.
+2026-10-01 13:53:08
+Création du compte bien effectuée
+2026-10-01 13:53:08
+Aucun panier trouvé pour cet utilisateur et ce statut.
+2026-10-01 13:54:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:54:42
+Connection à la base de données bien effectuée
+2026-10-01 13:54:45
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:54:47
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:54:54
+Ce login n'existe pas déjà dans la base.
+2026-10-01 13:54:56
+Création du compte bien effectuée
+2026-10-01 13:55:28
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:55:28
+Connection à la base de données bien effectuée
+2026-10-01 13:55:33
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:55:34
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:55:42
+Ce login n'existe pas déjà dans la base.
+2026-10-01 13:55:47
+Création du compte bien effectuée
+2026-10-01 13:55:47
+Récupération d'un panier par son id bien effectuée
+2026-10-01 13:55:47
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:55:47
+Connection à la base de données bien effectuée
+2026-10-01 13:55:47
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:55:47
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:55:51
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:55:58
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:55:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:55:58
+Connection à la base de données bien effectuée
+2026-10-01 13:55:58
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:56:10
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:56:12
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:56:33
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:56:33
+Connection à la base de données bien effectuée
+2026-10-01 13:56:33
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:56:33
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:56:33
+Connection à la base de données bien effectuée
+2026-10-01 13:56:33
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:56:37
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:56:38
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:56:43
+Aucun panier trouvé pour cet utilisateur et ce statut.
+2026-10-01 13:56:47
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:56:47
+Connection à la base de données bien effectuée
+2026-10-01 13:56:47
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:56:47
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:56:47
+Connection à la base de données bien effectuée
+2026-10-01 13:56:47
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:56:47
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:56:47
+Connection à la base de données bien effectuée
+2026-10-01 13:56:47
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:56:47
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:56:47
+Récupération de la liste des commandes pour un login et un statut.
+2026-10-01 13:56:47
+Récupération d'un panier par son id bien effectuée
+2026-10-01 13:56:47
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:56:47
+Connection à la base de données bien effectuée
+2026-10-01 13:56:47
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:56:47
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:56:58
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:56:59
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:57:06
+Ce login n'existe pas déjà dans la base.
+2026-10-01 13:57:08
+Création du compte bien effectuée
+2026-10-01 13:57:08
+Récupération d'un panier par son id bien effectuée
+2026-10-01 13:57:08
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:57:08
+Connection à la base de données bien effectuée
+2026-10-01 13:57:08
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:57:08
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:57:10
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:57:14
+Récupération d'un panier par son id bien effectuée
+2026-10-01 13:57:14
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:57:14
+Connection à la base de données bien effectuée
+2026-10-01 13:57:14
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:57:14
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:57:14
+Connection à la base de données bien effectuée
+2026-10-01 13:57:14
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:57:14
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:57:22
+Récupération d'un panier par son id bien effectuée
+2026-10-01 13:57:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:57:22
+Connection à la base de données bien effectuée
+2026-10-01 13:57:22
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:57:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:57:22
+Connection à la base de données bien effectuée
+2026-10-01 13:57:22
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:57:22
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:57:24
+Récupération de la liste des commandes pour un login et un statut.
+2026-10-01 13:57:24
+Récupération d'un panier par son id bien effectuée
+2026-10-01 13:57:24
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:57:24
+Connection à la base de données bien effectuée
+2026-10-01 13:57:24
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:57:24
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:57:24
+Connection à la base de données bien effectuée
+2026-10-01 13:57:24
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:57:24
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:58:21
+Connection à la base de données bien effectuée
+2026-10-01 13:58:29
+Ce login n'existe pas déjà dans la base.
+2026-10-01 13:58:36
+Création du compte bien effectuée
+2026-10-01 13:58:36
+Aucun panier trouvé pour cet utilisateur et ce statut.
+2026-10-01 13:58:36
+Aucun panier trouvé pour cet utilisateur et ce statut.
+2026-10-01 13:58:46
+Aucun utilisateur trouvé avec ce login et ce mot de passe
+2026-10-01 13:59:01
+Authentification bien effectuée
+2026-10-01 13:59:01
+Récupération d'un panier par son id bien effectuée
+2026-10-01 13:59:01
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:59:01
+Connection à la base de données bien effectuée
+2026-10-01 13:59:01
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:59:01
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:59:01
+Connection à la base de données bien effectuée
+2026-10-01 13:59:01
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:59:01
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:59:01
+Connection à la base de données bien effectuée
+2026-10-01 13:59:01
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:59:01
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:59:01
+Connection à la base de données bien effectuée
+2026-10-01 13:59:01
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:59:01
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:59:01
+Connection à la base de données bien effectuée
+2026-10-01 13:59:01
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:59:01
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:59:01
+Récupération d'un panier par son id bien effectuée
+2026-10-01 13:59:01
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:59:01
+Connection à la base de données bien effectuée
+2026-10-01 13:59:01
+Récupération de l'utilisateur bien effectuée
+2026-10-01 13:59:01
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:59:01
+Connection à la base de données bien effectuée
+2026-10-01 13:59:01
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:59:01
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:59:01
+Connection à la base de données bien effectuée
+2026-10-01 13:59:01
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:59:01
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:59:01
+Connection à la base de données bien effectuée
+2026-10-01 13:59:01
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:59:01
+Chargement du pilote JDBC bien effectué
+2026-10-01 13:59:01
+Connection à la base de données bien effectuée
+2026-10-01 13:59:01
+Récupération d'une formation par son id bien effectuée
+2026-10-01 13:59:01
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 13:59:12
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 13:59:25
+Aucun utilisateur trouvé avec ce login et ce mot de passe
+2026-10-01 14:00:31
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:00:31
+Connection à la base de données bien effectuée
+2026-10-01 14:00:43
+Ce login n'existe pas déjà dans la base.
+2026-10-01 14:00:44
+Création du compte bien effectuée
+2026-10-01 14:00:44
+Aucun panier trouvé pour cet utilisateur et ce statut.
+2026-10-01 14:00:44
+Aucun panier trouvé pour cet utilisateur et ce statut.
+2026-10-01 14:00:57
+Aucun utilisateur trouvé avec ce login et ce mot de passe
+2026-10-01 14:01:06
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 14:01:08
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:01:14
+Aucun utilisateur trouvé avec ce login et ce mot de passe
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération de la liste des formations bien effectuée
+2026-10-01 14:51:25
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 14:51:25
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:51:25
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:51:25
+Récupération d'un panier par son id bien effectuée
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:51:25
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:51:25
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:51:25
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:51:25
+Récupération de la liste des commandes pour un login et un statut.
+2026-10-01 14:51:25
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:51:25
+Connection à la base de données bien effectuée
+2026-10-01 14:51:25
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération de la liste des formations bien effectuée
+2026-10-01 14:56:42
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 14:56:42
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:56:42
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:56:42
+Récupération d'un panier par son id bien effectuée
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:56:42
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:56:42
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:56:42
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:56:42
+Récupération de la liste des commandes pour un login et un statut.
+2026-10-01 14:56:42
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:56:42
+Connection à la base de données bien effectuée
+2026-10-01 14:56:42
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:57:17
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération de la liste des formations bien effectuée
+2026-10-01 14:57:18
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 14:57:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:57:18
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:57:18
+Récupération d'un panier par son id bien effectuée
+2026-10-01 14:57:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:57:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:57:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:57:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:57:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:57:18
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:57:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:57:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:57:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:57:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:57:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:57:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:57:18
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:57:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:57:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:57:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:57:18
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:57:18
+Récupération de la liste des commandes pour un login et un statut.
+2026-10-01 14:57:18
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:57:18
+Connection à la base de données bien effectuée
+2026-10-01 14:57:18
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération de la liste des formations bien effectuée
+2026-10-01 14:58:16
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:16
+Récupération d'un panier par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:58:16
+Récupération de la liste des commandes pour un login et un statut.
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération de la liste des formations bien effectuée
+2026-10-01 14:58:16
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:16
+Récupération d'un panier par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:16
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:58:16
+Récupération de la liste des commandes pour un login et un statut.
+2026-10-01 14:58:16
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:16
+Connection à la base de données bien effectuée
+2026-10-01 14:58:16
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération de la liste des formations bien effectuée
+2026-10-01 14:58:21
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 14:58:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:21
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:21
+Récupération d'un panier par son id bien effectuée
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:21
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:21
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:21
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:58:21
+Récupération de la liste des commandes pour un login et un statut.
+2026-10-01 14:58:21
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:21
+Connection à la base de données bien effectuée
+2026-10-01 14:58:21
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération de la liste des formations bien effectuée
+2026-10-01 14:58:58
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 14:58:58
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:58
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:58
+Récupération d'un panier par son id bien effectuée
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:58
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:58
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:58:58
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:58:58
+Récupération de la liste des commandes pour un login et un statut.
+2026-10-01 14:58:58
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:58:58
+Connection à la base de données bien effectuée
+2026-10-01 14:58:58
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération de la liste des formations bien effectuée
+2026-10-01 14:59:22
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 14:59:22
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:22
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:59:22
+Récupération d'un panier par son id bien effectuée
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:22
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:22
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:22
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:59:22
+Récupération de la liste des commandes pour un login et un statut.
+2026-10-01 14:59:22
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:22
+Connection à la base de données bien effectuée
+2026-10-01 14:59:22
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération de la liste des formations bien effectuée
+2026-10-01 14:59:41
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 14:59:41
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:41
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:59:41
+Récupération d'un panier par son id bien effectuée
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:41
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:41
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:41
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:59:41
+Récupération de la liste des commandes pour un login et un statut.
+2026-10-01 14:59:41
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:41
+Connection à la base de données bien effectuée
+2026-10-01 14:59:41
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération de la liste des formations bien effectuée
+2026-10-01 14:59:56
+Récupération d'une sélection de formations bien effectuée
+2026-10-01 14:59:56
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:56
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:59:56
+Récupération d'un panier par son id bien effectuée
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:56
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:56
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération de l'utilisateur bien effectuée
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération d'une formation par son id bien effectuée
+2026-10-01 14:59:56
+Récupération de la liste des lignes de commande pour une commande.
+2026-10-01 14:59:56
+Récupération de la liste des commandes pour un login et un statut.
+2026-10-01 14:59:56
+Chargement du pilote JDBC bien effectué
+2026-10-01 14:59:56
+Connection à la base de données bien effectuée
+2026-10-01 14:59:56
+Récupération d'une formation par son id bien effectuée
