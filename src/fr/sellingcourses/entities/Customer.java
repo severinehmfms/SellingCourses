@@ -9,7 +9,26 @@ public class Customer {
 	private String phone;
 	
 	/**
-	 * Constructeur
+	 * Constructeur quand on ne connait pas encore l'id
+	 * @param name
+	 * @param firstName
+	 * @param mail
+	 * @param adresse
+	 * @param phone
+	 */
+	public Customer(String name, String firstName, String mail, String adresse, String phone) {
+		this.name = name;
+		this.firstName = firstName;
+		this.mail = mail;
+		this.adresse = adresse;
+		this.phone = phone;
+		
+		this.idCustomer = 0;
+	}
+	
+	
+	/**
+	 * Constructeur complet
 	 * @param idCustomer
 	 * @param name
 	 * @param firstName
@@ -18,7 +37,6 @@ public class Customer {
 	 * @param phone
 	 */
 	public Customer(int idCustomer, String name, String firstName, String mail, String adresse, String phone) {
-		super();
 		this.idCustomer = idCustomer;
 		this.name = name;
 		this.firstName = firstName;
@@ -69,8 +87,9 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [idCustomer=" + idCustomer + ", name=" + name + ", firstName=" + firstName + ", mail=" + mail
-				+ ", adresse=" + adresse + ", phone=" + phone + "]";
+		String str = idCustomer != 0 ? "Id : " + idCustomer + " " : "";
+		str += name + " " + firstName + " - Email " + mail + " - Tél " + phone + "\nAdresse " + adresse + "\n";
+		return str; 
 	}
 	
 	
