@@ -20,6 +20,8 @@ import fr.sellingcourses.utils.Functions;
 
 public class OrderDaoImpl implements OrderDao{
 
+	private Connection connection; 
+	
 	/**
 	 * Fonction qui permet de créer un objet Order à partir d'un ResultSet
 	 * @param resultSet
@@ -27,9 +29,13 @@ public class OrderDaoImpl implements OrderDao{
 	 * @throws SQLException
 	 */
 	public Order getOrderFromDb(ResultSet resultSet) throws SQLException {
-		SellingCourses service = new SellingCoursesImpl();	
-		
 		Order order = null;
+		//Obligée de récupérer la connection pour pouvoir utiliser les méthodes des DAO
+		this.connection = DatabaseConnection.getConnection();
+		//Appels des DAO nécessaires
+		UserDao userDao = new UserDaoImpl();
+		LineOrderDao lineOrderDao = new LineOrderDaoImpl();
+		
 		try {
 			int rsId = resultSet.getInt("order_id"); 
 			int rsStatus = resultSet.getInt("order_status"); 
@@ -48,7 +54,7 @@ public class OrderDaoImpl implements OrderDao{
 			int rsIdCustomer = resultSet.getInt("customer_id");
 			
 			//On récupère l'utilisateur associé à ce login
-			User user = service.findUserByLogin(rsLoginUser);
+			User user = userDao.findUserByLogin(connection, rsLoginUser);
 						
 			//On récupère le StatusValue associé au code statut en base
 			StatusValue statusValue = StatusValue.IN_PROGRESS;
@@ -60,7 +66,8 @@ public class OrderDaoImpl implements OrderDao{
 			order =  new Order(rsId, statusValue, rsDate, user);		
 			
 			//On récupère la liste des lignes de commandes associées à cette commande
-			ArrayList<LineOrder> lstLineOrder = (ArrayList<LineOrder>) service.findAllLineOrderByOrder(order);
+			ArrayList<LineOrder> lstLineOrder = (ArrayList<LineOrder>) lineOrderDao.findAllByOrder(connection, order);
+			
 			order.setLstLineOrder(lstLineOrder);			
 	   
 		}catch(SQLException e) {
