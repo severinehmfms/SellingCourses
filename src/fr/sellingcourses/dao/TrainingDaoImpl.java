@@ -69,7 +69,7 @@ public class TrainingDaoImpl implements TrainingDao{
 	 */
 	@Override
 	public List<Training> findAll(Connection connection) {
-		String sql = "SELECT training_id, training_name, training_description, training_length, remote_training, training_price FROM Training ORDER BY training_name";
+		String sql = "SELECT training_id, training_name, training_description, training_length, remote_training, training_price FROM Training ORDER BY training_id";
         List<Training> lstTrainings = new ArrayList<>();
 
         try (PreparedStatement ps = connection.prepareStatement(sql);
@@ -115,7 +115,7 @@ public class TrainingDaoImpl implements TrainingDao{
 			sql += "(training_name LIKE ? OR training_description LIKE ?) ";
 		}
 		//On trie par le nom de la formation
-		sql += "ORDER BY training_name";
+		sql += "ORDER BY training_id";
 		
         List<Training> lstTrainings = new ArrayList<>();
         
