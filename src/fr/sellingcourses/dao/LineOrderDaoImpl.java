@@ -15,6 +15,8 @@ import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.utils.Functions;
 
 public class LineOrderDaoImpl implements LineOrderDao{
+	
+	private Connection connection; 
 
 	/**
 	 * Fonction qui permet de créer un objet LineOrder à partir d'un ResultSet
@@ -23,7 +25,11 @@ public class LineOrderDaoImpl implements LineOrderDao{
 	 * @throws SQLException
 	 */
 	public LineOrder getLineOrderFromDb(ResultSet resultSet) throws SQLException {
-		SellingCourses service = new SellingCoursesImpl();	
+		//Obligée de récupérer la connection pour pouvoir utiliser les méthodes des DAO
+		this.connection = DatabaseConnection.getConnection();
+		//Appels des DAO nécessaires
+		TrainingDao trainingDao = new TrainingDaoImpl();
+		
 		LineOrder lineOrder = null;
 		
 		int rsOrderId = resultSet.getInt("order_id"); 
@@ -33,7 +39,7 @@ public class LineOrderDaoImpl implements LineOrderDao{
 		//On récupère l'objet Training de cette ligne de commande
 		Training training = null;
 		try{
-			training = service.findTrainingById(rsTrainingId);
+			training = trainingDao.findById(connection, rsTrainingId);
 		} catch (Exception e) {
 	    	Functions.printLogs(Functions.LOG_FILE, "ERREUR SQL lors de la récupération de l'objet lineOrder associée au resultSet.");
 	    	e.printStackTrace();
