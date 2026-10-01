@@ -33,7 +33,7 @@ public class SellingCoursesImpl implements SellingCourses {
 	private final LineOrderDao lineOrderDao;
 	private final CustomerDao customerDao;
 	
-	private Connection connection = DatabaseConnection.getConnection();
+	private Connection connection; // = DatabaseConnection.getConnection();
 	
 	public SellingCoursesImpl() throws SQLException {
 		//Connection à la base de données
@@ -159,5 +159,15 @@ public class SellingCoursesImpl implements SellingCourses {
 		return customerDao.findById(connection, id);
 	}
 
+	//****************** Service pour fermer la connection sql
+	//Mais ça me plait pas de le mettre ici... ça me semble pas logique avec modèle MVC
+	@Override
+	public void closeConnection() {
+		try {
+			this.connection.close();
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+	}	
 
 }
