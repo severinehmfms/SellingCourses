@@ -1,5 +1,4 @@
 package fr.sellingcourses.business;
-import java.sql.SQLException;
 import java.util.List;
 
 import fr.sellingcourses.entities.Customer;
