@@ -3,6 +3,7 @@ package fr.sellingcourses;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import fr.sellingcourses.business.SellingCourses;
 import fr.sellingcourses.business.SellingCoursesImpl;
@@ -15,6 +16,9 @@ import fr.sellingcourses.entities.Order.StatusValue;
 import fr.sellingcourses.utils.Functions;
 
 public class TestApplication {
+	
+	//On initialise le scanner
+	private static Scanner scanner = new Scanner(System.in);
 	
 	public static void main(String[] args) throws SQLException {
 		
@@ -53,26 +57,7 @@ public class TestApplication {
 		if (user == null) {
 			user = service.createAccount(login, "test");
 		}
-				
-		//TEST Customer
-		System.out.println("TEST Client \n");
-		Customer customer; 
-		
-		//On récupère un customer par son id
-		int idTest = 6;
-		customer = service.findCustomerById(idTest);
-		//S'il n'existe pas on le crée
-		if (customer == null) {
-			System.out.println("Client recherché " + idTest + "inexistant, on va en créer un :\n");
-			customer = new Customer("DUPONT", "André", "andre.dupont@mail.com", "56 rue des colibris 50410 Gernau", "0102030405");
-			//On crée un customer
-			customer = service.createCustomer(customer);
-			if (customer != null)
-				System.out.println("Customer créé avec l'id : " + customer.getIdCustomer());
-		}else {
-			System.out.println("Client trouvé :\n" + customer + "\n");
-		}		
-		
+					
 		//TEST Order
 		//On récupère le panier en cours si il existe pour notre utilisateur
 		Order order = service.findOrderInProgressByUser(user.getLogin());
@@ -128,7 +113,48 @@ public class TestApplication {
 			}
 		}
 		
+		//TEST Customer
+		System.out.println("TEST Client \n");
+		Customer customer; 
+		
+		//On récupère un customer par son id
+		int idTest = 6;
+		customer = service.findCustomerById(idTest);
+		//S'il n'existe pas on le crée
+		if (customer == null) {
+			System.out.println("Client recherché " + idTest + "inexistant, on va en créer un :\n");
+			customer = new Customer("DUPONT", "André", "andre.dupont@mail.com", "56 rue des colibris 50410 Gernau", "0102030405");
+			//On crée un customer
+			customer = service.createCustomer(customer);
+			if (customer != null)
+				System.out.println("Customer créé avec l'id : " + customer.getIdCustomer());
+		}else {
+			System.out.println("Client trouvé :\n" + customer + "\n");
+		}		
+		
+		/*
+		//Test formulaire de création d'un utilisateur
+		//On va demander à l'utilisateur les informations du client
+		System.out.println("********* Informations du client concerné par la commande *********");
+		String name = Functions.input_string(scanner, "Entrez le nom du client", false);
+		String firstName = Functions.input_string(scanner, "Entrez le prénom du client", false);
+		//Contrôle du format du mail
+		String mail = Functions.input_mail(scanner, "Entrez l'adresse mail du client");
+		//Contrôle adresse
+		String address = Functions.input_string(scanner, "Entrez l'adresse du client", false);
+		//Contrôle format phone
+		String phone = Functions.input_phone(scanner, "Entrez le numéro de téléphone du client");
+							
+		customer = new Customer(name, firstName, mail, address, phone);
+		//On crée un customer
+		customer = service.createCustomer(customer);
+		System.out.println(customer);
+		*/
+		
+		//On ferme la connection
 		service.closeConnection();
 		
+		//On referme le scanner
+		scanner.close();
 	}
 }
