@@ -10,7 +10,8 @@ Fonctionnalités :
 -Affichage pour un visiteur des formations proposées
 -Authentification
 -Création de compte
-
+-Ajout et Suppression de formations au panier
+-Passage de la commande, création du client associé à cette commande
 
 Installation : 
 Pour faire fonctionner cette application, il faut au préalable :
