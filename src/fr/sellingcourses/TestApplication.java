@@ -2,7 +2,6 @@ package fr.sellingcourses;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import fr.sellingcourses.business.SellingCourses;
@@ -13,7 +12,6 @@ import fr.sellingcourses.entities.Order;
 import fr.sellingcourses.entities.Training;
 import fr.sellingcourses.entities.User;
 import fr.sellingcourses.entities.Order.StatusValue;
-import fr.sellingcourses.utils.Functions;
 
 public class TestApplication {
 	
@@ -27,7 +25,7 @@ public class TestApplication {
 		//TEST Training
 		//On récupère toutes les formations
 		System.out.println("Affichage de toutes les formations :\n");		
-		ArrayList<Training> lstTrainings = (ArrayList) service.findAllTraining();
+		ArrayList<Training> lstTrainings = (ArrayList<Training>) service.findAllTraining();
 		for (Training t : lstTrainings) {
 			System.out.println(t+"\n"); 
 		}
@@ -38,7 +36,7 @@ public class TestApplication {
 		String wordToSearch = "JAVA";
 		int choiceRemote = 1;
 		
-		ArrayList<Training> lstTrainings2 = (ArrayList) service.findTrainingBySearch(wordToSearch,choiceRemote);
+		ArrayList<Training> lstTrainings2 = (ArrayList<Training>) service.findTrainingBySearch(wordToSearch,choiceRemote);
 		for (Training t : lstTrainings2) {
 			System.out.println(t+"\n"); 
 		}
@@ -133,8 +131,8 @@ public class TestApplication {
 		}		
 		
 		/*
-		//Test formulaire de création d'un utilisateur
-		//On va demander à l'utilisateur les informations du client
+		//TEST SAISIE formulaire de création d'un utilisateur
+		//On va demander à l'utilisateur les informations du client 
 		System.out.println("********* Informations du client concerné par la commande *********");
 		String name = Functions.input_string(scanner, "Entrez le nom du client", false);
 		String firstName = Functions.input_string(scanner, "Entrez le prénom du client", false);
@@ -144,12 +142,17 @@ public class TestApplication {
 		String address = Functions.input_string(scanner, "Entrez l'adresse du client", false);
 		//Contrôle format phone
 		String phone = Functions.input_phone(scanner, "Entrez le numéro de téléphone du client");
-							
+			*/
+		//TEST DAO
+		String name ="TESTHM";
+		String firstName = "Seve";
+		String mail = "seve.test@test.fr";
+		String phone = "0102030405";
+		String address = "8 avenue des étoiles filantes";
 		customer = new Customer(name, firstName, mail, address, phone);
 		//On crée un customer
 		customer = service.createCustomer(customer);
 		System.out.println(customer);
-		*/
 		
 		//On ferme la connection
 		service.closeConnection();

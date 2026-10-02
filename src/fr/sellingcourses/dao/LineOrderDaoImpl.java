@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.sellingcourses.business.SellingCourses;
-import fr.sellingcourses.business.SellingCoursesImpl;
 import fr.sellingcourses.entities.LineOrder;
 import fr.sellingcourses.entities.Order;
 import fr.sellingcourses.entities.Training;

@@ -20,7 +20,7 @@ CREATE TABLE Customer(
    customer_first_name VARCHAR(50),
    customer_mail VARCHAR(50),
    customer_adresse VARCHAR(50),
-   customer_phone INT
+   customer_phone VARCHAR(10)
 ) ENGINE = InnoDB;
 
 CREATE TABLE Training(
@@ -75,13 +75,6 @@ INSERT INTO `Training` (`training_id`, `training_name`, `training_description`, 
 (8, 'SQL', 'Bases de données MariaDb, MySql', 20, True, 150),
 (9, 'GIT', 'Utilisation de Git, Github, Gitlab', 30, False, 235),
 (10, 'Web', 'Partie frontend, Html, CSS, Javascript', 20, True, 345);
-
-INSERT INTO `Customer` (`customer_id`, `customer_name`, `customer_first_name`, `customer_mail`, `customer_adresse`, `customer_phone` ) VALUES
-(1, 'DUPONT', 'Adrien', 'adrien.dupont@mail.fr', "5 rue des colibris 10000 Maville", "0102030405"),
-(2, 'SMITH', 'Anne', 'anne.smith@mail.fr', "18 rue des colibris 10000 Maville", "0102030410"),
-(3, 'DURAND', 'Isabelle', 'isabelle.durand@mail.fr', "26 rue des colibris 10000 Maville", "0102030415"),
-(4, 'SMITH', 'John', 'john.smith@mail.fr', "18 rue des colibris 10000 Maville", "0102030420"),
-(5, 'DUPRE', 'Bernard', 'bernard.dupre@mail.fr', "35 rue des colibris 10000 Maville", "0102030425");
 
 INSERT INTO `UserApp` (`login_app`, `password_app` ) VALUES
 ('myuser', 'test');

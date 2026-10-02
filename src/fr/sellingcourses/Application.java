@@ -161,8 +161,7 @@ public class Application {
 		//On referme la connexion mysql (mais ça me plait pas de le faire ici, finalement j'aurais du mettre dans chaque dao une nouvelle connexion et la fermer)
 		service.closeConnection();
 	}
-	
-	
+		
 	/**
 	 * Méthode qui permet d'afficher les formations
 	 * @param service
@@ -170,7 +169,7 @@ public class Application {
 	public static void showTraining(SellingCourses service) {
 		System.out.println("Affichage de toutes les formations :\n");
 		
-		ArrayList<Training> lstTrainings = (ArrayList) service.findAllTraining();
+		ArrayList<Training> lstTrainings = (ArrayList<Training>) service.findAllTraining();
 		for (Training t : lstTrainings) {
 			System.out.println(t+"\n"); 
 		}
@@ -186,7 +185,7 @@ public class Application {
 		String wordToSearch = Functions.input_string(scanner, "Entrez le mot clé à rechercher", true);
 		int choiceRemote = Functions.input_int(scanner, "Recherche de tout type de formation, tapez 0, Présentiel tapez 1, Distanciel tapez 2", 0, 2);
 		
-		ArrayList<Training> lstTrainings = (ArrayList) service.findTrainingBySearch(wordToSearch,choiceRemote);
+		ArrayList<Training> lstTrainings = (ArrayList<Training>) service.findTrainingBySearch(wordToSearch,choiceRemote);
 		for (Training t : lstTrainings) {
 			System.out.println(t+"\n"); 
 		}
@@ -365,9 +364,7 @@ public class Application {
 		boolean is_valid_input = false;
 	    while (!is_valid_input) {
 	    	System.out.println(prompt);
-	    	String input_user = scanner.nextLine();
-	    	
-	    		
+	    	String input_user = scanner.nextLine();	    		
 	    	
 	    	if (! input_user.matches("\\d+")) {
 	        	System.out.println("ERREUR - Vous devez saisir un entier.");

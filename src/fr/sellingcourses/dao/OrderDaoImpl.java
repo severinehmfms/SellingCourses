@@ -10,8 +10,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.sellingcourses.business.SellingCourses;
-import fr.sellingcourses.business.SellingCoursesImpl;
 import fr.sellingcourses.entities.Customer;
 import fr.sellingcourses.entities.LineOrder;
 import fr.sellingcourses.entities.Order;
